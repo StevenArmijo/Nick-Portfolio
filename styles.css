@@ -11,6 +11,8 @@
     --second-bg-color: #0F172A;
     --text-color: #F8FAFC;
     --accentcolor: #60A5FA;
+    --mainaboutcolor : #F3EDE3;
+    --aboutxtcolor: #1E293B;
 }   
 
 html {
@@ -35,10 +37,32 @@ header {
     z-index: 1000;
     
 }
+header::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      rgba(7,18,37,.65),
+      transparent
+    );
+
+  z-index: -1;
+}
 #menu-icon {
     font-size: 3rem;
     color: var(--accentcolor);
     display: none;
+}
+header.scrolled {
+  height: 70px;
+
+  background: rgba(248,244,238,.95);
+
+  box-shadow:
+    0 10px 30px rgba(0,0,0,.08);
 }
 .logo {
     font-size: 2rem;
@@ -247,6 +271,7 @@ section{
     }
     .primary-btn,
     .ctaBtn,
+    .connect-btn,
     .secondary-btn {
         display: inline-flex;
         flex-direction: row;   
@@ -680,7 +705,7 @@ footer {
 .ctaBanner {
 height: 280px;
 
-  background-image: url("pexels-angelica-reyn-35454765-7157837.webp");
+  background-image: url("assets/images/backgrounds/poppiespic.webp");
   background-size: cover;
   background-position: center;
 
@@ -909,7 +934,20 @@ height: 280px;
   .homeContent span {
       font-size: 4rem;
   }
+.aboutHeroImage {
+  min-height: 100%;
+  background: #d8d1c6;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
 
+.aboutHeroImage img {
+  width: 85%;
+  height: 100%;
+  object-fit: contain;
+  object-position: bottom center;
+}
   .homeContent h3 {
       font-size: 1.8rem;
   }
@@ -1211,5 +1249,379 @@ height: 280px;
     flex-direction: column;
     align-items: flex-start;
     padding: 1.8rem 6%;
+  }
+}
+
+
+/* ///////////////ABOUT ME PAGE//////////// */
+.aboutHero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 78vh;
+  padding-top: 8rem;
+  background: #fdf8f0;
+  color: #111;
+}
+
+.aboutHeroText {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 6rem 12%;
+}
+
+.eyebrow {
+  color: #b8872f;
+  font-family: "Google Sans", sans-serif;
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+}
+
+.aboutHeroText h1 {
+  font-size: 5rem;
+  line-height: 1.15;
+  margin-bottom: 2.4rem;
+}
+
+.aboutHeroText p {
+  font-family: "Google Sans", sans-serif;
+  font-size: 1.8rem;
+  line-height: 1.7;
+  color: #333;
+}
+
+.aboutHeroImage {
+  min-height: 100%;
+  background: #d8d1c6;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.aboutHeroImage img {
+  width: 85%;
+  height: 100%;
+  object-fit: contain;
+  object-position: bottom center;
+}
+
+.connect-btn {
+  width: 50%;
+  margin-top: 2rem;
+  background-color: #0B132B;     
+  color: var(--mainaboutcolor);  
+}
+.connect-btn:hover {
+  transform: translateY(-4px);
+ box-shadow: 0 0 15px var(--bg-color);
+}
+/* /////////////////MY STORY SECTION/////////////// */
+.aboutStory {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  background: #F3EDE3;
+  color: #111;
+  border-top: 1px solid rgba(0, 0, 0, .08);
+}
+
+
+.aboutStoryImage img {
+  width: 100%;
+  height: 100%;
+  min-height: 320px;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.aboutStoryContent {
+  padding: 5rem 8%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.aboutStoryContent h2 {
+  font-size: 3rem;
+  margin-bottom: 2rem;
+}
+
+.aboutStoryContent p {
+  font-family: "Google Sans", sans-serif;
+  font-size: 1.7rem;
+  line-height: 1.7;
+  color: #333;
+  margin-bottom: 1.6rem;
+}
+.signature{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.signature img {
+  
+  width: 140px;
+  opacity: .85;
+  filter: brightness(.8);
+}
+
+/* ///////////////// WHY WORK WITH ME /////////////// */
+.whyWork {
+  background: #fdf8f0;
+  color: #111;
+  padding: 5rem 8%;
+  text-align: center;
+}
+
+.whyWork h2 {
+  font-size: 3rem;
+  margin-bottom: 3rem;
+}
+
+.whyWorkGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem;
+}
+
+.whyCard {
+  border: 1px solid rgba(0, 0, 0, .22);
+  border-radius: 4px;
+  padding: 3.2rem 2.4rem;
+  min-height: 180px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.whyIcon {
+  font-size: 4rem;
+  color: #222;
+  margin-bottom: 2rem;
+}
+
+.whyCard h3 {
+  font-family: "Google Sans", sans-serif;
+  font-size: 1.7rem;
+  margin-bottom: 1rem;
+}
+
+.whyCard p {
+  font-family: "Google Sans", sans-serif;
+  font-size: 1.5rem;
+  line-height: 1.5;
+  color: #444;
+  max-width: 240px;
+}
+/* //////////////AREAS SERVED SECTION////////////// */
+.areasServed {
+  background: #f4efe7;
+  color: #111;
+  padding: 5rem 8%;
+  text-align: center;
+}
+
+.areasServed h2 {
+  font-size: 3rem;
+  margin-bottom: 3rem;
+}
+
+.areasGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+
+.areaCard {
+  aspect-ratio: 16/9;
+  position: relative;
+  height: 170px;
+  overflow: hidden;
+  border-radius: 4px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, .18);
+}
+
+.areaCard img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center bottom;
+  display: block;
+  filter: brightness(.72);
+}
+
+.areaCard h3 {
+  font-family: "Google Sans", sans-serif;
+  position: absolute;
+  left: 50%;
+  bottom: 1.5rem;
+  transform: translateX(-50%);
+  color: white;
+  font-size: 2rem;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, .65);
+}
+.aboutCta {
+  height: 340px;
+  background-image: url(assets/images/backgrounds/aboutCTA.webp);
+  background-size: cover;
+  background-position: center 60%;
+}
+
+/* //////////SIZING FOR TABLETS AND SMALLER LAPTOPS///////// */
+/* ABOUT HERO AND STORY SECTION */
+@media (max-width: 1100px) {
+  .aboutHeroText {
+    padding: 5rem 8%;
+  }
+
+  .aboutHeroText h1 {
+    font-size: 4.2rem;
+  }
+
+  .aboutStory {
+    grid-template-columns: 1fr 1.5fr;
+  }
+
+  .aboutStoryContent {
+    padding: 4rem 6%;
+  }
+  .aboutStoryImage {
+    background: #e8dfd3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .aboutStoryImage img {
+    width: 100%;
+    max-height: 600px;
+    object-fit: contain;
+    display: block;
+  }
+  .whyWorkGrid {
+    gap: 2rem;
+  }
+
+  .areasGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+/* TABLET AND MOBILE LAYOUT */
+@media (max-width: 900px) {
+  .aboutHero {
+    grid-template-columns: 1fr;
+    padding-top: 8rem;
+  }
+
+  .aboutHeroText {
+    order: 2;
+    padding: 4rem 6%;
+    text-align: center;
+    align-items: center;
+  }
+
+  .aboutHeroImage {
+    order: 1;
+    min-height: 420px;
+  }
+
+  .aboutHeroImage img {
+    width: 75%;
+  }
+
+  .connect-btn {
+    width: 85%;
+  }
+
+  .aboutStory {
+    grid-template-columns: 1fr;
+  }
+
+  .aboutStoryImage {
+    background: #e8dfd3;
+    display: flex;
+    justify-content: center;
+  }
+
+  .aboutStoryImage img {
+    width: 100%;
+    height: auto;
+    max-height: 600px;
+    object-fit: contain;
+  }
+  .whyWorkGrid {
+    grid-template-columns: 1fr;
+  }
+}
+/* REGULAR PHONES */
+@media (max-width: 600px) {
+  .aboutHeroText h1 {
+    font-size: 3.4rem;
+  }
+
+  .aboutHeroText p,
+  .aboutStoryContent p {
+    font-size: 1.55rem;
+  }
+
+  .aboutHeroImage {
+    min-height: 340px;
+  }
+
+  .aboutHeroImage img {
+    width: 85%;
+  }
+
+  .aboutStoryContent {
+    padding: 4rem 5%;
+  }
+
+  .whyWork,
+  .areasServed {
+    padding: 4rem 5%;
+  }
+
+  .areasGrid {
+    grid-template-columns: 1fr;
+    gap: 1.6rem;
+  }
+
+  .areaCard {
+    height: auto;
+    aspect-ratio: 16 / 9;
+  }
+}
+/* small mobile cell */
+@media (max-width: 430px) {
+  .aboutHeroText h1 {
+    font-size: 3rem;
+  }
+
+  .aboutHeroImage {
+    min-height: 300px;
+  }
+
+  .connect-btn {
+    width: 100%;
+  }
+
+  .areasGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .areaCard {
+    aspect-ratio: 16 /10;
+    min-height: unset;
+    border-radius: 6px;
+  }
+
+  .areaCard h3 {
+    font-size: 1.4rem;
+    bottom: 1rem;
+    white-space: nowrap;
   }
 }
