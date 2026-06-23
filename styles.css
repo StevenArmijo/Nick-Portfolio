@@ -8,12 +8,13 @@
 }
 
 :root {
-  --bg-color: #0B132B;
+  --bg-color: #071225;
   --second-bg-color: #0F172A;
   --text-color: #F8FAFC;
-  --accentcolor: #60A5FA;
+  --accentcolor: #8CA3C7;
   --mainaboutcolor: #F3EDE3;
   --aboutxtcolor: #1E293B;
+  --hovercolor :#8ca3c738;
 }
 
 html {
@@ -120,7 +121,7 @@ nav {
   align-items: center;
   justify-content: center;
   font-size: 1.8rem;
-  border: 1px solid #60A5FA;
+  border: 1px solid var(--accentcolor);
   border-radius: 999px;
   padding: 2rem 2rem;
   background: #0B132B;
@@ -136,8 +137,9 @@ nav {
 .contactBtn:hover {
   transform: scale(1.05);
   background: linear-gradient(270deg,
-      #93c5fd 20%,
-      #60A5FA 100%);
+  #A7B8D1 0%,
+  #8CA3C7 100%
+  );
 }
 
 /* //////////////////HERO////////////////// */
@@ -177,7 +179,7 @@ section {
 }
 
 .homeContent span {
-  color: #60A5FA;
+  color: var(--accentcolor );
   margin: 1rem 0;
   font-size: 5rem;
   font-weight: 700;
@@ -216,7 +218,7 @@ section {
   width: 340px;
   padding: 18px;
   border-radius: 22px;
-  background: rgba(255, 255, 255, 0.035);
+  background: var(--bg-color);
   border: 1px solid #93c5fd38;
   box-shadow: 0 0 40px rgba(96, 165, 250, 0.12);
   backdrop-filter: blur(12px);
@@ -228,7 +230,7 @@ section {
 }
 
 .socialEyebrow {
-  color: #60a5fa;
+  color: var(--accentcolor);
   font-size: 1.2rem;
   letter-spacing: 2px;
   text-transform: uppercase;
@@ -236,12 +238,12 @@ section {
 }
 
 .callOut {
-  color: #f8fafc;
+  color: var(--text-color);
   margin-bottom: 8px;
 }
 
 .socialText {
-  color: #cbd5e1;
+  color: var(--text-color);
   line-height: 1.5;
   margin-bottom: 10px;
 }
@@ -314,7 +316,7 @@ section {
 
 .primary-btn,
 .ctaBtn {
-  background-color: #9bc7fe;
+  background-color: var(--accentcolor);
   color: var(--second-bg-color);
 
 
@@ -328,7 +330,7 @@ h2 i {
 
 .secondary-btn {
   color: var(--text-color);
-  border: 1px solid #9bc7fe;
+  border: 1px solid var(--accentcolor);
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -340,7 +342,7 @@ h2 i {
 .secondary-btn:hover,
 .ctaBtn:hover {
   transform: translateY(-4px);
-  box-shadow: 0 0 15px var(--accentcolor);
+  box-shadow: 0 0 20px var(--hovercolor);
 }
 
 
@@ -354,7 +356,7 @@ h2 i {
   max-width: max-content;
 
   padding: .8rem .8rem;
-  border: 1px solid rgba(96, 165, 250, .35);
+  border: 1px solid var(--accentcolor);
   box-shadow: 0 0 18px rgba(96, 165, 250, .14);
   border-radius: 14px;
 
@@ -368,8 +370,8 @@ h2 i {
 .clientProof:hover,
 .aboutBtn:hover {
   transform: translateY(-3px);
-  border-color: #60a5fab3;
-  box-shadow: 0 0 24px rgba(96, 165, 250, .28);
+  border-color: var(--accentcolor);
+  box-shadow: 0 0 24px var(--hovercolor);
 
 }
 
@@ -393,13 +395,13 @@ h2 i {
 .clientProof p {
   font-size: 1.6rem;
   font-family: "Google Sans", Arial, Helvetica, sans-serif;
-  color: #cbd5e1;
+  color: var(--text-color);
 }
 
 
 /* //////////////////LISTINGS////////////////// */
 .featuredListings {
-  background: #071225;
+  background: var(--bg-color);
   padding: 2rem 8% 7rem;
 }
 
@@ -419,7 +421,7 @@ h2 i {
 }
 
 .listingsBtn {
-  color: #9bc7fe;
+  color: var(--accentcolor);
   font-family: "Google Sans", sans-serif;
   font-size: 1.8rem;
 }
@@ -451,7 +453,7 @@ h2 i {
   position: absolute;
   left: 8px;
   bottom: 4px;
-  background: #9bc7fe;
+  background: var(--accentcolor);
   font-family: "Google Sans", sans-serif;
   font-size: 1.4rem;
   border-radius: 999px;
@@ -462,8 +464,8 @@ h2 i {
 }
 
 .listingCard {
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(96, 165, 250, 0.18);
+  background: var(--bg-color);
+  border: 1px solid var(--accentcolor);
   border-radius: 22px;
   overflow: hidden;
   display: block;
@@ -473,17 +475,17 @@ h2 i {
 
 .listInfo {
   padding: 20px;
-  color: #F8FAFC;
+  color: var(--text-color);
 }
 
 .listInfo h3 {
   font-size: 2.2rem;
   font-family: "Google Sans", sans-serif;
-  color: #9bc7fe;
+  color: var(--accentcolor);
 }
 
 .location {
-  color: #cbd5e1;
+  color: var(--text-color);
   line-height: 1.3;
   font-weight: 200;
 }
@@ -510,7 +512,7 @@ h2 i {
 }
 
 .listingDetails i {
-  color: #9bc7fe;
+  color: var(--accentcolor);
   margin-right: 6px;
   font-size: 1.2rem;
 }
@@ -532,8 +534,8 @@ h2 i {
   text-decoration: none;
   color: inherit;
 
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(96, 165, 250, 0.16);
+  background: var(--bg-color);
+  border: 1px solid var(--accentcolor);
   transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
@@ -546,12 +548,12 @@ h2 i {
 .serviceBtn:hover,
 .listingCard:hover {
   transform: translateY(-6px);
-  border-color: #60a5fa80;
-  box-shadow: 0 20px 45px rgba(96, 165, 250, 0.15);
+  border-color: var(--accentcolor);
+  box-shadow: 0 6px 15px var(--accentcolor);
 }
 
 .serviceBtn:hover .learnMore {
-  color: #93c5fd;
+  color: var();
   transform: translateX(4px);
 }
 
@@ -562,7 +564,7 @@ h2 i {
   margin-top: 20px;
   font-size: 1.5rem;
   font-family: "Google Sans", sans-serif;
-  color: #9bc7fe;
+  color: var(--accentcolor);
   font-weight: 700;
   transition: transform 0.25s ease, color 0.25s ease;
 }
@@ -571,11 +573,12 @@ h2 i {
   font-size: 1.2rem;
   line-height: 1;
   margin-top: 2px;
+  color: var(--accentcolor);
 }
 
 .serviceInfo h3 {
   margin: 0;
-  color: #9bc7fe;
+  color: var(--accentcolor);
   font-size: 2.2rem;
   font-family: "Google Sans", sans-serif;
 
@@ -593,7 +596,7 @@ h2 i {
 .serviceIcon {
   width: 64px;
   height: 64px;
-  color: #60A5FA;
+  color: var(--accentcolor);
   flex-shrink: 0;
   display: flex;
   align-items: center;
@@ -607,7 +610,7 @@ h2 i {
 .serviceIcon svg {
   width: 40px;
   height: 40px;
-  color: #60A5FA;
+  color: var(--accentcolor);
 }
 
 .flipIcon {
@@ -626,7 +629,7 @@ h2 i {
   display: flex;
   align-items: stretch;
   justify-content: flex-start;
-  background: #071225;
+  background: var(--bg-color);
 
 }
 
@@ -653,7 +656,7 @@ h2 i {
 }
 
 .aboutContent h2 {
-  color: #f8fafc;
+  color: var(--text-color);
   font-size: 4rem;
   font-family: "Google Sans", sans-serif;
   margin-bottom: 1rem;
@@ -661,7 +664,7 @@ h2 i {
 
 .aboutContent span {
   font-family: "Google Sans", sans-serif;
-  color: #9bc7fe;
+  color: var(--accentcolor);
 
 }
 
@@ -685,8 +688,8 @@ h2 i {
   margin-top: 1.5rem;
   padding: 12px 30px;
   border-radius: 14px;
-  border: 1px solid rgba(96, 165, 250, .35);
-  color: #f8fafc;
+  border: 1px solid var(--accentcolor);
+  color: var(--text-color);
   text-decoration: none;
   font-size: 1.8rem;
   width: fit-content;
@@ -708,8 +711,8 @@ h2 i {
   color: inherit;
   padding: 28px;
   border-radius: 22px;
-  background: #071225;
-  border: 1px solid rgba(96, 165, 250, 0.16);
+  background: var(--bg-color);
+  border: 1px solid var(--accentcolor);
   transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
@@ -758,8 +761,8 @@ h2 i {
 
 /* /////////////////////CALL TO ACTION SECTION////////// */
 footer {
-  background: #071225;
-  color: #f8fafc;
+  background: var(--bg-color);
+  color: var(--text-color);
 }
 
 .ctaBanner {
@@ -797,7 +800,7 @@ footer {
 
   padding-left: 10%;
 
-  color: white;
+  color: var(--text-color);
 }
 
 .ctaContent h2 {
@@ -847,7 +850,7 @@ footer {
   font-family: "Google Sans", sans-serif;
   font-size: 1.7rem;
   margin-bottom: 1.4rem;
-  color: #f8fafc;
+  color: var(--text-color);
 }
 
 .footerBrand h2 {
@@ -856,7 +859,7 @@ footer {
 }
 
 .footerBrand span {
-  color: #60A5FA;
+  color: var(--accentcolor);
   font-size: 1.4rem;
   margin-bottom: 1.2rem;
 }
@@ -879,13 +882,13 @@ footer {
 
 .footerLinks a:hover,
 .footerResources a:hover {
-  color: #60A5FA;
+  color: var(--accentcolor);
   transform: translateX(4px);
 }
 
 .footerBottom {
   padding: 2rem 8%;
-  border-top: 1px solid rgba(96, 165, 250, .16);
+  border-top: 1px solid var(--accentcolor);
 
   display: flex;
   justify-content: space-between;
@@ -1301,6 +1304,7 @@ footer {
   .serviceIcon svg {
     width: 32px;
     height: 32px;
+    color: var(--accentcolor);
   }
 
   .serviceInfo h3 {
@@ -1723,7 +1727,7 @@ footer {
 
 /* /////////////////////////SERVICES PAGE/////////////// */
 .servicesPage {
-  background: #071225;
+  background: var(--bg-color);
 }
 
 .servicesHeroPage {
@@ -1747,7 +1751,7 @@ footer {
 }
 
 .servicesEyebrow {
-  color: #60A5FA;
+  color: var(--accentcolor);
   font-family: "Google Sans", sans-serif;
   font-size: 1.5rem;
   text-transform: uppercase;
@@ -1762,14 +1766,14 @@ footer {
 
 .servicesHeroContent h1 span {
   display: block;
-  color: #60A5FA;
+  color: var(--accentcolor);
 }
 
 .servicesHeroContent p {
   font-family: "Google Sans", sans-serif;
   font-size: 2rem;
   line-height: 1.6;
-  color: #cbd5e1;
+  color: var(--text-color);
   max-width: 620px;
 }
 
@@ -1782,13 +1786,13 @@ footer {
 
 /* Service Cards Section */
 .servicesPageCards {
-  background: #071225;
+  background: var(--bg-color);
   padding: 4rem 8% 7rem;
 }
 
 .servicesSectionLabel {
   text-align: center;
-  color: #60A5FA;
+  color: var(--accentcolor);
   font-family: "Google Sans", sans-serif;
   font-size: 1.4rem;
   text-transform: uppercase;
@@ -1831,7 +1835,7 @@ footer {
 
 .processStep {
   text-align: center;
-  color: #f8fafc;
+  color: var(--text-color);
   position: relative;
 }
 
@@ -1848,13 +1852,13 @@ footer {
   align-items: center;
   justify-content: center;
 
-  color: #60A5FA;
+  color: var(--accentcolor);
   font-size: 3rem;
 }
 
 .processStep span {
   display: block;
-  color: #60A5FA;
+  color: var(--accentcolor);
   font-family: "Google Sans", sans-serif;
   font-size: 1.6rem;
   font-weight: 700;
@@ -1881,7 +1885,7 @@ footer {
 }
 
 .processAreas h3 {
-  color: #60A5FA;
+  color: var(--accentcolor);
   font-size: 2rem;
   margin-bottom: 1rem;
 }
@@ -1893,7 +1897,7 @@ footer {
 }
 
 .processAreas span {
-  color: #60A5FA;
+  color: var(--accentcolor);
   margin: 0 1rem;
 }
 
@@ -1912,10 +1916,10 @@ footer {
   padding: 3.5rem 4rem;
   border-radius: 18px;
 
-  background: rgba(255, 255, 255, 0.06);
+  background: rgba(3, 10, 24, .96);
   backdrop-filter: blur(12px);
 
-  border: 1px solid rgba(96, 165, 250, 0.2);
+  border: 1px solid var(--accentcolor);
 
   box-shadow: 0 0 35px rgba(96, 165, 250, 0.12);
 }
@@ -1923,7 +1927,7 @@ footer {
 .servicesMiniCtaContent h2 {
   font-size: 3rem;
   margin-bottom: 1rem;
-  color: #f8fafc;
+  color: var(--text-color);
 }
 
 .servicesMiniCtaContent p {
@@ -2109,7 +2113,7 @@ footer {
 .heroRating strong {
   display: block;
   font-size: 2rem;
-  color: #f8fafc;
+  color: var(--text-color);
 }
 
 .heroRating span {
@@ -2122,16 +2126,16 @@ footer {
 .reviewStats {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  background: #071225;
+  background: var(--bg-color);
   padding: 5rem 8%;
-  border-top: 1px solid rgba(96, 165, 250, 0.14);
-  border-bottom: 1px solid rgba(96, 165, 250, 0.14);
+  border-top: 1px solid var(--accentcolor);
+  border-bottom: 1px solid var(--accentcolor);
 }
 
 .reviewStat {
   text-align: center;
-  color: #f8fafc;
-  border-right: 1px solid rgba(96, 165, 250, 0.18);
+  color: var(--text-color);
+  border-right: 1px solid var(--accentcolor);
 }
 
 .reviewStat:last-child {
@@ -2140,7 +2144,7 @@ footer {
 
 .reviewStat i {
   font-size: 4rem;
-  color: #60A5FA;
+  color: var(--accentcolor);
   margin-bottom: 1.5rem;
 }
 
@@ -2159,7 +2163,7 @@ footer {
 }
 /* Reviews Featured and Reviews Section */
 .featuredReviewsSection {
-  background: #071225;
+  background: var(--bg-color);
   padding: 6rem 8%;
 }
 
@@ -2182,9 +2186,9 @@ footer {
 
   padding: 3rem;
   border-radius: 18px;
-  background: rgba(96, 165, 250, 0.08);
-  border: 1px solid rgba(96, 165, 250, 0.16);
-  box-shadow: 0 0 35px rgba(96, 165, 250, 0.08);
+  background: var(--bg-color);
+  border: 1px solid var(--accentcolor);
+  box-shadow: 0 0 35px var(--hovercolor);
 
   margin-bottom: 5rem;
 }
@@ -2207,14 +2211,14 @@ footer {
   font-family: "Google Sans", sans-serif;
   font-size: 2.2rem;
   line-height: 1.55;
-  color: #f8fafc;
+  color: var(--text-color);
   margin-bottom: 2rem;
 }
 
 .featuredReviewContent h3,
 .smallReviewCard h3 {
   font-size: 1.7rem;
-  color: #f8fafc;
+  color: var(--text-color);
 }
 
 .featuredReviewContent span,
@@ -2233,8 +2237,8 @@ footer {
 .smallReviewCard {
   padding: 3rem;
   border-radius: 16px;
-  background: rgba(96, 165, 250, 0.07);
-  border: 1px solid rgba(96, 165, 250, 0.14);
+  background:var(--bg-color);
+  border: 1px solid var(--accentcolor);
 }
 
 .smallReviewCard p {
@@ -2294,7 +2298,7 @@ footer {
 
   .reviewStat {
     border-right: none;
-    border-bottom: 1px solid rgba(96, 165, 250, 0.18);
+    border-bottom: 1px solid var(--accentcolor);
     padding: 3rem 0;
   }
 
