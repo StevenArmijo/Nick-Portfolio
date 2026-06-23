@@ -8,13 +8,14 @@
 }
 
 :root {
-  --bg-color: #071225;
-  --second-bg-color: #0F172A;
-  --text-color: #F8FAFC;
-  --accentcolor: #8CA3C7;
+  --bg-color: #F3EDE3;
+  --second-bg-color: #fdf8f0;
+  --text-color: #1E293B;
+  --accentcolor: #111;
   --mainaboutcolor: #F3EDE3;
   --aboutxtcolor: #1E293B;
-  --hovercolor :#8ca3c738;
+  --hovercolor :#475569;
+
 }
 
 html {
@@ -33,7 +34,7 @@ header {
   top: 0;
   left: 0;
   padding: 2rem 3rem;
-  background: #0204095f;
+  background: var(--second-bg-color);
   backdrop-filter: blur(10px);
   display: flex;
   justify-content: space-between;
@@ -196,36 +197,51 @@ section {
 /* /////////////IMG AND SOCIAL/////////// */
 
 .homeImg {
-  width: 275px;
-  height: 275px;
+  width: 360px;
+  height: 360px;
   border-radius: 50%;
-  aspect-ratio: 1/1;
+  aspect-ratio: 1 / 1;
+  padding: 4px;
+
+  background: linear-gradient(
+    135deg,
+    rgba(232, 180, 92, 1),
+    rgba(177, 121, 45, 0.55),
+    rgba(232, 180, 92, 0.95)
+  );
+
+  box-shadow:
+    0 0 25px rgba(232, 180, 92, 0.45),
+    0 0 70px rgba(177, 121, 45, 0.25);
+
   position: relative;
-  display: inline-block;
   flex-shrink: 0;
-  margin-bottom: 8px;
+  margin-bottom: 2.4rem;
 }
 
 .homeImg img {
   width: 100%;
   height: 100%;
+  border-radius: 50%;
   object-fit: cover;
+  object-position: center top;
   filter: brightness(.92);
   display: block;
 }
 
 .socialCard {
-  width: 340px;
-  padding: 18px;
-  border-radius: 22px;
-  background: var(--bg-color);
-  border: 1px solid #93c5fd38;
-  box-shadow: 0 0 40px rgba(96, 165, 250, 0.12);
-  backdrop-filter: blur(12px);
-  max-width: 360px;
+  max-width: 420px;
+  min-height: auto;
+  padding: 0;
+  margin-top: .8rem;
+
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  backdrop-filter: none;
+
   display: flex;
   flex-direction: column;
-  margin-top: .8rem;
   align-items: center;
 }
 
@@ -279,10 +295,11 @@ section {
 }
 
 .socialIcons a:hover {
-  color: var(--text-color);
-  background: var(--accentcolor);
-  transform: scale(1.2)translateY(-4px);
-  box-shadow: 0 0 25px var(--accentcolor);
+  color: #f8f1e7;
+  background: #cfb38c;
+  border-color: #c9a45c;
+  transform: scale(1.12) translateY(-4px);
+  box-shadow: 0 0 22px rgba(201, 164, 92, 0.28);
 }
 
 
@@ -401,7 +418,7 @@ h2 i {
 
 /* //////////////////LISTINGS////////////////// */
 .featuredListings {
-  background: var(--bg-color);
+  background: var(--second-bg-color);
   padding: 2rem 8% 7rem;
 }
 
@@ -454,6 +471,7 @@ h2 i {
   left: 8px;
   bottom: 4px;
   background: var(--accentcolor);
+  color: var(--bg-color);
   font-family: "Google Sans", sans-serif;
   font-size: 1.4rem;
   border-radius: 999px;
@@ -586,7 +604,7 @@ h2 i {
 
 .serviceInfo p {
   margin: 0;
-  color: #cbd5e1;
+  color: var(--aboutxtcolor);
   line-height: 1.5;
   font-size: 1.8rem;
   font-family: "Google Sans", sans-serif;
@@ -629,7 +647,7 @@ h2 i {
   display: flex;
   align-items: stretch;
   justify-content: flex-start;
-  background: var(--bg-color);
+  background: var(--second-bg-color);
 
 }
 
@@ -656,7 +674,7 @@ h2 i {
 }
 
 .aboutContent h2 {
-  color: var(--text-color);
+  color: var(--aboutxtcolor);
   font-size: 4rem;
   font-family: "Google Sans", sans-serif;
   margin-bottom: 1rem;
@@ -670,14 +688,14 @@ h2 i {
 
 .aboutContent h3 {
   line-height: 1.8;
-  color: #F8FAFC;
+  color: var(--aboutxtcolor);
   font-size: 2.5rem;
   padding: 0;
   margin-bottom: 1.5rem;
 }
 
 .aboutContent p {
-  color: #cbd5e1;
+  color: var(--aboutxtcolor);
   line-height: 1.6;
   font-size: 2rem;
   margin-bottom: 1.5rem;
@@ -748,7 +766,7 @@ h2 i {
   height: 6rem;
   border-radius: 50%;
   object-fit: cover;
-  border: 2px solid #0B132B;
+  border: 1px solid #0B132B;
 }
 
 .reviewText {
@@ -762,15 +780,15 @@ h2 i {
 /* /////////////////////CALL TO ACTION SECTION////////// */
 footer {
   background: var(--bg-color);
-  color: var(--text-color);
+  color: var(--mainaboutcolor);
 }
 
 .ctaBanner {
-  height: 280px;
+  min-height: 340px;
 
-  background-image: url("assets/images/backgrounds/poppiespic.webp");
+  background-image: url("assets/images/backgrounds/palmdale.webp");
   background-size: cover;
-  background-position: center;
+  background-position: center 10%;
 
   position: relative;
   overflow: hidden;
@@ -805,6 +823,7 @@ footer {
 
 .ctaContent h2 {
   font-size: clamp(2.5rem, 5vw, 4rem);
+  color: var(--mainaboutcolor);
 
   line-height: 1.1;
 
@@ -812,7 +831,7 @@ footer {
 }
 
 .ctaContent p {
-  color: #cbd5e1;
+  color: var(--bg-color);
   font-size: 1.6rem;
   margin-bottom: 2rem;
   margin-top: 2rem;
@@ -820,6 +839,8 @@ footer {
 
 .ctaBtn {
   margin-top: 1.5rem;
+  background-color: var(--mainaboutcolor);
+  color: var(--accentcolor);
 }
 
 /* ////////////////FOOTER////////////// */
@@ -856,10 +877,11 @@ footer {
 .footerBrand h2 {
   font-size: 2.2rem;
   margin-bottom: .3rem;
+  color: var(--text-color);
 }
 
 .footerBrand span {
-  color: var(--accentcolor);
+  color: var(--text-color);
   font-size: 1.4rem;
   margin-bottom: 1.2rem;
 }
@@ -871,7 +893,7 @@ footer {
   font-family: "Google Sans", sans-serif;
   font-size: 1.2rem;
   line-height: 1.7;
-  color: #cbd5e1;
+  color: var(--text-color);
 }
 
 .footerLinks a,
@@ -1004,21 +1026,6 @@ footer {
     font-size: 4rem;
   }
 
-  .aboutHeroImage {
-    min-height: 100%;
-    background: #d8d1c6;
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-  }
-
-  .aboutHeroImage img {
-    width: 85%;
-    height: 100%;
-    object-fit: contain;
-    object-position: bottom center;
-  }
-
   .homeContent h3 {
     font-size: 1.8rem;
   }
@@ -1041,8 +1048,8 @@ footer {
   }
 
   .homeImg {
-    width: 230px;
-    height: 230px;
+    width:  350px;
+    height: 350px;
   }
 
   .clientProof {
@@ -1179,21 +1186,28 @@ footer {
 @media (max-width: 600px) {
   .socialCard {
     width: 100%;
-    max-width: 330px;
-    padding: 1.6rem;
+    max-width: 100%;
+    padding: 0;
   }
 
   .homeImg {
-    width: 210px;
-    height: 210px;
+    width: 250px;
+    height: 250px;
+    margin-bottom: 1.8rem;
   }
 
   .socialIcons a {
-    width: 3.8rem;
-    height: 3.8rem;
+    width: 4rem;
+    height: 4rem;
     padding: 0;
-    margin: 1.2rem .3rem;
+    margin: 0;
     font-size: 2rem;
+  }
+  .socialCard img {
+   
+    border-radius: 50%;
+    margin: 0 auto;
+    display: block;
   }
 }
 
@@ -1214,7 +1228,11 @@ footer {
   .clientProof p {
     font-size: 1.5rem;
     text-align: left;
-
+  }
+  .ctaBanner {
+    min-height: 360px;
+    background-size: cover;
+    background-position: center;
   }
 }
 
@@ -1253,27 +1271,40 @@ footer {
 /* HERO */
 @media (max-width: 430px) {
   .socialCard {
-    max-width: 310px;
-    padding: 1.4rem;
+    max-width: 100%;
+    padding: 0;
+    min-height: auto;
+    gap: 1.6rem;
   }
 
   .homeImg {
-    width: 190px;
-    height: 190px;
+    width: 250px;
+    height: 250px;
+    margin-bottom: 1rem;
   }
 
-  .clientProof {
-    max-width: 100%;
-    gap: .8rem;
+  .homeImg img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
   }
 
-  .clientFaces img {
-    width: 6rem;
-    height: 6rem;
+  .socialIcons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: nowrap;
+    margin-top: 0;
   }
 
-  .clientProof p {
-    font-size: 1.25rem;
+  .socialIcons a {
+    width: 3.8rem;
+    height: 3.8rem;
+    padding: 0;
+    margin: 0;
+    font-size: 1.9rem;
+    flex-shrink: 0;
   }
 }
 
@@ -1379,24 +1410,27 @@ footer {
 }
 
 .aboutHeroImage {
-  min-height: 100%;
-  background: #d8d1c6;
+  min-height: 520px;
   display: flex;
   align-items: flex-end;
   justify-content: center;
+  overflow: hidden;
+  background: #e8dfd3;
 }
 
 .aboutHeroImage img {
-  width: 85%;
-  height: 100%;
-  object-fit: contain;
-  object-position: bottom center;
+  width: 82%;
+  height: auto;
+  max-height: 580px;
+  object-fit: cover;
+  object-position: center;
+  display: block;
 }
 
 .connect-btn {
   width: 50%;
   margin-top: 2rem;
-  background-color: #0B132B;
+  background-color: var(--aboutxtcolor);
   color: var(--mainaboutcolor);
 }
 
@@ -1409,8 +1443,8 @@ footer {
 .aboutStory {
   display: grid;
   grid-template-columns: 1fr 2fr;
-  background: #F3EDE3;
-  color: #111;
+  background: var(--mainaboutcolor);
+  color: var(--accentcolor);
   border-top: 1px solid rgba(0, 0, 0, .08);
 }
 
@@ -1620,12 +1654,14 @@ footer {
   }
 
   .aboutHeroImage {
-    order: 1;
-    min-height: 420px;
+    min-height: 450px;
   }
 
   .aboutHeroImage img {
-    width: 75%;
+    width: 70%;
+    max-height: 420px;
+    object-fit: cover;
+    object-position: center 55%;
   }
 
   .connect-btn {
@@ -1670,7 +1706,9 @@ footer {
   }
 
   .aboutHeroImage img {
-    width: 85%;
+    max-height: 340px;
+    width: 82%;
+    object-position: center 55%;
   }
 
   .aboutStoryContent {
@@ -1727,7 +1765,7 @@ footer {
 
 /* /////////////////////////SERVICES PAGE/////////////// */
 .servicesPage {
-  background: var(--bg-color);
+  background: #ffffff;
 }
 
 .servicesHeroPage {
@@ -1751,7 +1789,7 @@ footer {
 }
 
 .servicesEyebrow {
-  color: var(--accentcolor);
+  color: var(--mainaboutcolor);
   font-family: "Google Sans", sans-serif;
   font-size: 1.5rem;
   text-transform: uppercase;
@@ -1762,18 +1800,30 @@ footer {
   font-size: 7rem;
   line-height: 1;
   margin-bottom: 2.5rem;
+  color: var(--second-bg-color);
 }
 
 .servicesHeroContent h1 span {
   display: block;
-  color: var(--accentcolor);
+  color: var(--mainaboutcolor);
+}
+.servicesPage .primary-btn {
+  background-color: var(--mainaboutcolor);
+  color: var(--text-color);
+  border-color: var(--mainaboutcolor);
+}
+
+.servicesPage .secondary-btn {
+  background-color: transparent;
+  color: var(--mainaboutcolor);
+  border-color: var(--mainaboutcolor);
 }
 
 .servicesHeroContent p {
   font-family: "Google Sans", sans-serif;
   font-size: 2rem;
   line-height: 1.6;
-  color: var(--text-color);
+  color: var(--second-bg-color);
   max-width: 620px;
 }
 
@@ -1782,6 +1832,7 @@ footer {
   display: flex;
   align-items: center;
   gap: 1.5rem;
+  
 }
 
 /* Service Cards Section */
@@ -1798,7 +1849,9 @@ footer {
   text-transform: uppercase;
   margin-bottom: 2rem;
 }
-
+.servicesPage .serviceBtn {
+  background-color: var(--second-bg-color);
+}
 .servicesPageGrid .serviceBtn {
   min-height: 260px;
   padding: 3.2rem;
@@ -1815,131 +1868,169 @@ footer {
 }
 
 /* How I work Section */
-.serviceProcess {
-  position: relative;
-  background:
-    linear-gradient(rgba(3, 10, 24, .94), rgba(3, 10, 24, .96)),
-    url("assets/images/backgrounds/aboutCTA.webp");
-  background-size: cover;
-  background-position: center bottom;
-  padding: 5rem 8% 6rem;
-  overflow: hidden;
-}
-
-.processGrid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 3rem;
-  position: relative;
-}
-
-.processStep {
-  text-align: center;
+.serviceTrustSection {
+  background: var(--second-bg-color);
   color: var(--text-color);
-  position: relative;
+  padding: 6rem 8%;
 }
 
-.processIcon {
-  width: 76px;
-  height: 76px;
-  margin: 0 auto 1.4rem;
-  border-radius: 50%;
-  border: 1px solid rgba(96, 165, 250, .45);
-  background: rgba(96, 165, 250, .08);
-  box-shadow: 0 0 30px rgba(96, 165, 250, .18);
+.trustIntroGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4rem;
+  margin-bottom: 6rem;
+}
 
+.trustItem {
   display: flex;
-  align-items: center;
-  justify-content: center;
-
-  color: var(--accentcolor);
-  font-size: 3rem;
+  align-items: flex-start;
+  gap: 1.6rem;
 }
 
-.processStep span {
-  display: block;
+.trustItem i {
+  font-size: 2.8rem;
   color: var(--accentcolor);
-  font-family: "Google Sans", sans-serif;
-  font-size: 1.6rem;
-  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.trustItem h3 {
+  font-size: 1.8rem;
   margin-bottom: .8rem;
 }
 
-.processStep h3 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-}
-
-.processStep p {
+.trustItem p {
   font-family: "Google Sans", sans-serif;
-  color: #cbd5e1;
   font-size: 1.45rem;
   line-height: 1.6;
-  max-width: 230px;
-  margin: 0 auto;
+  color: #334155;
 }
 
-.processAreas {
-  text-align: center;
-  margin-top: 5rem;
+.trustContentGrid {
+  display: grid;
+  grid-template-columns: 1fr 1.25fr;
+  gap: 5rem;
+  margin-bottom: 4rem;
 }
 
-.processAreas h3 {
-  color: var(--accentcolor);
-  font-size: 2rem;
+.clientFeedbackBox,
+.faqBox {
+  background: #ffffff;
+  padding: 3rem;
+  border-radius: 14px;
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.08);
+}
+
+.clientFeedbackBox > span,
+.faqBox > span {
+  display: block;
+  font-family: "Google Sans", sans-serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: #1e3a8a;
+  margin-bottom: 2rem;
+}
+
+.quoteIcon {
+  color: var(--hovercolor);
+  font-size: 3rem;
   margin-bottom: 1rem;
 }
 
-.processAreas p {
+.clientFeedbackBox p {
   font-family: "Google Sans", sans-serif;
-  color: #f8fafc;
   font-size: 1.7rem;
+  line-height: 1.65;
+  color: var(--hovercolor);
+  margin-bottom: 2rem;
 }
 
-.processAreas span {
-  color: var(--accentcolor);
-  margin: 0 1rem;
+.clientFeedbackBox h3 {
+  font-size: 1.5rem;
+  color: #475569;
 }
 
-/* Connect CTA */
-.servicesMiniCta {
-  background:  rgba(3, 10, 24, .96);
-  padding: 5rem 8%;
+.feedbackDots {
+  display: flex;
+  gap: .8rem;
+  margin-top: 2rem;
+  
 }
 
-.servicesMiniCtaContent {
+.feedbackDots span {
+  width: .8rem;
+  height: .8rem;
+  border-radius: 50%;
+  background: var(--hovercolor);
+}
+
+.feedbackDots span:first-child {
+  width: 3rem;
+  border-radius: 999px;
+  background: var(--hovercolor);
+}
+
+.faqItem {
+  width: 100%;
+  border: 1px solid #e2e8f0;
+  background: #ffffff;
+  color: #0f172a;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 3rem;
+  gap: 1rem;
 
-  padding: 3.5rem 4rem;
-  border-radius: 18px;
-
-  background: rgba(3, 10, 24, .96);
-  backdrop-filter: blur(12px);
-
-  border: 1px solid var(--accentcolor);
-
-  box-shadow: 0 0 35px rgba(96, 165, 250, 0.12);
+  padding: 1.5rem 1.8rem;
+  font-family: "Google Sans", sans-serif;
+  font-size: 1.5rem;
+  text-align: left;
+  cursor: pointer;
 }
 
-.servicesMiniCtaContent h2 {
+.faqItem + .faqItem {
+  margin-top: 1rem;
+}
+
+.faqItem i {
+  color: var(--hovercolor);
+  flex-shrink: 0;
+}
+
+.serviceBottomCta {
+  display: grid;
+  grid-template-columns: 0.75fr 1.5fr;
+  overflow: hidden;
+  border-radius: 18px;
+  background: #ffffff;
+}
+
+.serviceBottomCta img {
+  width: 100%;
+  height: 100%;
+  min-height: 220px;
+  object-fit: cover;
+}
+
+.serviceBottomCtaContent {
+  padding: 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.serviceBottomCtaContent h2 {
   font-size: 3rem;
   margin-bottom: 1rem;
-  color: var(--text-color);
 }
 
-.servicesMiniCtaContent p {
-  max-width: 650px;
+.serviceBottomCtaContent p {
   font-family: "Google Sans", sans-serif;
-  font-size: 1.6rem;
+  font-size: 1.55rem;
   line-height: 1.6;
-  color: #cbd5e1;
-}
-
-.servicesMiniCtaContent .primary-btn {
-  flex-shrink: 0;
+  color: #334155;
+  margin-bottom: 2rem;
 }
 /* Service Page Breaking points */
 /* Mac Screens and Tablets*/
@@ -1977,7 +2068,7 @@ footer {
     font-size: 1.75rem;
   }
   .servicesPageGrid {
-     grid-template-columns: repeat(3, 1fr);
+     grid-template-columns: repeat(1fr);
   }
 
   .servicesPageGrid .serviceCard:nth-child(3) {
@@ -2002,6 +2093,16 @@ footer {
     width: 100%;
     justify-content: center;
   }
+  .trustIntroGrid,
+  .trustContentGrid,
+  .serviceBottomCta {
+    grid-template-columns: 1fr;
+  }
+
+  .serviceBottomCta img {
+    min-height: 240px;
+  }
+
 }
 /* Small Devices */
 @media (max-width: 600px) {
@@ -2050,6 +2151,26 @@ footer {
   .servicesMiniCtaContent h2 {
     font-size: 2.5rem;
   }
+  .serviceTrustSection {
+    padding: 5rem 5%;
+  }
+
+  .trustIntroGrid {
+    gap: 3rem;
+  }
+
+  .clientFeedbackBox,
+  .faqBox {
+    padding: 2.4rem;
+  }
+
+  .serviceBottomCtaContent {
+    padding: 3rem 2.4rem;
+  }
+
+  .serviceBottomCtaContent h2 {
+    font-size: 2.5rem;
+  }
 }
 
 /* /////////////////REVIEWS PAGE////////// */
@@ -2094,6 +2215,7 @@ footer {
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  color: var(--bg-color);
 }
 .reviewsHeroContent span,
 .reviewsHeroContent p {
@@ -2113,14 +2235,14 @@ footer {
 .heroRating strong {
   display: block;
   font-size: 2rem;
-  color: var(--text-color);
+  color: var(--mainaboutcolor);
 }
 
 .heroRating span {
   display: block;
   margin-top: .6rem;
   font-size: 1.4rem;
-  color: #cbd5e1;
+  color: var(--bg-color);
 }
 
 .reviewStats {
@@ -2155,7 +2277,7 @@ footer {
 .reviewStat p {
   font-family: "Google Sans", sans-serif;
   font-size: 1.5rem;
-  color: #cbd5e1;
+  color: var(--accentcolor);
 }
 .reviewsHeroContent h1 {
   font-size: clamp(3rem, 7vw, 5.5rem);
@@ -2169,7 +2291,7 @@ footer {
 
 .reviewsSectionLabel {
   text-align: center;
-  color: #cbd5e1;
+  color: var(--accentcolor);
   font-family: "Google Sans", sans-serif;
   font-size: 1.4rem;
   font-weight: 700;
@@ -2225,7 +2347,7 @@ footer {
 .smallReviewCard span {
   font-family: "Google Sans", sans-serif;
   font-size: 1.4rem;
-  color: #94a3b8;
+  color: var(--text-color);
 }
 
 .moreReviewsGrid {
@@ -2245,13 +2367,13 @@ footer {
   font-family: "Google Sans", sans-serif;
   font-size: 1.65rem;
   line-height: 1.7;
-  color: #e2e8f0;
+  color: var(--text-color);
   margin-bottom: 2rem;
 }
 /* footer */
 .reviewsCta {
-  height: 280px;
-  background-image: url(assets/images/backgrounds/palmdale.webp);
+  height: 240px;
+  background-image: url(assets/images/backgrounds/poppiespic.webp);
   background-size: cover;
   background-position: center 60%;
   
