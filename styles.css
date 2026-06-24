@@ -15,6 +15,7 @@
   --mainaboutcolor: #F3EDE3;
   --aboutxtcolor: #1E293B;
   --hovercolor :#475569;
+  --contactcolor :#0B132B;
 
 }
 
@@ -125,7 +126,7 @@ nav {
   border: 1px solid var(--accentcolor);
   border-radius: 999px;
   padding: 2rem 2rem;
-  background: #0B132B;
+  background: var(--contactcolor);
   color: #F8FAFC;
   text-decoration: none;
   line-height: 1;
@@ -138,8 +139,8 @@ nav {
 .contactBtn:hover {
   transform: scale(1.05);
   background: linear-gradient(270deg,
-  #A7B8D1 0%,
-  #8CA3C7 100%
+  #c9a45c 0%,
+  #cfb38c 100%
   );
 }
 
@@ -299,7 +300,7 @@ section {
   background: #cfb38c;
   border-color: #c9a45c;
   transform: scale(1.12) translateY(-4px);
-  box-shadow: 0 0 22px rgba(201, 164, 92, 0.28);
+  box-shadow: 0 0 22px #c9a45c47;
 }
 
 
@@ -1191,8 +1192,8 @@ footer {
   }
 
   .homeImg {
-    width: 250px;
-    height: 250px;
+    width:  100%;
+    height: 100%;
     margin-bottom: 1.8rem;
   }
 
@@ -1202,12 +1203,6 @@ footer {
     padding: 0;
     margin: 0;
     font-size: 2rem;
-  }
-  .socialCard img {
-   
-    border-radius: 50%;
-    margin: 0 auto;
-    display: block;
   }
 }
 
@@ -2543,5 +2538,604 @@ footer {
   .reviewsSectionLabel {
     font-size: 1.2rem;
     letter-spacing: .14em;
+  }
+}
+/* ////////////////// CONTACT PAGE ////////////////// */
+
+.contactHero {
+  position: relative;
+  min-height: 55vh;
+  padding-top: 8rem;
+
+  background-image: url("assets/images/backgrounds/contactmebg.webp");
+  background-size: cover;
+  background-position: center 20%;
+  background-repeat: no-repeat;
+
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.contactHeroOverlay {
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(7, 18, 37, 0.92) 0%,
+      rgba(7, 18, 37, 0.76) 42%,
+      rgba(7, 18, 37, 0.35) 100%
+    );
+}
+
+.contactHeroContent {
+  position: relative;
+  z-index: 2;
+  max-width: 760px;
+  padding: 6rem 8%;
+  color: var(--mainaboutcolor);
+}
+
+.contactEyebrow {
+  font-family: "Google Sans", sans-serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: #d6a24f;
+  margin-bottom: 2rem;
+}
+
+.contactHeroContent h1 {
+  font-size: clamp(4rem, 7vw, 7rem);
+  line-height: 1;
+  margin-bottom: 2rem;
+}
+
+.contactHeroContent > p:last-child {
+  font-family: "Google Sans", sans-serif;
+  font-size: 1.8rem;
+  line-height: 1.6;
+  color: #e2e8f0;
+}
+/* ////////////////////SEND ME A MESSAGE SECTION//////////// */
+.contactMain {
+  background: var(--mainaboutcolor);
+  padding: 7rem 8%;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  align-items: stretch;
+}
+
+.messagePanel {
+  max-width: 680px;
+  padding: 4rem;
+  border-radius: 18px;
+
+  background: #0B132B;
+  border: 1px solid rgba(30, 41, 59, 0.16);
+  box-shadow: 0 24px 60px rgba(30, 41, 59, 0.12);
+}
+
+.messagePanel h2 {
+  font-size: 3.8rem;
+  color: var(--mainaboutcolor);
+  margin-bottom: 1.4rem;
+}
+
+.messagePanel > p {
+  max-width: 520px;
+  font-family: "Google Sans", sans-serif;
+  font-size: 1.6rem;
+  line-height: 1.6;
+  color: var(--second-bg-color);
+  margin-bottom: 3rem;
+}
+
+.contactForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+}
+
+.formRow {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.4rem;
+}
+
+.formGroup label {
+  display: none;
+}
+
+.formGroup input,
+.formGroup select,
+.formGroup textarea {
+  width: 100%;
+  border: 1px solid rgba(30, 41, 59, 0.18);
+  border-radius: 8px;
+  background: var(--mainaboutcolor);
+
+  padding: 1.4rem 1.6rem;
+  font-family: "Google Sans", sans-serif;
+  font-size: 1.45rem;
+  color: var(--text-color);
+  outline: none;
+  transition: border-color .2s ease, box-shadow .2s ease;
+}
+
+.formGroup textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+.formGroup input:focus,
+.formGroup select:focus,
+.formGroup textarea:focus {
+  border-color: #d6a24f;
+  box-shadow: 0 0 0 3px rgba(214, 162, 79, 0.18);
+}
+
+.messageSubmitBtn {
+  border: none;
+  border-radius: 10px;
+  padding: 1.5rem 2rem;
+
+  background: #d6a24f;
+  color: #111827;
+
+  font-family: "Google Sans", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+
+  cursor: pointer;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.messageSubmitBtn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 30px rgba(214, 162, 79, 0.28);
+}
+
+.secureNote {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .8rem;
+
+  font-family: "Google Sans", sans-serif;
+  font-size: 1.3rem;
+  color: #64748b;
+  margin-top: .8rem;
+}
+/* ////////////CALENDAR SECTION///////// */
+.consultationPanel {
+  padding: 4rem;
+  border-radius: 0 18px 18px 0;
+
+  background: #fdf8f0;
+  border: 1px solid rgba(30, 41, 59, 0.14);
+  box-shadow: 0 24px 60px rgba(30, 41, 59, 0.12);
+}
+
+.messagePanel {
+  border-radius: 18px 0 0 18px;
+}
+
+.consultationPanel h2 {
+  font-size: 3.8rem;
+  color: var(--text-color);
+  margin-bottom: 1.4rem;
+}
+
+.consultationPanel > p {
+  max-width: 520px;
+  font-family: "Google Sans", sans-serif;
+  font-size: 1.6rem;
+  line-height: 1.6;
+  color: #475569;
+  margin-bottom: 3rem;
+}
+
+.calendarBox {
+  padding: 2.4rem;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, .65);
+  border: 1px solid rgba(30, 41, 59, .16);
+}
+
+.calendarHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.calendarHeader h3 {
+  font-family: "Google Sans", sans-serif;
+  font-size: 1.7rem;
+  color: var(--text-color);
+}
+
+.calendarHeader button {
+  border: none;
+  background: transparent;
+  color: var(--text-color);
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.calendarGrid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: .8rem;
+}
+
+.calendarDays {
+  margin-bottom: 1rem;
+}
+
+.calendarDays span {
+  text-align: center;
+  font-family: "Google Sans", sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #64748b;
+  text-transform: uppercase;
+}
+
+.calendarDates button {
+  width: 100%;
+  aspect-ratio: 1;
+  border: none;
+  border-radius: 50%;
+  background: transparent;
+
+  font-family: "Google Sans", sans-serif;
+  font-size: 1.35rem;
+  color: var(--text-color);
+  cursor: pointer;
+}
+
+.calendarDates button:hover,
+.calendarDates .selectedDate {
+  background: #d6a24f;
+  color: #111827;
+}
+
+.availableTimes {
+  margin-top: 3rem;
+}
+
+.availableTimes h3 {
+  font-family: "Google Sans", sans-serif;
+  font-size: 1.6rem;
+  margin-bottom: 1.4rem;
+}
+
+.timeGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.timeGrid button {
+  padding: 1.2rem;
+  border-radius: 8px;
+  border: 1px solid rgba(30, 41, 59, .18);
+  background: #fff;
+
+  font-family: "Google Sans", sans-serif;
+  font-size: 1.35rem;
+  color: var(--text-color);
+  cursor: pointer;
+}
+
+.timeGrid button:hover {
+  border-color: #d6a24f;
+  box-shadow: 0 0 0 3px rgba(214, 162, 79, .16);
+}
+
+.bookAppointmentBtn {
+  width: 100%;
+  margin-top: 2rem;
+  padding: 1.5rem 2rem;
+
+  border: none;
+  border-radius: 10px;
+  background: #d6a24f;
+  color: #111827;
+
+  font-family: "Google Sans", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  cursor: pointer;
+}
+/* //////////////Contact Section/////////// */
+.contactReach {
+  background: var(--second-bg-color);
+  color: var(--text-color);
+  padding: 6rem 5%;
+}
+
+.contactReach h2 {
+  text-align: center;
+  font-size: 3.2rem;
+  margin-bottom: 1rem;
+}
+
+.contactReach h2::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 2px;
+  background: #d6a24f;
+  margin: 1.6rem auto 4rem;
+}
+
+.reachGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4rem;
+  margin-bottom: 5rem;
+}
+
+.reachItem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.8rem;
+}
+
+.reachIcon {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+
+  background-color: var(--contactcolor);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: var(--second-bg-color);
+  border: 1px solid rgba(214, 162, 79, .45);
+  font-size: 2.4rem;
+}
+
+.reachItem h3 {
+  font-family: "Google Sans", sans-serif;
+  font-size: 1.6rem;
+  
+  color: var(--text-color);
+  margin-bottom: .5rem;
+}
+
+.reachItem p {
+  font-family: "Google Sans", sans-serif;
+  font-size: 1.55rem;
+  line-height: 1.5;
+  color: var(--text-color);
+}
+
+.contactBottomCta {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+
+  padding: 3rem 4rem;
+  border-radius: 10px;
+  background: var(--contactcolor);
+  color: var(--text-color);
+}
+
+.contactBottomIcon {
+  font-size: 4rem;
+  color: #d6a24f;
+  flex-shrink: 0;
+}
+.contactBottomIcon img {
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+}
+
+.contactBottomText {
+  flex: 1;
+}
+
+.contactBottomText h3 {
+  font-size: 3rem;
+  margin-bottom: .6rem;
+  color: var(--mainaboutcolor);
+}
+
+.contactBottomText p {
+  font-family: "Google Sans", sans-serif;
+  font-size: 1.55rem;
+  color: var(--mainaboutcolor);
+}
+
+.contactBottomBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .8rem;
+  flex-shrink: 0;
+  width: auto;
+  padding: 1.4rem 3.6rem;
+  border-radius: 6px;
+
+  background: var(--mainaboutcolor);
+  color: var(--accentcolor);
+
+  font-family: "Google Sans", sans-serif;
+  font-size: 1.45rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  white-space: nowrap;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.contactBottomBtn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 28px rgba(7, 18, 37, .22);
+}
+/* /////////////COntact PAGE BREAKS////////// */
+@media (max-width: 1100px) {
+  .contactMain {
+    padding: 6rem 5%;
+  }
+
+  .messagePanel,
+  .consultationPanel {
+    padding: 3.2rem;
+  }
+
+  .messagePanel h2,
+  .consultationPanel h2 {
+    font-size: 3.2rem;
+  }
+
+  .reachGrid {
+    gap: 2.5rem;
+  }
+}
+/* TABLETS  */
+@media (max-width: 900px) {
+  .contactHero {
+    min-height: 50vh;
+    background-position: center;
+  }
+
+  .contactHeroContent {
+    padding: 5rem 6%;
+  }
+
+  .contactMain {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .messagePanel,
+  .consultationPanel {
+    max-width: none;
+    border-radius: 18px;
+  }
+
+  .reachGrid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .reachItem {
+    justify-content: flex-start;
+  }
+
+  .contactBottomCta {
+    align-items: flex-start;
+  }
+}
+/* Phones */
+@media (max-width: 600px) {
+  .contactHero {
+    min-height: 48vh;
+  }
+
+  .contactHeroContent h1 {
+    font-size: 3.6rem;
+  }
+
+  .contactHeroContent > p:last-child {
+    font-size: 1.55rem;
+  }
+
+  .contactMain {
+    padding: 4rem 5%;
+  }
+
+  .messagePanel,
+  .consultationPanel {
+    padding: 2.4rem;
+  }
+
+  .messagePanel h2,
+  .consultationPanel h2 {
+    font-size: 2.8rem;
+  }
+
+  .formRow {
+    grid-template-columns: 1fr;
+  }
+
+  .calendarBox {
+    padding: 1.6rem;
+  }
+
+  .calendarGrid {
+    gap: .45rem;
+  }
+
+  .calendarDates button {
+    font-size: 1.2rem;
+  }
+
+  .timeGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .contactReach {
+    padding: 5rem 5%;
+  }
+
+  .contactBottomCta {
+    flex-direction: column;
+    padding: 2.6rem 2.2rem;
+  }
+
+  .contactBottomBtn {
+    width: 100%;
+  }
+}
+/* small mobiles */
+@media (max-width: 430px) {
+  .contactHeroContent h1 {
+    font-size: 3rem;
+  }
+
+  .contactEyebrow {
+    font-size: 1.15rem;
+  }
+
+  .messagePanel,
+  .consultationPanel {
+    padding: 2rem;
+  }
+
+  .timeGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .reachItem {
+    align-items: flex-start;
+  }
+
+  .reachIcon {
+    width: 52px;
+    height: 52px;
+    font-size: 2rem;
+  }
+
+  .contactBottomText h3 {
+    font-size: 2.4rem;
   }
 }

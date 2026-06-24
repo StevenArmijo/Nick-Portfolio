@@ -1,0 +1,13 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <title>Nick Armijo Real Estate Home Icon</title>
+  <g stroke="#D8C3A5" stroke-width="20" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M86 244L256 112L426 244"/>
+    <path d="M124 228V414H388V228"/>
+    <path d="M172 260L256 196L340 260"/>
+    <path d="M194 250V374H318V250"/>
+    <path d="M232 374V306H280V374"/>
+    <path d="M124 414H80V270"/>
+    <path d="M388 414H432V270"/>
+    <path d="M72 414H440"/>
+  </g>
+</svg>
