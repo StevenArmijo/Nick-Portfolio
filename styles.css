@@ -41,20 +41,7 @@ header {
   justify-content: space-between;
   align-items: center;
   z-index: 1000;
-
-}
-
-header::before {
-  content: "";
-
-  position: absolute;
-  inset: 0;
-
-  background:
-    linear-gradient(rgba(7, 18, 37, .65),
-      transparent);
-
-  z-index: -1;
+  transition: padding .25s ease, background .25s ease, box-shadow .25s ease;
 }
 
 #menu-icon {
@@ -64,14 +51,20 @@ header::before {
 }
 
 header.scrolled {
-  height: 70px;
+  padding: 1rem 3rem;
 
-  background: rgba(248, 244, 238, .95);
+  background: var(--second-bg-color);
 
   box-shadow:
     0 10px 30px rgba(0, 0, 0, .08);
 }
+header.scrolled .logo {
+  font-size: 1.6rem;
+}
 
+header.scrolled .dreNumber {
+  font-size: .9rem;
+}
 .logo {
   font-size: 2rem;
   font-family: "Playfair Display", Arial, Helvetica, sans-serif;
@@ -86,7 +79,10 @@ header.scrolled {
   transition: .3s ease-in-out;
 
 }
-
+.logo,
+.dreNumber {
+  transition: font-size .25s ease, transform .25s ease;
+}
 .logoSpan {
   color: var(--accentcolor);
 }
@@ -198,7 +194,7 @@ section {
 /* /////////////IMG AND SOCIAL/////////// */
 
 .homeImg {
-  width: 360px;
+  width:  360px;
   height: 360px;
   border-radius: 50%;
   aspect-ratio: 1 / 1;
@@ -403,7 +399,7 @@ h2 i {
   border-radius: 50%;
   object-fit: cover;
   margin-left: -8px;
-  border: 2px solid #0B132B;
+  border: 1px solid #0B132B;
 }
 
 .clientFaces img:first-child {
@@ -930,6 +926,85 @@ footer {
   display: flex;
   gap: 2rem;
 }
+/* //////////////MODAL///////////// */
+.contactModal {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.contactModal.active {
+  display: flex;
+}
+
+.modalOverlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(7, 18, 37, 0.72);
+}
+
+.modalBox {
+  position: relative;
+  z-index: 2;
+
+  width: min(100%, 520px);
+  padding: 3rem;
+  border-radius: 18px;
+
+  background: var(--second-bg-color);
+  border: 1px solid rgba(30, 41, 59, 0.16);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.28);
+}
+
+.modalClose {
+  position: absolute;
+  top: 1.4rem;
+  right: 1.4rem;
+
+  border: none;
+  background: transparent;
+  font-size: 2rem;
+  color: var(--text-color);
+  cursor: pointer;
+}
+
+.modalBox h2 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.modalBox p {
+  font-family: "Google Sans", sans-serif;
+  font-size: 1.5rem;
+  color: #475569;
+  margin-bottom: 2rem;
+}
+
+.modalForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.modalForm input,
+.modalForm textarea {
+  width: 100%;
+  padding: 1.4rem 1.6rem;
+  border-radius: 8px;
+  border: 1px solid rgba(30, 41, 59, 0.18);
+  font-family: "Google Sans", sans-serif;
+  font-size: 1.45rem;
+}
+
+.modalForm textarea {
+  min-height: 130px;
+  resize: vertical;
+}
 
 /* ///////////////POINT BREAKS////////// */
 /* LAPTOPS AND LARGE TABLETS */
@@ -994,17 +1069,45 @@ footer {
   header {
     padding: 2rem 6%;
   }
-
+  header.scrolled {
+    padding: 1.2rem 6%;
+  }
   #menu-icon {
     display: block;
     cursor: pointer;
   }
 
-  .navbar,
   .contactBtn {
     display: none;
   }
+  .navbar {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
 
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+
+    background: var(--second-bg-color);
+    padding: 2rem 6%;
+
+    opacity: 0;
+    transform: translateY(-12px);
+    pointer-events: none;
+
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+  .navbar.active {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  .navbar.active a {
+    margin-left: 0; 
+  }
   .home {
     flex-direction: column;
     align-items: center;
@@ -1190,7 +1293,12 @@ footer {
     max-width: 100%;
     padding: 0;
   }
-
+  .socialEyebrow{
+    display: none;
+  }
+  .callOut{
+    font-size: 2.2rem;
+  }
   .homeImg {
     width:  100%;
     height: 100%;
@@ -1198,12 +1306,15 @@ footer {
   }
 
   .socialIcons a {
-    width: 4rem;
-    height: 4rem;
+    width:  6rem;
+    height: 6rem;
     padding: 0;
     margin: 0;
     font-size: 2rem;
   }
+ .socialIcons a i {
+  font-size: 2.2rem;
+ }
 }
 
 /* CLIENT PROOF */
@@ -1229,6 +1340,10 @@ footer {
     background-size: cover;
     background-position: center;
   }
+  .navbar.active a {
+    margin-left: 0;
+  }
+
 }
 
 /* SMALLER PHONES */
@@ -1300,6 +1415,9 @@ footer {
     margin: 0;
     font-size: 1.9rem;
     flex-shrink: 0;
+  }
+  .navbar.active a {
+    margin-left: 0;
   }
 }
 
