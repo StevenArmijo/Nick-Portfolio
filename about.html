@@ -33,7 +33,7 @@
       <a href="index.html#contact">Contact</a>
     </nav>
 
-    <a href="contact.html" class="contactBtn">Contact Me</a>
+    <a href="contact.html" class="contactBtn" data-open-modal>Contact Me</a>
     <i class="fa-solid fa-bars" id="menu-icon"></i>
   </header>
   <main>
@@ -119,8 +119,8 @@
       
         <div class="areasGrid">
           <article class="areaCard">
-            <img src="assets/images/backgrounds/lancasterr.webp" alt="Lancaster, California">
-            <h3>Lancaster</h3>
+            <img src="assets/images/backgrounds/LAbackground.webp" alt="Los Angeles, California">
+            <h3>Los Angeles</h3>
           </article>
       
           <article class="areaCard">
@@ -134,8 +134,8 @@
           </article>
       
           <article class="areaCard">
-            <img src="assets/images/backgrounds/quartzhill.webp" alt="Quartz Hill, California">
-            <h3>Quartz Hill</h3>
+            <img src="assets/images/backgrounds/lancasterr.webp" alt="Lancaster, California">
+            <h3>Lancaster</h3>
           </article>
         </div>
       </section>
@@ -208,10 +208,29 @@
                 <a href="#">Terms of Service</a>
             </div>
         </section>
-    
     </footer>
-
   </main>
+  <div class="contactModal" id="contactModal">
+    <div class="modalOverlay" data-close-modal></div>
+
+    <div class="modalBox">
+        <button class="modalClose" type="button" data-close-modal>
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <h2>Let’s Talk</h2>
+        <p>Send a quick message and I’ll get back to you soon.</p>
+
+        <form class="modalForm">
+            <input type="text" placeholder="Full Name">
+            <input type="tel" id="phone" name="phone" placeholder="Phone">
+            <input type="email" placeholder="Email Address">
+            <textarea placeholder="How can I help?"></textarea>
+
+            <button type="submit" class="primary-btn">Send Message</button>
+        </form>
+    </div>
+</div>
   <script src="script.js"></script>
 </body>
 

@@ -1388,6 +1388,7 @@ footer {
   }
 
   .homeImg {
+    margin-top: 1.2rem;
     width: 250px;
     height: 250px;
     margin-bottom: 1rem;
@@ -1407,10 +1408,14 @@ footer {
     flex-wrap: nowrap;
     margin-top: 0;
   }
+  
+ .socialIcons a i {
+  font-size: 2.8rem;
+ }
 
   .socialIcons a {
-    width: 3.8rem;
-    height: 3.8rem;
+    width:  6rem;
+    height: 6rem;
     padding: 0;
     margin: 0;
     font-size: 1.9rem;
@@ -1687,7 +1692,7 @@ footer {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center bottom;
+  object-position: center top;
   display: block;
   filter: brightness(.72);
 }
@@ -2070,18 +2075,41 @@ footer {
   margin-top: 2rem;
   
 }
-
-.feedbackDots span {
+.feedbackDot {
   width: .8rem;
   height: .8rem;
-  border-radius: 50%;
-  background: var(--hovercolor);
+  border: none;
+  border-radius: 999px;
+  background: #cbd5e1;
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
 }
 
-.feedbackDots span:first-child {
-  width: 3rem;
-  border-radius: 999px;
+.feedbackDot.active {
+  width: 3.5rem;
+  background: rgba(214, 162, 79, 0.25);
+}
+
+.feedbackDot.active::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: 0%;
   background: var(--hovercolor);
+  border-radius: inherit;
+
+  animation: feedbackProgress 5s linear forwards;
+}
+
+@keyframes feedbackProgress {
+  from {
+    width: 0%;
+  }
+
+  to {
+    width: 100%;
+  }
 }
 
 .faqItem {
@@ -3132,7 +3160,7 @@ footer {
 @media (max-width: 900px) {
   .contactHero {
     min-height: 50vh;
-    background-position: center;
+    background-position: center top;
   }
 
   .contactHeroContent {
@@ -3167,6 +3195,7 @@ footer {
 @media (max-width: 600px) {
   .contactHero {
     min-height: 48vh;
+    background-position: center top;
   }
 
   .contactHeroContent h1 {
@@ -3229,7 +3258,9 @@ footer {
   .contactHeroContent h1 {
     font-size: 3rem;
   }
-
+.contactHero {
+  background-position: center top;
+}
   .contactEyebrow {
     font-size: 1.15rem;
   }
