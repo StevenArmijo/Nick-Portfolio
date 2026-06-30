@@ -2111,8 +2111,7 @@ footer {
     width: 100%;
   }
 }
-
-.faqItem {
+.faqQuestion {
   width: 100%;
   border: 1px solid #e2e8f0;
   background: #ffffff;
@@ -2130,18 +2129,42 @@ footer {
   cursor: pointer;
 }
 
-.faqItem + .faqItem {
-  margin-top: 1rem;
+.faqAnswer {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height .3s ease, opacity .3s ease;
 }
 
+.faqAnswer p {
+  padding: 1.4rem 1.8rem;
+  font-family: "Google Sans", sans-serif;
+  font-size: 1.45rem;
+  line-height: 1.6;
+  color: #475569;
+}
+
+.faqItem.active .faqAnswer {
+  max-height: 180px;
+  opacity: 1;
+}
+
+.faqItem.active .faqQuestion i {
+  transform: rotate(180deg);
+}
 .faqItem i {
   color: var(--hovercolor);
   flex-shrink: 0;
 }
 
+.serviceBottomSection {
+  background: var(--second-bg-color);
+  padding: 0 8% 6rem;
+}
+
 .serviceBottomCta {
   display: grid;
-  grid-template-columns: 0.75fr 1.5fr;
+  grid-template-columns: 1fr 1.35fr;
   overflow: hidden;
   border-radius: 18px;
   background: #ffffff;
@@ -2150,8 +2173,10 @@ footer {
 .serviceBottomCta img {
   width: 100%;
   height: 100%;
-  min-height: 220px;
+  min-height: 260px;
   object-fit: cover;
+  object-position: center;
+  display: block;
 }
 
 .serviceBottomCtaContent {
@@ -2234,6 +2259,9 @@ footer {
     width: 100%;
     justify-content: center;
   }
+  .serviceBottomSection {
+    padding: 0 6% 5rem;
+  }
   .trustIntroGrid,
   .trustContentGrid,
   .serviceBottomCta {
@@ -2304,7 +2332,9 @@ footer {
   .faqBox {
     padding: 2.4rem;
   }
-
+  .serviceBottomSection {
+    padding: 0 5% 4rem;
+  }
   .serviceBottomCtaContent {
     padding: 3rem 2.4rem;
   }
@@ -2818,7 +2848,20 @@ footer {
   min-height: 150px;
   resize: vertical;
 }
+.formMessage {
+  font-family: "Google Sans", sans-serif;
+  font-size: 1.35rem;
+  text-align: center;
+  min-height: 1.8rem;
+}
 
+.formMessage.error {
+  color: #dc2626;
+}
+
+.formMessage.success {
+  color: #16a34a;
+}
 .formGroup input:focus,
 .formGroup select:focus,
 .formGroup textarea:focus {
@@ -2971,6 +3014,7 @@ footer {
   gap: 1rem;
 }
 
+
 .timeGrid button {
   padding: 1.2rem;
   border-radius: 8px;
@@ -2981,6 +3025,11 @@ footer {
   font-size: 1.35rem;
   color: var(--text-color);
   cursor: pointer;
+}
+.timeGrid button.selectedTime {
+  background: #d6a24f;
+  color: #111827;
+  border-color: #d6a24f;
 }
 
 .timeGrid button:hover {
@@ -3005,6 +3054,30 @@ footer {
   letter-spacing: .08em;
   cursor: pointer;
 }
+.appointmentMessage.error,
+.appointmentMessage.success {
+  padding: 1rem 1.2rem;
+  border-radius: 8px;
+}
+
+.appointmentMessage {
+  min-height: 2rem;
+  margin-top: 1.4rem;
+
+  font-family: "Google Sans", sans-serif;
+  font-size: 1.35rem;
+  line-height: 1.4;
+  text-align: center;
+}
+
+.appointmentMessage.error {
+  color: #dc2626;
+}
+
+.appointmentMessage.success {
+  color: #16a34a;
+}
+
 /* //////////////Contact Section/////////// */
 .contactReach {
   background: var(--second-bg-color);
