@@ -2991,7 +2991,9 @@ footer {
   color: var(--text-color);
   cursor: pointer;
 }
-
+.emptyDate {
+  aspect-ratio: 1;
+}
 .calendarDates button:hover,
 .calendarDates .selectedDate {
   background: #d6a24f;

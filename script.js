@@ -162,7 +162,7 @@ if (contactForm && formMessage) {
     const interest = document.querySelector("#interest").value;
     const message = document.querySelector("#message").value.trim();
 
-    if(!fullName || !email || !phone) {
+    if (!fullName || !email || !phone) {
       formMessage.textContent = "Please fill out your name, email, and phone number please.";
       formMessage.classList.add("error");
       formMessage.classList.remove("success");
@@ -174,14 +174,14 @@ if (contactForm && formMessage) {
       formMessage.classList.remove("success");
       return;
     }
-      const contactData = {
-        fullName,
-        email,
-        phone,
-        interest,
-        message
-      };
-      console.log(contactData);
+    const contactData = {
+      fullName,
+      email,
+      phone,
+      interest,
+      message
+    };
+    console.log(contactData);
 
     formMessage.textContent = "Thank you, will get back to you as soon as possible";
     formMessage.classList.add("success");
@@ -189,8 +189,8 @@ if (contactForm && formMessage) {
 
     contactForm.reset();
 
-    });
-  }
+  });
+}
 
 // ///////////CALENDAR LOGIC ///////////////
 
@@ -204,56 +204,154 @@ let selectedTime = null;
 
 
 if (dateButtons.length && timeButtons.length && bookAppointmentBtn && appointmentMessage) {
-dateButtons.forEach((button) => {
-  button.addEventListener("click", () => {
-    dateButtons.forEach((date) => {
-      date.classList.remove("selectedDate");
+  dateButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      dateButtons.forEach((date) => {
+        date.classList.remove("selectedDate");
+      });
+
+      button.classList.add("selectedDate");
+      selectedDate = button.textContent.trim();
+
+      console.log("Selected date:", selectedDate);
     });
-
-    button.classList.add("selectedDate");
-    selectedDate = button.textContent.trim();
-
-    console.log("Selected date:", selectedDate);
   });
-});
 
-timeButtons.forEach((button) => {
-  button.addEventListener("click", () => {
-    timeButtons.forEach((time) => {
-      time.classList.remove("selectedTime");
+  timeButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      timeButtons.forEach((time) => {
+        time.classList.remove("selectedTime");
+      });
+
+      button.classList.add("selectedTime");
+      selectedTime = button.textContent.trim();
+
+      console.log("Selected time:", selectedTime);
     });
-
-    button.classList.add("selectedTime");
-    selectedTime = button.textContent.trim();
-
-    console.log("Selected time:", selectedTime);
   });
-});
 
-bookAppointmentBtn.addEventListener(("click"), () => {
-  if(!selectedDate || !selectedTime) {
-    appointmentMessage.textContent = "Please select an available time and day";
-    appointmentMessage.classList.add("error");
-    appointmentMessage.classList.remove("success");
+  bookAppointmentBtn.addEventListener(("click"), () => {
+    if (!selectedDate || !selectedTime) {
+      appointmentMessage.textContent = "Please select an available time and day";
+      appointmentMessage.classList.add("error");
+      appointmentMessage.classList.remove("success");
 
-    return;
-  }
-    
-    appointmentMessage.textContent = 
-    `Appointment selected for June ${selectedDate}, 2026 at ${selectedTime}.`;
+      return;
+    }
+
+    appointmentMessage.textContent =
+      `Appointment selected for June ${selectedDate}, 2026 at ${selectedTime}.`;
 
     appointmentMessage.classList.add("success");
     appointmentMessage.classList.remove("error");
 
-  const appointmentData = {
-    month: "June",
-    year: 2026,
-    day: selectedDate,
-    time: selectedTime
-  };
-  console.log(appointmentData);
-});
+    const appointmentData = {
+      month: "June",
+      year: 2026,
+      day: selectedDate,
+      time: selectedTime
+    };
+    console.log(appointmentData);
+  });
 };
 
+//Calendar Logic RENDERING DATES ///
+// Current month/year
+// Render days for that month
+// Go to previous month
+// Go to next month
+// Select a date
+// Select a time
+// Build appointmentData
+
+// Create currentMonthDate = new Date()
+let currentMonthDate = new Date();
+console.log("Current calendar month:", currentMonthDate);
+// Select:
+// - month label
+// - calendar dates container
+// - prev button
+// - next button
+
+const calendarMonthLabel = document.querySelector(".calendarMonthLabel");
+const calendarDates = document.querySelector(".calendarDates");
+const prevMonthBtn = document.querySelector(".prevMonthBtn");
+const nextMonthBtn = document.querySelector(".nextMonthBtn");
+
+// create renderCalendar():
+// - get current year
+// - get current month
+// - update month label
+// - clear calendar dates container
+
+function renderCalendar() {
+  const year = currentMonthDate.getFullYear();
+  const month = currentMonthDate.getMonth();
+
+  const monthName = currentMonthDate.toLocaleDateString("default", {
+    month: "long"
+  });
+  calendarMonthLabel.textContent = `${monthName} ${year}`;
+
+  // - find first day of month
+  // - find total days in month
+  // - add empty spaces before day 1
+  // - loop from day 1 to total days
+
+  const firstDayOfMonth = new Date(year, month, 1).getDay();
+  const totalDaysInMonth = new Date(year, month + 1, 0).getDate();
+
+  console.log("Rendering:", monthName, year);
+  console.log("Year:", year);
+  console.log("Month:", month + 1);
+  console.log("First day of month:", firstDayOfMonth);
+  console.log("Total days in month:", totalDaysInMonth);
+  // - create button for each day
+  // - add click event to each day
+  // - append button to calendar dates container
+  calendarDates.innerHTML = "";
+  for (let i = 0; i < firstDayOfMonth; i++) {
+    const emptySpace = document.createElement("span");
+    emptySpace.classList.add("emptyDate");
+    calendarDates.appendChild(emptySpace);
+  }
+
+  for (let day = 1; day <= totalDaysInMonth; day++) {
+    const dayButton = document.createElement("button");
+
+    dayButton.type = "button";
+    dayButton.textContent = day;
+
+    dayButton.addEventListener("click", () => {
+      const allDateButtons = calendarDates.querySelectorAll("button");
+
+      allDateButtons.forEach((button) => {
+        button.classList.remove("selectedDate");
+      });
+
+      dayButton.classList.add("selectedDate");
+      selectedDate = day;
+
+      console.log("Selected date", selectedDate);
+
+    });
+    calendarDates.appendChild(dayButton);
+   }
 
 
+}
+
+renderCalendar();
+
+
+
+
+// prev button click:
+// - subtract 1 from current month
+// - renderCalendar()
+
+// next button click:
+// - add 1 to current month
+// - renderCalendar()
+
+// call renderCalendar() once when page loads
