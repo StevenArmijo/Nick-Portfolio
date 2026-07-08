@@ -459,6 +459,7 @@ h2 i {
 .listingImg img {
   width: 100%;
   object-fit: cover;
+  object-position: center 20%;
   height: 180px;
   display: block;
 }
@@ -3361,5 +3362,649 @@ footer {
 
   .contactBottomText h3 {
     font-size: 2.4rem;
+  }
+}
+
+
+/* ////////////////// LISTINGS PAGE ////////////////// */
+
+.listingsHeroPage {
+  position: relative;
+  min-height: 40vh;
+  padding-top: 9rem;
+
+  background-image: url("assets/images/backgrounds/LAbackground.webp");
+  background-size: cover;
+  background-position: 80% top;
+
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.listingsHeroOverlay {
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(7, 18, 37, 0.92) 0%,
+      rgba(7, 18, 37, 0.78) 45%,
+      rgba(7, 18, 37, 0.38) 100%
+    );
+}
+
+.listingsHeroContent {
+  position: relative;
+  z-index: 2;
+  max-width: 760px;
+  padding: 4rem 8% 4.5rem;
+  color: var(--mainaboutcolor);
+}
+
+.listingsEyebrow {
+  font-family: "Google Sans", sans-serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: #d6a24f;
+  margin-bottom: 2rem;
+}
+
+.listingsHeroContent h1 {
+  font-size: clamp(4rem, 7vw, 7rem);
+  line-height: 1;
+  margin-bottom: 2rem;
+}
+
+.listingsAccentLine {
+  display: block;
+  width: 7rem;
+  height: 2px;
+  background: #d6a24f;
+  margin-bottom: 2.4rem;
+}
+
+.listingsHeroContent > p:last-child {
+  max-width: 560px;
+  margin-top: 5rem;
+  font-family: "Google Sans", sans-serif;
+  font-size: 1.7rem;
+  line-height: 1.6;
+  color: #e2e8f0;
+}
+/* ///////LISTINGS SECTION/////// */
+.listingsPageSection {
+  background: var(--second-bg-color);
+  padding: 6rem 8% 3rem;
+}
+
+.listingsPageHeader {
+  margin-bottom: 3.5rem;
+}
+
+.listingsPageHeader h2 {
+  font-size: 3rem;
+  color: var(--text-color);
+  margin-bottom: .8rem;
+}
+
+.listingsPageHeader p {
+  font-family: "Google Sans", sans-serif;
+  font-size: 1.6rem;
+  
+  color: #475569;
+}
+
+.listingsPageGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3.6rem;
+  column-gap: 4rem;
+  row-gap: 6rem;
+}
+
+.listingsPageGrid .listingCard {
+  height: 100%;
+}
+.listingCardButton {
+  width: 100%;
+  border: 1px solid var(--accentcolor);
+  text-align: left;
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
+  padding: 0;
+}
+
+.listingsPageGrid .listingImg img {
+  height: 220px;
+}
+.pendingTag {
+  background: #d6a24f;
+  color: #111827;
+}
+
+.closedTag {
+  background: #475569;
+  color: #f8fafc;
+}
+.listingCard.closedListing {
+  opacity: .82;
+}
+
+.listingsContact {
+  background: var(--second-bg-color);
+  padding: 0 8% 6rem;
+}
+
+.listingsContactCta {
+  min-height: 180px;
+  padding: 4rem 5rem;
+  border-radius: 16px;
+}
+.listingsContactCta .contactBottomIcon img {
+  width: 72px;
+  height: 72px;
+}
+
+.listingsContactCta .contactBottomText h3 {
+  color: rgb(216, 195, 165);
+  font-size: 3.2rem;
+  margin-bottom: 1rem;
+}
+
+.listingsContactCta .contactBottomText p {
+  font-size: 1.6rem;
+  line-height: 1.5;
+}
+
+.listingsContactCta .contactBottomBtn {
+  
+  padding: 1.5rem 4rem;
+}
+
+
+/*//////////// modal styling ///////////*/
+.listingModal {
+  position: fixed;
+  inset: 0;
+  z-index: 3000;
+
+  display: none;
+  place-items: center;
+  align-items: center;
+  justify-content: center;
+
+  padding: 2rem;
+}
+
+.listingModal.active {
+  display: grid;
+}
+
+.listingModalOverlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(7, 18, 37, 0.72);
+}
+
+.listingModalBox {
+  position: relative;
+  z-index: 2;
+
+  width: min(90%, 960px);
+  max-height: 92vh;
+  overflow-y: auto;
+
+  padding: 3rem;
+  border-radius: 14px;
+
+  background: var(--second-bg-color);
+  color: var(--text-color);
+  box-shadow: 0 28px 90px rgba(0, 0, 0, 0.32);
+}
+
+.listingModalClose {
+  position: absolute;
+  top: 1.8rem;
+  right: 1.8rem;
+
+  width: 4rem;
+  height: 4rem;
+  border: none;
+  border-radius: 50%;
+
+  background: #ffffff;
+  color: var(--text-color);
+  font-size: 2rem;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.16);
+}
+
+.listingModalGrid {
+  display: grid;
+  grid-template-columns: 1.55fr 0.8fr;
+  gap: 3rem;
+}
+
+.listingModalImageWrap {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  margin-bottom: 2.4rem;
+}
+
+.listingModalImage {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  display: block;
+}
+
+.listingModalStatus {
+  position: absolute;
+  top: 1.6rem;
+  left: 1.6rem;
+
+  padding: .7rem 1rem;
+  border-radius: 6px;
+
+  background: var(--contactcolor);
+  color: var(--mainaboutcolor);
+
+  font-family: "Google Sans", sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.galleryCount {
+  position: absolute;
+  right: 1.6rem;
+  bottom: 1.6rem;
+
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+
+  border: none;
+  border-radius: 6px;
+  padding: .7rem 1rem;
+
+  background: rgba(7, 18, 37, 0.82);
+  color: #ffffff;
+
+  font-family: "Google Sans", sans-serif;
+  font-size: 1.3rem;
+}
+
+.listingModalPrice {
+  font-size: 3.6rem;
+  margin-bottom: .6rem;
+}
+
+.listingModalAddress {
+  font-family: "Google Sans", sans-serif;
+  font-size: 2rem;
+  color: #334155;
+  margin-bottom: 2.4rem;
+}
+
+.listingModalStats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.6rem;
+
+  padding: 2rem 0;
+  border-top: 1px solid rgba(30, 41, 59, 0.12);
+  border-bottom: 1px solid rgba(30, 41, 59, 0.12);
+}
+
+.listingModalStats div {
+  text-align: center;
+  font-family: "Google Sans", sans-serif;
+}
+
+.listingModalStats i {
+  color: #b8872f;
+  font-size: 1.8rem;
+  margin-bottom: .6rem;
+}
+
+.listingModalStats strong {
+  display: block;
+  font-size: 1.7rem;
+  color: var(--text-color);
+}
+
+.listingModalStats span {
+  display: block;
+  margin-top: .4rem;
+  font-size: 1.25rem;
+  color: #64748b;
+}
+
+.modalSection {
+  padding: 2.6rem 0;
+  border-bottom: 1px solid rgba(30, 41, 59, 0.12);
+}
+
+.modalSection h3 {
+  font-size: 2rem;
+  margin-bottom: 1.2rem;
+}
+
+.listingModalDescription {
+  font-family: "Google Sans", sans-serif;
+  font-size: 1.55rem;
+  line-height: 1.7;
+  color: #334155;
+}
+
+.listingModalHighlights {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem 2rem;
+  list-style: none;
+}
+
+.listingModalHighlights li {
+  font-family: "Google Sans", sans-serif;
+  font-size: 1.45rem;
+  color: #334155;
+}
+
+.listingModalHighlights li::before {
+  content: "✓";
+  color: #b8872f;
+  margin-right: .8rem;
+}
+
+.listingModalSidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border-radius: 10px;
+  overflow: hidden;
+  background: rgba(243, 237, 227, 0.72);
+}
+
+.tourBox,
+.questionBox,
+.shareBox {
+  padding: 3rem;
+  border-bottom: 1px solid rgba(30, 41, 59, 0.1);
+}
+
+.tourBox {
+  text-align: center;
+}
+
+.sidebarIcon {
+  width: 5.8rem;
+  height: 5.8rem;
+  margin: 0 auto 1.6rem;
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #ffffff;
+  color: #b8872f;
+  font-size: 2.4rem;
+}
+
+.listingModalSidebar h3 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.listingModalSidebar p,
+.listingModalSidebar a {
+  font-family: "Google Sans", sans-serif;
+  font-size: 1.45rem;
+  line-height: 1.6;
+}
+
+.tourBox .primary-btn,
+.tourBox .secondary-btn {
+  width: 100%;
+  margin-top: 1.4rem;
+}
+
+.questionBox a {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: var(--text-color);
+  margin-top: 1.4rem;
+}
+
+.questionBox i {
+  color: #b8872f;
+}
+
+.shareLinks {
+  display: flex;
+  gap: 1rem;
+}
+
+.shareLinks a,
+.shareLinks button {
+  width: 4rem;
+  height: 4rem;
+  border: none;
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #ffffff;
+  color: var(--text-color);
+  cursor: pointer;
+}
+
+.modalDisclaimer {
+  margin-top: 2.4rem;
+  text-align: center;
+  font-family: "Google Sans", sans-serif;
+  font-size: 1.2rem;
+  color: #64748b;
+}
+
+/* //////////LISTINGS MOBILE LAYOUT/////// */
+/* Laptops and BIG SCREENS */
+@media (max-width: 1100px) {
+  .listingsPageSection {
+    padding: 5rem 6% 3rem;
+  }
+  .listingsHeroPage {
+    background-position: center  0%;
+  }
+
+  .listingsPageGrid {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 3rem;
+    row-gap: 4rem;
+  }
+
+  .listingsHeroContent {
+    padding-left: 6%;
+    padding-right: 6%;
+  }
+}
+
+/* ///Tablet and Mobile///// */
+@media (max-width: 900px) {
+  .listingsHeroPage {
+    min-height: 36vh;
+    padding-top: 8rem;
+      background-size: 175%;
+      background-position: center top;
+  }
+
+  .listingsHeroContent h1 {
+    font-size: 4.4rem;
+  }
+
+  .listingsHeroContent > p:last-child {
+    margin-top: 2rem;
+  }
+
+  .listingsPageGrid {
+    grid-template-columns: 1fr;
+    max-width: 560px;
+    margin: 0 auto;
+  }
+
+  .listingsContact {
+    padding: 0 6% 5rem;
+  }
+
+  .listingsContactCta {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    column-gap: 1.6rem;
+    row-gap: 2rem;
+  }
+
+  .listingsContactCta .contactBottomIcon {
+    grid-column: 1;
+  }
+
+  .listingsContactCta .contactBottomText {
+    grid-column: 2;
+  }
+
+  .listingsContactCta .contactBottomBtn {
+    grid-column: 1 / -1;
+    width: 100%;
+  }
+
+  .listingModalGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .listingModalBox {
+    width: min(94vw, 720px);
+    max-height: 90vh;
+    padding: 2.4rem;
+  }
+  .listingsPageGrid .listingImg img {
+    height: 400px;
+  }
+  .listingModalImage {
+    height: 400px;
+  }
+}
+/* /////SMALL PHONES///// */
+@media (max-width: 600px) {
+  .listingsHeroPage {
+    min-height: 34vh;
+    background-position: center top;
+    background-size: 190%;
+    background-repeat: no-repeat;
+    background-color: var(--contactcolor);
+  }
+
+  .listingsHeroContent {
+    padding: 3.5rem 5%;
+  }
+
+  .listingsHeroContent h1 {
+    font-size: 3.4rem;
+  }
+
+  .listingsEyebrow {
+    font-size: 1.15rem;
+  }
+
+  .listingsPageSection {
+    padding: 2.5rem 5% 2.5rem;
+  }
+
+  .listingsPageHeader {
+    margin-bottom: 2rem;
+  }
+
+  .listingsPageHeader h2 {
+    font-size: 2.5rem;
+  }
+
+  .listingsPageGrid {
+    row-gap: 3rem;
+  }
+
+  .listingsPageGrid .listingImg {
+    aspect-ratio: 16 / 10;
+  }
+
+  .listingsPageGrid .listingImg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .listingDetails {
+    flex-wrap: wrap;
+    row-gap: .8rem;
+  }
+
+  .listingsContactCta .contactBottomText h3 {
+    font-size: 2.4rem;
+  }
+
+  .listingModal {
+    padding: 1rem;
+  }
+
+  .listingModalBox {
+    padding: 1.8rem;
+  }
+
+  .listingModalImage {
+    height: 200px;
+  }
+
+  .listingModalStats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .listingModalHighlights {
+    grid-template-columns: 1fr;
+  }
+
+  .listingModalPrice {
+    font-size: 2.7rem;
+  }
+}
+/* ////VERI Small Phones ///// */
+@media (max-width: 430px) {
+  .listingsHeroPage {
+    background-size: 300%;
+    background-position: center top;
+  }
+  .listingsHeroContent h1 {
+    font-size: 3rem;
+  }
+
+  .listingsAccentLine {
+    margin-bottom: 1.6rem;
+  }
+
+  .listingModalImage {
+    height: 190px;
+  }
+
+  .tourBox,
+  .questionBox,
+  .shareBox {
+    padding: 2.2rem;
   }
 }

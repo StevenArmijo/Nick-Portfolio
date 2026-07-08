@@ -350,4 +350,86 @@ if (
   renderCalendar();
 }
 
+// >>>>>>>>>>MODAL FOR LISTINGS PAGE>>>>>>>>>>
+
+// select all the listingsCard
+// add event listener to the data-listing-Id
+// when clicked unclick all the other listings and activate modal
+// display the array that is inputed into javascript and present that with each data-list-id
+
+// what ai gave me (notice unclick all the other functions was removed)
+
+// 1. Select all listing cards
+// 2. Select the listing modal
+// 3. Create listing data in JavaScript
+// 4. Add a click event to each listing card
+// 5. When a card is clicked, get its data-listing-id
+// 6. Use that id to find the matching listing data
+// 7. Put that listing data into the modal
+// 8. Open the modal
+const listingData = {
+  "horace-st": {
+    price: "$959,00",
+    address: "15708 Horace St",
+    city: "Granada Hills, CA 91344",
+    beds: "3",
+    baths: "2",
+    sqft: "1,400",
+    year: "-",
+    status: "For Sale",
+    image: "assets/images/listings/15708 Horace Listing.webp",
+    description: "Updated Granada Hills home with pool, privacy, and major upgrades! This move-in-ready 3-bedroom, 2-bathroom home features high-value improvements including NEW plumbing, flooring, and a beautifully remodeled bathroom. Enjoy great curb appeal with low-maintenance artificial turf in the front yard, plus added privacy and safety with new redwood fencing and a secure pool enclosure. Inside, the home offers an open, sun-filled living space, while the backyard is perfect for entertaining and summer gatherings. Ideally located on a quiet street, this home is commuter-friendly with easy access to the 118, 405, and 5 freeways. Conveniently close to Brand Park, the San Fernando Mission Museum, shopping, dining, and more. Situated near well-regarded schools including Haskell Elementary and John F. Kennedy High School. This home offers the perfect balance of comfort, privacy, and convenience--a true move-in-ready gem you won't want to miss!",
+    highlights: [
+      "Has fireplace",
+      "Has Cooling",
+      "Includes, Gas Oven, Gas Range, Microwave",
+      "Pool In Ground",
+      "Move in Ready!"
+    ]
+  }
+}
+
+const listingCards = document.querySelectorAll(".listingCardButton");
+const modalImage = document.querySelector(".listingModalImage");
+const modalStatus = document.querySelector(".listingModalStatus");
+const modalPrice = document.querySelector(".listingModalPrice");
+const modalAddress = document.querySelector(".listingModalAddress");
+const modalBeds = document.querySelector(".modalBeds");
+const modalBaths = document.querySelector(".modalBaths");
+const modalSqft = document.querySelector(".modalSqft");
+const modalYear = document.querySelector(".modalYear");
+const modalDescription = document.querySelector(".listingModalDescription");
+const modalHighlights = document.querySelector(".listingModalHighlights");
+const listingModal = document.querySelector("#listingModal")
+
+listingCards.forEach((card) => {
+  card.addEventListener("click", () => {
+    const listingId = card.dataset.listingId;
+    const listing = listingData[listingId];
+
+    console.log(listingId);
+    console.log(listing);
+    modalPrice.textContent = listing.price;
+    modalAddress.textContent = `${listing.address}, ${listing.city}`;
+    modalBeds.textContent = listing.beds;
+    modalBaths.textContent = listing.baths;
+    modalSqft.textContent = listing.sqft;
+    modalYear.textContent = listing.year;
+    modalStatus.textContent = listing.status;
+    modalDescription.textContent = listing.description;
+    modalHighlights.innerHTML = "";
+
+    listing.highlights.forEach((highlight) => {
+      const li = document.createElement("li");
+      li.textContent = highlight;
+      modalHighlights.appendChild(li);
+    });
+
+    modalImage.src = listing.image;
+    modalImage.alt = listing.address;
+
+    listingModal.classList.add("active");
+
+  });
+});
 
