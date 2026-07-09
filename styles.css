@@ -3620,6 +3620,42 @@ footer {
   font-weight: 700;
   text-transform: uppercase;
 }
+.galleryPrev,
+.galleryNext {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+
+  width: 4.2rem;
+  height: 4.2rem;
+  border: none;
+  border-radius: 50%;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(7, 18, 37, 0.72);
+  color: #ffffff;
+  font-size: 1.6rem;
+
+  cursor: pointer;
+  transition: background .2s ease, transform .2s ease;
+}
+
+.galleryPrev {
+  left: 1.4rem;
+}
+
+.galleryNext {
+  right: 1.4rem;
+}
+
+.galleryPrev:hover,
+.galleryNext:hover {
+  background: rgba(214, 162, 79, 0.95);
+  transform: translateY(-50%) scale(1.08);
+}
 
 .galleryCount {
   position: absolute;
@@ -3971,7 +4007,20 @@ footer {
   .listingModalImage {
     height: 200px;
   }
+  .galleryPrev,
+  .galleryNext {
+    width: 3.6rem;
+    height: 3.6rem;
+    font-size: 1.3rem;
+  }
 
+  .galleryPrev {
+    left: .8rem;
+  }
+
+  .galleryNext {
+    right: .8rem;
+  }
   .listingModalStats {
     grid-template-columns: repeat(2, 1fr);
   }
