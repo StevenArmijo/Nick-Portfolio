@@ -570,7 +570,7 @@ const listingData = {
       "assets/images/listings/2614 Joshua Hills/joshua-hills-16.webp",
       "assets/images/listings/2614 Joshua Hills/joshua-hills-17.webp",
       "assets/images/listings/2614 Joshua Hills/joshua-hills-18.webp"
-      
+
     ],
     description: "Tucked on a spacious corner lot, this renovated home welcomes you with the kind of warmth that instantly makes everyday life feel a little slower and more enjoyable. Mornings begin with sunlight pouring through refreshed interiors, while the thoughtfully redesigned living spaces create an easy flow from room to room, balancing comfort with modern style across 1,434 square feet. With 3 bedrooms and 2 bathrooms, the home feels both intimate and functional, offering spaces that work just as well for quiet evenings as they do for lively weekends with friends and family. Beyond the front door, the story continues outdoors where over $35,000 in backyard upgrades have transformed the space into a private escape. As the sun sets, the gas firepit becomes the heart of the yard, creating the perfect setting for late-night conversations, weekend gatherings, or peaceful moments under the open sky. The corner lot provides an added sense of openness, while RV access brings flexibility for travel, recreation, or extra storage. Solar adds efficiency to everyday living, complementing the extensive interior and exterior renovations that give the entire property a polished yet welcoming feel. Every detail has been carefully considered to create a home that feels less like a listing and more like the beginning of a new chapter.",
     highlights: [
@@ -592,7 +592,30 @@ const listingData = {
     sqft: "1,529",
     year: "1986",
     status: "For Sale",
-    images: "assets/images/listings/44237 Danya Ln Listing.webp",
+    images: ["assets/images/listings/44237 Danya Ln/44237 Danya Ln Listing.webp",
+      "assets/images/listings/44237 Danya Ln/danya-ln-01.webp",
+      "assets/images/listings/44237 Danya Ln/danya-ln-02.webp",
+      "assets/images/listings/44237 Danya Ln/danya-ln-03.webp",
+      "assets/images/listings/44237 Danya Ln/danya-ln-04.webp",
+      "assets/images/listings/44237 Danya Ln/danya-ln-05.webp",
+      "assets/images/listings/44237 Danya Ln/danya-ln-06.webp",
+      "assets/images/listings/44237 Danya Ln/danya-ln-07.webp",
+      "assets/images/listings/44237 Danya Ln/danya-ln-08.webp",
+      "assets/images/listings/44237 Danya Ln/danya-ln-09.webp",
+      "assets/images/listings/44237 Danya Ln/danya-ln-10.webp",
+      "assets/images/listings/44237 Danya Ln/danya-ln-11.webp",
+      "assets/images/listings/44237 Danya Ln/danya-ln-12.webp",
+      "assets/images/listings/44237 Danya Ln/danya-ln-13.webp",
+      "assets/images/listings/44237 Danya Ln/danya-ln-14.webp",
+      "assets/images/listings/44237 Danya Ln/danya-ln-15.webp",
+      "assets/images/listings/44237 Danya Ln/danya-ln-16.webp",
+      "assets/images/listings/44237 Danya Ln/danya-ln-17.webp",
+      "assets/images/listings/44237 Danya Ln/danya-ln-18.webp",
+      "assets/images/listings/44237 Danya Ln/danya-ln-19.webp",
+      "assets/images/listings/44237 Danya Ln/danya-ln-20.webp",
+      "assets/images/listings/44237 Danya Ln/danya-ln-21.webp"
+
+    ],
     description: "Welcome to this beautifully updated home in one of West Lancaster's desirable neighborhoods, where thoughtful upgrades and modern finishes create a space that's truly move-in ready. Step inside to discover updated flooring throughout, complemented by elegant quartz countertops featured throughout the home for a clean, cohesive look. The home has been enhanced with recessed lighting and updated light fixtures, creating a bright and inviting atmosphere in every room. Major system improvements include a new A/C and furnace installed in 2022, providing year-round comfort and peace of mind. Outside, you'll appreciate the spacious 2½-car garage, offering plenty of room for vehicles, storage, a workshop, or recreational equipment. With tasteful upgrades already completed and pride of ownership evident throughout, this home is ready for its next owner to move in and enjoy.",
     highlights: [
       "Laundry in Unit",
@@ -613,7 +636,20 @@ const listingData = {
     sqft: "1,250",
     year: "1972",
     status: "Pending",
-    images: "assets/images/listings/8736 Bay Ave Listing.webp",
+    images: ["assets/images/listings/8736 Bay Ave/bay-ave-01.webp",
+      "assets/images/listings/8736 Bay Ave/bay-ave-02.webp",
+      "assets/images/listings/8736 Bay Ave/bay-ave-03.webp",
+      "assets/images/listings/8736 Bay Ave/bay-ave-04.webp",
+      "assets/images/listings/8736 Bay Ave/bay-ave-05.webp",
+      "assets/images/listings/8736 Bay Ave/bay-ave-06.webp",
+      "assets/images/listings/8736 Bay Ave/bay-ave-07.webp",
+      "assets/images/listings/8736 Bay Ave/bay-ave-08.webp",
+      "assets/images/listings/8736 Bay Ave/bay-ave-09.webp",
+      "assets/images/listings/8736 Bay Ave/bay-ave-10.webp",
+      "assets/images/listings/8736 Bay Ave/bay-ave-11.webp",
+      "assets/images/listings/8736 Bay Ave/bay-ave-12.webp",
+      "assets/images/listings/8736 Bay Ave/bay-ave-13.webp"
+    ],
     description: "Welcome to this well-maintained 3-bedroom, 2-bathroom home offering approximately 1,250 sq ft of comfortable living space. Situated on a spacious 9,583 sq ft lot, this property provides plenty of room for outdoor use, storage, or future possibilities. The home has been cared for over the years and presents a great opportunity for a buyer to move in as-is or gradually update to their personal taste. The large lot features two generously sized sheds/workshops, ideal for hobbies, storage, or workspace needs. Equipped with solar for energy efficiency, this property offers added value and long-term utility savings. Conveniently located with easy access to main roads, this home is a solid option for buyers looking for space, functionality, and potential.",
     highlights: [
       "Laundry in Unit",
@@ -641,6 +677,7 @@ const modalHighlights = document.querySelector(".listingModalHighlights");
 const listingModal = document.querySelector("#listingModal");
 const closeListingModalBtns = document.querySelectorAll("[data-close-listing-modal]");
 
+const modalImageWrap = document.querySelector(".listingModalImageWrap")
 const galleryPrev = document.querySelector(".galleryPrev");
 const galleryNext = document.querySelector(".galleryNext");
 const galleryCurrent = document.querySelector(".galleryCurrent");
@@ -648,6 +685,9 @@ const galleryTotal = document.querySelector(".galleryTotal");
 
 let currentImageIndex = 0;
 let activeListing = null;
+
+let touchStartX = 0;
+let touchEndX = 0;
 
 listingCards.forEach((card) => {
   card.addEventListener("click", () => {
@@ -687,6 +727,8 @@ closeListingModalBtns.forEach((button) => {
   button.addEventListener("click", () => {
     listingModal.classList.remove("active");
   });
+
+
 });
 
 // 1. Each listing should have an images array instead of one image
@@ -704,48 +746,67 @@ closeListingModalBtns.forEach((button) => {
 // - update galleryCurrent to currentImageIndex + 1
 // - update galleryTotal to activeListing.images.length
 
-function updateGalleryImage () {
-  if(!activeListing) {
+function updateGalleryImage() {
+  if (!activeListing) {
     return;
   }
-    modalImage.src = activeListing.images[currentImageIndex];
-    galleryCurrent.textContent = currentImageIndex + 1;
-    galleryTotal.textContent = activeListing.images.length;
-  };
 
+  modalImage.src = activeListing.images[currentImageIndex];
+  galleryCurrent.textContent = currentImageIndex + 1;
+  galleryTotal.textContent = activeListing.images.length;
+}
 
-// Next button click
-// - add 1 to currentImageIndex
-// - if currentImageIndex is greater than the last image index,
-//   reset currentImageIndex to 0
-// - call updateGalleryImage()
-galleryNext.addEventListener("click", () => {
-  if(!activeListing){
+function showNextImage() {
+  if (!activeListing) {
     return;
-  };
+  }
+
   currentImageIndex = currentImageIndex + 1;
-  if(currentImageIndex >= activeListing.images.length) {
+
+  if (currentImageIndex >= activeListing.images.length) {
     currentImageIndex = 0;
   }
-  updateGalleryImage()
-});
 
-galleryPrev.addEventListener("click", () => {
-  if(!activeListing){
+  updateGalleryImage();
+}
+
+function showPrevImage() {
+  if (!activeListing) {
     return;
-  };
+  }
+
   currentImageIndex = currentImageIndex - 1;
 
-  if(currentImageIndex < 0) {
+  if (currentImageIndex < 0) {
     currentImageIndex = activeListing.images.length - 1;
   }
-  updateGalleryImage()
+
+  updateGalleryImage();
+}
+
+galleryNext.addEventListener("click", showNextImage);
+galleryPrev.addEventListener("click", showPrevImage);
+
+modalImageWrap.addEventListener("touchstart", (event) => {
+  touchStartX = event.changedTouches[0].screenX;
+  console.log("start:", touchStartX);
 });
 
-// 4. Select next image button and previous image button
 
-// 5. When next is clicked:
-// - increase currentImageIndex by 1
+modalImageWrap.addEventListener("touchend", (event) => {
+  touchEndX = event.changedTouches[0].screenX;
+  
+  const swipeDistance = touchStartX - touchEndX;
+  const minimumSwipeDistance = 50;
+  if (swipeDistance > minimumSwipeDistance) {
+    showNextImage();
+  }
+  
+  if (swipeDistance < -minimumSwipeDistance) {
+    showPrevImage();
+  }
+  console.log("end:", touchEndX);
+});
 // - if it goes past the last image, reset to 0
 // - update modal image
 // - update gallery count
@@ -755,5 +816,21 @@ galleryPrev.addEventListener("click", () => {
 // - if it goes below 0, go to the last image
 // - update modal image
 // - update gallery count
+
+
+/////////////SWIPING MOTION LOGIC/////////////////
+
+// create touchStartX variable
+// create touchEndX variable
+
+// when user touches the image area:
+// - save the starting X position
+
+// when user lifts finger:
+// - save the ending X position
+
+// compare start and end:
+// - if movement is enough and went left, show next image
+// - if movement is enough and went right, show previous image
 
 

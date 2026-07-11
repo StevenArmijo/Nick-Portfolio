@@ -3926,6 +3926,17 @@ footer {
   .listingModalGrid {
     grid-template-columns: 1fr;
   }
+  .listingModalClose {
+    position: sticky;
+    top: .5rem;
+    margin-left: auto;
+    margin-bottom: 2rem;
+    z-index: 20;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
   .listingModalBox {
     width: min(94vw, 720px);
@@ -3997,15 +4008,31 @@ footer {
   }
 
   .listingModal {
-    padding: 1rem;
+    align-items: flex-start;
+    overflow-y: auto;
+    padding: 8rem 1rem 2rem;
   }
 
   .listingModalBox {
     padding: 1.8rem;
+    max-height: none;
+    overflow: visible;
+    padding: 1.6rem;
+  }
+  .listingModalClose {
+    position: sticky;
+    top: 1rem;
+    margin-left: auto;
+    margin-bottom: 1rem;
+    z-index: 20;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .listingModalImage {
-    height: 200px;
+    height: 350px;
   }
   .galleryPrev,
   .galleryNext {
@@ -4048,7 +4075,7 @@ footer {
   }
 
   .listingModalImage {
-    height: 190px;
+      height: clamp(280px, 72vw, 380px);
   }
 
   .tourBox,
