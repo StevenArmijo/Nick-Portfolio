@@ -352,36 +352,7 @@ if (
 
 // >>>>>>>>>>MODAL FOR LISTINGS PAGE>>>>>>>>>>
 
-// select all the listingsCard
-// add event listener to the data-listing-Id
-// when clicked unclick all the other listings and activate modal
-// display the array that is inputed into javascript and present that with each data-list-id
 
-// what ai gave me (notice unclick all the other functions was removed)
-
-// 1. Select all listing cards
-// 2. Select the listing modal
-// 3. Create listing data in JavaScript
-// 4. Add a click event to each listing card
-// 5. When a card is clicked, get its data-listing-id
-// 6. Use that id to find the matching listing data
-// 7. Put that listing data into the modal
-// 8. Open the modal
-
-// WHAT I PSEUDO CODED
-// select all  modals since already have const listingModal
-
-// create const closeListingMoal
-
-// create an addEventListener for on click remove classList (active)
-// THE ACTUAL (I WAS CLOSE)
-// select all elements that close the listing modal
-
-// loop through each close element
-
-// add a click event to each close element
-
-// when clicked, remove the active class from listingModal
 
 
 
@@ -389,6 +360,7 @@ if (
 
 const listingData = {
   "horace-st": {
+    id: "horace-st",
     price: "$959,000",
     address: "15708 Horace St",
     city: "Granada Hills, CA 91344",
@@ -397,6 +369,9 @@ const listingData = {
     sqft: "1,400",
     year: "-",
     status: "For Sale",
+    heroImage: "assets/images/listings/15708 Horace/horace front view.webp",
+    heroPosition: "center 45%",
+    heroSize: "95%",
     images: ["assets/images/listings/15708 Horace/15708 Horace Listing.webp",
       "assets/images/listings/15708 Horace/15708 Horace Kitchen.webp",
       "assets/images/listings/15708 Horace/15708 Kitchen 2.webp",
@@ -431,7 +406,7 @@ const listingData = {
     ]
   },
   "persimmon-ln": {
-
+    id: "persimmon-ln",
     price: "$569,900",
     address: "37633 Persimmon Ln",
     city: "Palmdale, CA 93551",
@@ -440,6 +415,9 @@ const listingData = {
     sqft: "2,691",
     year: "2005",
     status: "For Sale",
+    heroImage: "assets/images/listings/37633 Persimmons/aerial view  3.webp",
+    heroPosition: "center 25%",
+    heroSize: "100%",
     images: ["assets/images/listings/37633 Persimmons/37633 Persimmos Ln.webp",
       "assets/images/listings/37633 Persimmons/persimmons living room 1 of 2 .webp",
       "assets/images/listings/37633 Persimmons/persimmons living room 2 of 2.webp",
@@ -490,7 +468,7 @@ const listingData = {
   },
 
   "center-ct": {
-
+    id: "center-ct",
     price: "$549,900",
     address: "1629 Centre Ct",
     city: "Palmdale, CA 93551",
@@ -499,6 +477,9 @@ const listingData = {
     sqft: "1,941",
     year: "1987",
     status: "For Sale",
+    heroImage: "assets/images/listings/1629 Centre Ct/centre ct-27.webp",
+    heroPosition: "center 35%",
+    heroSize: "100%",
     images: ["assets/images/listings/1629 Centre Ct/1629 Centre Ct.webp",
       "assets/images/listings/1629 Centre Ct/centre ct-01.webp",
       "assets/images/listings/1629 Centre Ct/centre ct-02.webp",
@@ -542,7 +523,7 @@ const listingData = {
   },
 
   "joshua-hills": {
-
+    id: "joshua-hills",
     price: "$519,999",
     address: "2614 Joshua Hills Dr",
     city: "Palmdale, CA 93550",
@@ -551,6 +532,9 @@ const listingData = {
     sqft: "1,434",
     year: "1980",
     status: "For Sale",
+    heroImage: "assets/images/listings/2614 Joshua Hills/joshua-hills-04.webp",
+    heroPosition: "center 70%",
+    heroSize: "100%",
     images: ["assets/images/listings/2614 Joshua Hills/finalhome.webp",
       "assets/images/listings/2614 Joshua Hills/joshua-hills-01.webp",
       "assets/images/listings/2614 Joshua Hills/joshua-hills-02.webp",
@@ -583,7 +567,7 @@ const listingData = {
   },
 
   "danya-ln": {
-
+    id: "danya-ln",
     price: "$460,000",
     address: "44237 Danya Ln",
     city: "Lancaster, CA 93536",
@@ -592,6 +576,9 @@ const listingData = {
     sqft: "1,529",
     year: "1986",
     status: "For Sale",
+    heroImage: "assets/images/listings/44237 Danya Ln/44237 Danya Ln Listing.webp",
+    heroPosition: "center 40%",
+    heroSize: "100%",
     images: ["assets/images/listings/44237 Danya Ln/44237 Danya Ln Listing.webp",
       "assets/images/listings/44237 Danya Ln/danya-ln-01.webp",
       "assets/images/listings/44237 Danya Ln/danya-ln-02.webp",
@@ -627,7 +614,7 @@ const listingData = {
   },
 
   "bay-ave": {
-
+    id: "bay-ave",
     price: "$239,900",
     address: "8736 Bay Ave",
     city: "California City, CA 93505",
@@ -636,6 +623,9 @@ const listingData = {
     sqft: "1,250",
     year: "1972",
     status: "Pending",
+    heroImage: "assets/images/listings/8736 Bay Ave/bay-ave-01.webp",
+    heroPosition: "center 25%%",
+    heroSize: "85%",
     images: ["assets/images/listings/8736 Bay Ave/bay-ave-01.webp",
       "assets/images/listings/8736 Bay Ave/bay-ave-02.webp",
       "assets/images/listings/8736 Bay Ave/bay-ave-03.webp",
@@ -689,148 +679,271 @@ let activeListing = null;
 let touchStartX = 0;
 let touchEndX = 0;
 
-listingCards.forEach((card) => {
-  card.addEventListener("click", () => {
-    const listingId = card.dataset.listingId;
-    const listing = listingData[listingId];
+if (listingModal) {
 
-    activeListing = listing;
-    currentImageIndex = 0;
+  listingCards.forEach((card) => {
+    card.addEventListener("click", () => {
+      const listingId = card.dataset.listingId;
+      const listing = listingData[listingId];
 
-    console.log(listingId);
-    console.log(listing);
-    modalPrice.textContent = listing.price;
-    modalAddress.textContent = `${listing.address}, ${listing.city}`;
-    modalBeds.textContent = listing.beds;
-    modalBaths.textContent = listing.baths;
-    modalSqft.textContent = listing.sqft;
-    modalYear.textContent = listing.year;
-    modalStatus.textContent = listing.status;
-    modalDescription.textContent = listing.description;
-    modalHighlights.innerHTML = "";
+      activeListing = listing;
+      activeListingId = listingId;
+      currentImageIndex = 0;
 
-    listing.highlights.forEach((highlight) => {
-      const li = document.createElement("li");
-      li.textContent = highlight;
-      modalHighlights.appendChild(li);
+      console.log(listingId);
+      console.log(listing);
+      modalPrice.textContent = listing.price;
+      modalAddress.textContent = `${listing.address}, ${listing.city}`;
+      modalBeds.textContent = listing.beds;
+      modalBaths.textContent = listing.baths;
+      modalSqft.textContent = listing.sqft;
+      modalYear.textContent = listing.year;
+      modalStatus.textContent = listing.status;
+      modalDescription.textContent = listing.description;
+      modalHighlights.innerHTML = "";
+
+      listing.highlights.forEach((highlight) => {
+        const li = document.createElement("li");
+        li.textContent = highlight;
+        modalHighlights.appendChild(li);
+      });
+
+      updateGalleryImage();
+      modalImage.alt = listing.address;
+
+      listingModal.classList.add("active");
+
+    });
+  });
+
+  closeListingModalBtns.forEach((button) => {
+    button.addEventListener("click", () => {
+      listingModal.classList.remove("active");
     });
 
+
+  });
+
+
+  function updateGalleryImage() {
+    if (!activeListing) {
+      return;
+    }
+
+    modalImage.src = activeListing.images[currentImageIndex];
+    galleryCurrent.textContent = currentImageIndex + 1;
+    galleryTotal.textContent = activeListing.images.length;
+  }
+
+  function showNextImage() {
+    if (!activeListing) {
+      return;
+    }
+
+    currentImageIndex = currentImageIndex + 1;
+
+    if (currentImageIndex >= activeListing.images.length) {
+      currentImageIndex = 0;
+    }
+
     updateGalleryImage();
-    modalImage.alt = listing.address;
+  }
 
-    listingModal.classList.add("active");
+  function showPrevImage() {
+    if (!activeListing) {
+      return;
+    }
 
+    currentImageIndex = currentImageIndex - 1;
+
+    if (currentImageIndex < 0) {
+      currentImageIndex = activeListing.images.length - 1;
+    }
+
+    updateGalleryImage();
+  }
+
+  galleryNext.addEventListener("click", showNextImage);
+  galleryPrev.addEventListener("click", showPrevImage);
+
+  modalImageWrap.addEventListener("touchstart", (event) => {
+    touchStartX = event.changedTouches[0].screenX;
+    console.log("start:", touchStartX);
   });
-});
 
-closeListingModalBtns.forEach((button) => {
-  button.addEventListener("click", () => {
-    listingModal.classList.remove("active");
+
+  modalImageWrap.addEventListener("touchend", (event) => {
+    touchEndX = event.changedTouches[0].screenX;
+
+    const swipeDistance = touchStartX - touchEndX;
+    const minimumSwipeDistance = 50;
+    if (swipeDistance > minimumSwipeDistance) {
+      showNextImage();
+    }
+
+    if (swipeDistance < -minimumSwipeDistance) {
+      showPrevImage();
+    }
+    console.log("end:", touchEndX);
+  });
+  // - if it goes past the last image, reset to 0
+  // - update modal image
+  // - update gallery count
+
+  // 6. When previous is clicked:
+  // - decrease currentImageIndex by 1
+  // - if it goes below 0, go to the last image
+  // - update modal image
+  // - update gallery count
+
+
+  /////////////SWIPING MOTION LOGIC/////////////////
+
+  // create touchStartX variable
+  // create touchEndX variable
+
+  // when user touches the image area:
+  // - save the starting X position
+
+  // when user lifts finger:
+  // - save the ending X position
+
+  // compare start and end:
+  // - if movement is enough and went left, show next image
+  // - if movement is enough and went right, show previous image
+
+  const listingInterestBtn = document.querySelector(".listingInterestBtn");
+  const listingTourBtn = document.querySelector(".listingTourBtn");
+
+  let activeListingId = null;
+
+
+  listingInterestBtn.addEventListener("click", (event) => {
+    event.preventDefault();
+    if (!activeListing || !activeListingId) {
+      return;
+    }
+
+    const encodedListingId = encodeURIComponent(activeListingId);
+
+    window.location.href =
+      `contact.html?listing=${encodedListingId}&intent=interest`;
   });
 
+  listingTourBtn.addEventListener("click", (event) => {
+    event.preventDefault();
+    if (!activeListing || !activeListingId) {
+      return;
+    }
+    const encodedListingId = encodeURIComponent(activeListingId);
 
-});
-
-// 1. Each listing should have an images array instead of one image
-
-// 2. Create a currentImageIndex variable that starts at 0
-
-// 3. When a listing card opens:
-// - set currentImageIndex back to 0
-// - show the first image from that listing's images array
-// - update gallery count to 1 / total images
-
-// Function: updateGalleryImage()
-// - make sure activeListing exists
-// - set modal image src to activeListing.images[currentImageIndex]
-// - update galleryCurrent to currentImageIndex + 1
-// - update galleryTotal to activeListing.images.length
-
-function updateGalleryImage() {
-  if (!activeListing) {
-    return;
-  }
-
-  modalImage.src = activeListing.images[currentImageIndex];
-  galleryCurrent.textContent = currentImageIndex + 1;
-  galleryTotal.textContent = activeListing.images.length;
+    window.location.href =
+      `contact.html?listing=${encodedListingId}&intent=tour`;
+  });
 }
+//MY PSEUDO CODE 
+// createUrlsearchparams grom window.location.href
+// from there get the listing information 
+// from there get the intent parameter 
+// grab the information of the listing from listingData
+// if intent is for get more information open up the contactForm information
+// if schedule private tour was clicked then open up calendarDates
+/////////////WHAT IT WAS MISSING///////////\
 
-function showNextImage() {
-  if (!activeListing) {
-    return;
-  }
+// CONTACT PAGE DYNAMIC FLOW
 
-  currentImageIndex = currentImageIndex + 1;
+// 1. Create URLSearchParams from window.location.search
+// 2. Get the listing parameter from the URL
 
-  if (currentImageIndex >= activeListing.images.length) {
-    currentImageIndex = 0;
-  }
+// 3. Get the intent parameter from the URL
+const contactFormHeading = document.querySelector(".contactFormHeading");
+const selectedPropertyPreview = document.querySelector(".selectedPropertyPreview");
+const selectedPropertyImage = document.querySelector(".selectedPropertyImage");
+const selectedPropertyAddress = document.querySelector(".selectedPropertyAddress")
+const selectedPropertyCity = document.querySelector(".selectedPropertyCity");
+const selectedPropertyBeds = document.querySelector(".selectedPropertyBeds");
+const selectedPropertyBaths = document.querySelector(".selectedPropertyBaths");
+const selectedPropertySqft = document.querySelector(".selectedPropertySqft");
+const selectedPropertyPrice = document.querySelector(".selectedPropertyPrice");
 
-  updateGalleryImage();
-}
+const tourCalendarSection = document.querySelector(".tourCalendarSection");
+const listingIdInput = document.querySelector(".listingIdInput");
+const intentInput = document.querySelector(".intentInput");
 
-function showPrevImage() {
-  if (!activeListing) {
-    return;
-  }
+const contactHero = document.querySelector(".contactHero");
+const openCalendarBtn = document.querySelector(".openCalendarBtn");
 
-  currentImageIndex = currentImageIndex - 1;
+if (contactFormHeading) {
 
-  if (currentImageIndex < 0) {
-    currentImageIndex = activeListing.images.length - 1;
-  }
-
-  updateGalleryImage();
-}
-
-galleryNext.addEventListener("click", showNextImage);
-galleryPrev.addEventListener("click", showPrevImage);
-
-modalImageWrap.addEventListener("touchstart", (event) => {
-  touchStartX = event.changedTouches[0].screenX;
-  console.log("start:", touchStartX);
-});
-
-
-modalImageWrap.addEventListener("touchend", (event) => {
-  touchEndX = event.changedTouches[0].screenX;
+  const params = new URLSearchParams(window.location.search);
   
-  const swipeDistance = touchStartX - touchEndX;
-  const minimumSwipeDistance = 50;
-  if (swipeDistance > minimumSwipeDistance) {
-    showNextImage();
-  }
+  const listingId = params.get("listing")
+  const intent = params.get("intent");
   
-  if (swipeDistance < -minimumSwipeDistance) {
-    showPrevImage();
+  const selectedListing = listingId ? listingData[listingId] : null;
+  
+  console.log(listingId);
+  console.log(intent);
+  console.log(selectedListing);
+  
+  if (!listingId || !selectedListing) {
+    selectedPropertyPreview.hidden = true;
+    tourCalendarSection.hidden = true;
+    contactFormHeading.textContent = "Send Me a Message";
+    
   }
-  console.log("end:", touchEndX);
-});
-// - if it goes past the last image, reset to 0
-// - update modal image
-// - update gallery count
+  else {
+    
+    selectedPropertyPreview.hidden = false;
+    selectedPropertyImage.src = selectedListing.images[0];
+    selectedPropertyImage.alt = selectedListing.address;
+    selectedPropertyAddress.textContent = selectedListing.address;
+    selectedPropertyCity.textContent = selectedListing.city;
+    selectedPropertyBeds.textContent = `${selectedListing.beds} Beds`;
+    selectedPropertyBaths.textContent = `${selectedListing.baths} Baths`;
+    selectedPropertySqft.textContent = `${selectedListing.sqft} Sq Ft`
+    selectedPropertyPrice.textContent = selectedListing.price;
+   
+    if (contactHero && selectedListing.images.length > 0) {
+      contactHero.style.backgroundImage =
+        `url("${selectedListing.heroImage || selectedListing.images[0]}")`;
+    
+      contactHero.style.backgroundPosition =
+        selectedListing.heroPosition || "center center";
+    
+      contactHero.style.backgroundSize =
+        selectedListing.heroSize || "cover";
+    }
+     
+    if (intent === "tour") {
+      contactFormHeading.textContent = "Schedule a Private Tour";
+      tourCalendarSection.hidden = false;
+    }
+    else {
+      contactFormHeading.textContent = "Request Information";
+      tourCalendarSection.hidden = true;
+    }
+  }
+  if (openCalendarBtn && tourCalendarSection) {
+    openCalendarBtn.addEventListener("click", () => {
+      tourCalendarSection.hidden = !tourCalendarSection.hidden;
+    });
+   }
+}
+  // 6. If the listing parameter exists but does not match anything in listingData:
+  // - safely show the general contact form
+  // - do not throw an error
+  
+  // 7. If intent is "interest" and the listing exists:
+  // - show the selected property preview
+  // - fill preview with listing information
+  // - change heading to "Request Information"
+  // - hide the tour calendar section
+// - fill hidden listingId and intent inputs
 
-// 6. When previous is clicked:
-// - decrease currentImageIndex by 1
-// - if it goes below 0, go to the last image
-// - update modal image
-// - update gallery count
-
-
-/////////////SWIPING MOTION LOGIC/////////////////
-
-// create touchStartX variable
-// create touchEndX variable
-
-// when user touches the image area:
-// - save the starting X position
-
-// when user lifts finger:
-// - save the ending X position
-
-// compare start and end:
-// - if movement is enough and went left, show next image
-// - if movement is enough and went right, show previous image
-
-
+// 8. If intent is "tour" and the listing exists:
+// - show the selected property preview
+// - fill preview with listing information
+// - change heading to "Schedule a Private Tour"
+// - show the tour calendar section
+// - fill hidden listingId and intent inputs
