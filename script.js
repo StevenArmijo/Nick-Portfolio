@@ -673,11 +673,9 @@ const galleryNext = document.querySelector(".galleryNext");
 const galleryCurrent = document.querySelector(".galleryCurrent");
 const galleryTotal = document.querySelector(".galleryTotal");
 
-let currentImageIndex = 0;
-let activeListing = null;
+const descriptionToggleBtn = document.querySelector(".descriptionToggleBtn");
+const descriptionToggleText = document.querySelector(".descriptionToggleBtn span");
 
-let touchStartX = 0;
-let touchEndX = 0;
 
 if (listingModal) {
 
@@ -686,9 +684,12 @@ if (listingModal) {
       const listingId = card.dataset.listingId;
       const listing = listingData[listingId];
 
+
+
       activeListing = listing;
       activeListingId = listingId;
       currentImageIndex = 0;
+
 
       console.log(listingId);
       console.log(listing);
@@ -699,7 +700,21 @@ if (listingModal) {
       modalSqft.textContent = listing.sqft;
       modalYear.textContent = listing.year;
       modalStatus.textContent = listing.status;
-      modalDescription.textContent = listing.description;
+
+      descriptionExpanded = false;
+      activeDescription = listing.description;
+
+      activeShortDescription =
+        listing.description.length > 150
+          ? `${listing.description.slice(0, 150)}...`
+          : listing.description
+
+      modalDescription.textContent = activeShortDescription;
+
+      descriptionToggleBtn.hidden = listing.description.length <= 150;
+      descriptionToggleText.textContent = "Read More";
+      descriptionToggleBtn.classList.remove("expanded");
+
       modalHighlights.innerHTML = "";
 
       listing.highlights.forEach((highlight) => {
@@ -715,6 +730,33 @@ if (listingModal) {
 
     });
   });
+
+  let currentImageIndex = 0;
+  let activeListing = null;
+
+  let descriptionExpanded = false;
+  let activeDescription = "";
+  let activeShortDescription = "";
+  
+  let touchStartX = 0;
+  let touchEndX = 0;
+
+  if (descriptionToggleBtn) {
+    descriptionToggleBtn.addEventListener("click", () => {
+      descriptionExpanded = !descriptionExpanded;
+      
+      if (descriptionExpanded) {
+        modalDescription.textContent = activeDescription;
+        descriptionToggleText.textContent = "Show Less";
+        descriptionToggleBtn.classList.add("expanded");
+      }
+      else {
+        modalDescription.textContent = activeShortDescription;
+        descriptionToggleText.textContent = "Read More"
+        descriptionToggleBtn.classList.remove("expanded");
+      };
+    });
+  }
 
   closeListingModalBtns.forEach((button) => {
     button.addEventListener("click", () => {
@@ -827,7 +869,7 @@ if (listingModal) {
     const encodedListingId = encodeURIComponent(activeListingId);
 
     window.location.href =
-      `contact.html?listing=${encodedListingId}&intent=interest`;
+      `contact.html?listing=${encodedListingId}&intent=interest#requestInformationSection`;
   });
 
   listingTourBtn.addEventListener("click", (event) => {
@@ -838,7 +880,7 @@ if (listingModal) {
     const encodedListingId = encodeURIComponent(activeListingId);
 
     window.location.href =
-      `contact.html?listing=${encodedListingId}&intent=tour`;
+      `contact.html?listing=${encodedListingId}&intent=tour#calendarSection`;
   });
 }
 //MY PSEUDO CODE 
@@ -876,24 +918,24 @@ const openCalendarBtn = document.querySelector(".openCalendarBtn");
 if (contactFormHeading) {
 
   const params = new URLSearchParams(window.location.search);
-  
+
   const listingId = params.get("listing")
   const intent = params.get("intent");
-  
+
   const selectedListing = listingId ? listingData[listingId] : null;
-  
+
   console.log(listingId);
   console.log(intent);
   console.log(selectedListing);
-  
+
   if (!listingId || !selectedListing) {
     selectedPropertyPreview.hidden = true;
     tourCalendarSection.hidden = true;
     contactFormHeading.textContent = "Send Me a Message";
-    
+
   }
   else {
-    
+
     selectedPropertyPreview.hidden = false;
     selectedPropertyImage.src = selectedListing.images[0];
     selectedPropertyImage.alt = selectedListing.address;
@@ -903,18 +945,18 @@ if (contactFormHeading) {
     selectedPropertyBaths.textContent = `${selectedListing.baths} Baths`;
     selectedPropertySqft.textContent = `${selectedListing.sqft} Sq Ft`
     selectedPropertyPrice.textContent = selectedListing.price;
-   
+
     if (contactHero && selectedListing.images.length > 0) {
       contactHero.style.backgroundImage =
         `url("${selectedListing.heroImage || selectedListing.images[0]}")`;
-    
+
       contactHero.style.backgroundPosition =
         selectedListing.heroPosition || "center center";
-    
+
       contactHero.style.backgroundSize =
         selectedListing.heroSize || "cover";
     }
-     
+
     if (intent === "tour") {
       contactFormHeading.textContent = "Schedule a Private Tour";
       tourCalendarSection.hidden = false;
@@ -928,22 +970,6 @@ if (contactFormHeading) {
     openCalendarBtn.addEventListener("click", () => {
       tourCalendarSection.hidden = !tourCalendarSection.hidden;
     });
-   }
+  }
 }
-  // 6. If the listing parameter exists but does not match anything in listingData:
-  // - safely show the general contact form
-  // - do not throw an error
-  
-  // 7. If intent is "interest" and the listing exists:
-  // - show the selected property preview
-  // - fill preview with listing information
-  // - change heading to "Request Information"
-  // - hide the tour calendar section
-// - fill hidden listingId and intent inputs
 
-// 8. If intent is "tour" and the listing exists:
-// - show the selected property preview
-// - fill preview with listing information
-// - change heading to "Schedule a Private Tour"
-// - show the tour calendar section
-// - fill hidden listingId and intent inputs

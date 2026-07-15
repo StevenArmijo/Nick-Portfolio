@@ -14,8 +14,8 @@
   --accentcolor: #111;
   --mainaboutcolor: #F3EDE3;
   --aboutxtcolor: #1E293B;
-  --hovercolor :#475569;
-  --contactcolor :#0B132B;
+  --hovercolor: #475569;
+  --contactcolor: #0B132B;
 
 }
 
@@ -58,6 +58,7 @@ header.scrolled {
   box-shadow:
     0 10px 30px rgba(0, 0, 0, .08);
 }
+
 header.scrolled .logo {
   font-size: 1.6rem;
 }
@@ -65,6 +66,7 @@ header.scrolled .logo {
 header.scrolled .dreNumber {
   font-size: .9rem;
 }
+
 .logo {
   font-size: 2rem;
   font-family: "Playfair Display", Arial, Helvetica, sans-serif;
@@ -79,10 +81,12 @@ header.scrolled .dreNumber {
   transition: .3s ease-in-out;
 
 }
+
 .logo,
 .dreNumber {
   transition: font-size .25s ease, transform .25s ease;
 }
+
 .logoSpan {
   color: var(--accentcolor);
 }
@@ -135,9 +139,8 @@ nav {
 .contactBtn:hover {
   transform: scale(1.05);
   background: linear-gradient(270deg,
-  #c9a45c 0%,
-  #cfb38c 100%
-  );
+      #c9a45c 0%,
+      #cfb38c 100%);
 }
 
 /* //////////////////HERO////////////////// */
@@ -177,7 +180,7 @@ section {
 }
 
 .homeContent span {
-  color: var(--accentcolor );
+  color: var(--accentcolor);
   margin: 1rem 0;
   font-size: 5rem;
   font-weight: 700;
@@ -194,18 +197,16 @@ section {
 /* /////////////IMG AND SOCIAL/////////// */
 
 .homeImg {
-  width:  360px;
+  width: 360px;
   height: 360px;
   border-radius: 50%;
   aspect-ratio: 1 / 1;
   padding: 4px;
 
-  background: linear-gradient(
-    135deg,
-    rgba(232, 180, 92, 1),
-    rgba(177, 121, 45, 0.55),
-    rgba(232, 180, 92, 0.95)
-  );
+  background: linear-gradient(135deg,
+      rgba(232, 180, 92, 1),
+      rgba(177, 121, 45, 0.55),
+      rgba(232, 180, 92, 0.95));
 
   box-shadow:
     0 0 25px rgba(232, 180, 92, 0.45),
@@ -927,6 +928,7 @@ footer {
   display: flex;
   gap: 2rem;
 }
+
 /* //////////////MODAL///////////// */
 .contactModal {
   position: fixed;
@@ -1070,9 +1072,11 @@ footer {
   header {
     padding: 2rem 6%;
   }
+
   header.scrolled {
     padding: 1.2rem 6%;
   }
+
   #menu-icon {
     display: block;
     cursor: pointer;
@@ -1081,6 +1085,7 @@ footer {
   .contactBtn {
     display: none;
   }
+
   .navbar {
     position: absolute;
     top: 100%;
@@ -1100,6 +1105,7 @@ footer {
 
     transition: opacity 0.3s ease, transform 0.3s ease;
   }
+
   .navbar.active {
     opacity: 1;
     transform: translateY(0);
@@ -1107,8 +1113,9 @@ footer {
   }
 
   .navbar.active a {
-    margin-left: 0; 
+    margin-left: 0;
   }
+
   .home {
     flex-direction: column;
     align-items: center;
@@ -1153,7 +1160,7 @@ footer {
   }
 
   .homeImg {
-    width:  350px;
+    width: 350px;
     height: 350px;
   }
 
@@ -1294,28 +1301,32 @@ footer {
     max-width: 100%;
     padding: 0;
   }
-  .socialEyebrow{
+
+  .socialEyebrow {
     display: none;
   }
-  .callOut{
+
+  .callOut {
     font-size: 2.2rem;
   }
+
   .homeImg {
-    width:  100%;
+    width: 100%;
     height: 100%;
     margin-bottom: 1.8rem;
   }
 
   .socialIcons a {
-    width:  6rem;
+    width: 6rem;
     height: 6rem;
     padding: 0;
     margin: 0;
     font-size: 2rem;
   }
- .socialIcons a i {
-  font-size: 2.2rem;
- }
+
+  .socialIcons a i {
+    font-size: 2.2rem;
+  }
 }
 
 /* CLIENT PROOF */
@@ -1336,11 +1347,13 @@ footer {
     font-size: 1.5rem;
     text-align: left;
   }
+
   .ctaBanner {
     min-height: 360px;
     background-size: cover;
     background-position: center;
   }
+
   .navbar.active a {
     margin-left: 0;
   }
@@ -1409,19 +1422,20 @@ footer {
     flex-wrap: nowrap;
     margin-top: 0;
   }
-  
- .socialIcons a i {
-  font-size: 2.8rem;
- }
+
+  .socialIcons a i {
+    font-size: 2.8rem;
+  }
 
   .socialIcons a {
-    width:  6rem;
+    width: 6rem;
     height: 6rem;
     padding: 0;
     margin: 0;
     font-size: 1.9rem;
     flex-shrink: 0;
   }
+
   .navbar.active a {
     margin-left: 0;
   }
@@ -1926,6 +1940,7 @@ footer {
   display: block;
   color: var(--mainaboutcolor);
 }
+
 .servicesPage .primary-btn {
   background-color: var(--mainaboutcolor);
   color: var(--text-color);
@@ -1951,7 +1966,7 @@ footer {
   display: flex;
   align-items: center;
   gap: 1.5rem;
-  
+
 }
 
 /* Service Cards Section */
@@ -1968,9 +1983,11 @@ footer {
   text-transform: uppercase;
   margin-bottom: 2rem;
 }
+
 .servicesPage .serviceBtn {
   background-color: var(--second-bg-color);
 }
+
 .servicesPageGrid .serviceBtn {
   min-height: 260px;
   padding: 3.2rem;
@@ -2039,8 +2056,8 @@ footer {
   box-shadow: 0 18px 45px rgba(15, 23, 42, 0.08);
 }
 
-.clientFeedbackBox > span,
-.faqBox > span {
+.clientFeedbackBox>span,
+.faqBox>span {
   display: block;
   font-family: "Google Sans", sans-serif;
   font-size: 1.3rem;
@@ -2074,8 +2091,9 @@ footer {
   display: flex;
   gap: .8rem;
   margin-top: 2rem;
-  
+
 }
+
 .feedbackDot {
   width: .8rem;
   height: .8rem;
@@ -2112,6 +2130,7 @@ footer {
     width: 100%;
   }
 }
+
 .faqQuestion {
   width: 100%;
   border: 1px solid #e2e8f0;
@@ -2153,6 +2172,7 @@ footer {
 .faqItem.active .faqQuestion i {
   transform: rotate(180deg);
 }
+
 .faqItem i {
   color: var(--hovercolor);
   flex-shrink: 0;
@@ -2199,6 +2219,7 @@ footer {
   color: #334155;
   margin-bottom: 2rem;
 }
+
 /* Service Page Breaking points */
 /* Mac Screens and Tablets*/
 @media (max-width: 1100px) {
@@ -2215,6 +2236,7 @@ footer {
     row-gap: 4rem;
   }
 }
+
 /* TABLET AND MOBILE */
 @media (max-width: 900px) {
   .servicesHeroPage {
@@ -2234,8 +2256,9 @@ footer {
   .servicesHeroContent p {
     font-size: 1.75rem;
   }
+
   .servicesPageGrid {
-     grid-template-columns: repeat(1fr);
+    grid-template-columns: repeat(1fr);
   }
 
   .servicesPageGrid .serviceCard:nth-child(3) {
@@ -2243,6 +2266,7 @@ footer {
     max-width: none;
     justify-self: stretch;
   }
+
   .servicesPageCards {
     padding: 4rem 6%;
   }
@@ -2260,9 +2284,11 @@ footer {
     width: 100%;
     justify-content: center;
   }
+
   .serviceBottomSection {
     padding: 0 6% 5rem;
   }
+
   .trustIntroGrid,
   .trustContentGrid,
   .serviceBottomCta {
@@ -2274,6 +2300,7 @@ footer {
   }
 
 }
+
 /* Small Devices */
 @media (max-width: 600px) {
   .servicesHeroContent h1 {
@@ -2293,6 +2320,7 @@ footer {
   .processGrid {
     grid-template-columns: 1fr;
   }
+
   .servicesPageGrid {
     grid-template-columns: 1fr;
   }
@@ -2306,6 +2334,7 @@ footer {
     min-height: auto;
     height: auto;
   }
+
   .processAreas p {
     line-height: 1.8;
   }
@@ -2321,6 +2350,7 @@ footer {
   .servicesMiniCtaContent h2 {
     font-size: 2.5rem;
   }
+
   .serviceTrustSection {
     padding: 5rem 5%;
   }
@@ -2333,9 +2363,11 @@ footer {
   .faqBox {
     padding: 2.4rem;
   }
+
   .serviceBottomSection {
     padding: 0 5% 4rem;
   }
+
   .serviceBottomCtaContent {
     padding: 3rem 2.4rem;
   }
@@ -2366,18 +2398,18 @@ footer {
   object-fit: cover;
   object-position: center 10%;
 }
+
 .reviewsOverlay {
   position: absolute;
   inset: 0;
 
   background:
-    linear-gradient(
-      90deg,
-      rgba(7,18,37,.92) 0%,
-      rgba(7,18,37,.78) 40%,
-      rgba(7,18,37,.45) 100%
-    );
+    linear-gradient(90deg,
+      rgba(7, 18, 37, .92) 0%,
+      rgba(7, 18, 37, .78) 40%,
+      rgba(7, 18, 37, .45) 100%);
 }
+
 .reviewsHeroContent {
   position: relative;
   text-align: center;
@@ -2389,10 +2421,12 @@ footer {
   gap: 2rem;
   color: var(--bg-color);
 }
+
 .reviewsHeroContent span,
 .reviewsHeroContent p {
   font-size: 1.8rem;
 }
+
 .heroRating {
   margin-top: 6rem;
   font-family: "Google Sans", sans-serif;
@@ -2451,10 +2485,12 @@ footer {
   font-size: 1.5rem;
   color: var(--accentcolor);
 }
+
 .reviewsHeroContent h1 {
   font-size: clamp(3rem, 7vw, 5.5rem);
   line-height: .95;
 }
+
 /* Reviews Featured and Reviews Section */
 .featuredReviewsSection {
   background: var(--bg-color);
@@ -2531,7 +2567,7 @@ footer {
 .smallReviewCard {
   padding: 3rem;
   border-radius: 16px;
-  background:var(--bg-color);
+  background: var(--bg-color);
   border: 1px solid var(--accentcolor);
 }
 
@@ -2542,14 +2578,16 @@ footer {
   color: var(--text-color);
   margin-bottom: 2rem;
 }
+
 /* footer */
 .reviewsCta {
   height: 240px;
   background-image: url(assets/images/backgrounds/poppiespic.webp);
   background-size: cover;
   background-position: center 60%;
-  
+
 }
+
 .reviewsCta .ctaContent {
   max-width: none;
   width: 100%;
@@ -2569,6 +2607,7 @@ footer {
   flex-shrink: 0;
   width: auto;
 }
+
 /* //////////REVIEWS MEDIA SIZING//////////// */
 /* Tablets and Small Laptops */
 @media (max-width: 900px) {
@@ -2625,6 +2664,7 @@ footer {
     justify-content: center;
   }
 }
+
 /* //////Mobile Phones///////// */
 @media (max-width: 600px) {
   .reviewsHero {
@@ -2702,6 +2742,7 @@ footer {
     padding: 4rem 5%;
   }
 }
+
 /* Tiny Phones */
 @media (max-width: 430px) {
   .reviewsHeroContent h1 {
@@ -2717,6 +2758,7 @@ footer {
     letter-spacing: .14em;
   }
 }
+
 /* ////////////////// CONTACT PAGE ////////////////// */
 
 .contactHero {
@@ -2740,12 +2782,10 @@ footer {
   inset: 0;
 
   background:
-    linear-gradient(
-      90deg,
+    linear-gradient(90deg,
       rgba(5, 10, 18, 0.58) 0%,
       rgba(5, 10, 18, 0.32) 42%,
-      rgba(5, 10, 18, 0.08) 100%
-    );
+      rgba(5, 10, 18, 0.08) 100%);
 
 }
 
@@ -2773,12 +2813,13 @@ footer {
   margin-bottom: 2rem;
 }
 
-.contactHeroContent > p:last-child {
+.contactHeroContent>p:last-child {
   font-family: "Google Sans", sans-serif;
   font-size: 1.8rem;
   line-height: 1.6;
   color: #e2e8f0;
 }
+
 /* ////////////////////SEND ME A MESSAGE SECTION//////////// */
 .contactMain {
   background: var(--mainaboutcolor);
@@ -2806,7 +2847,7 @@ footer {
   margin-bottom: 1.4rem;
 }
 
-.messagePanel > p {
+.messagePanel>p {
   max-width: 520px;
   font-family: "Google Sans", sans-serif;
   font-size: 1.6rem;
@@ -2851,6 +2892,7 @@ footer {
   min-height: 150px;
   resize: vertical;
 }
+
 .formMessage {
   font-family: "Google Sans", sans-serif;
   font-size: 1.35rem;
@@ -2865,6 +2907,7 @@ footer {
 .formMessage.success {
   color: #16a34a;
 }
+
 .formGroup input:focus,
 .formGroup select:focus,
 .formGroup textarea:focus {
@@ -2906,6 +2949,7 @@ footer {
   color: #64748b;
   margin-top: .8rem;
 }
+
 /* //////////////NEW CONTACT SECTION///////// */
 .selectedPropertyPreview {
   display: grid;
@@ -2920,6 +2964,7 @@ footer {
   border-radius: 10px;
   background: rgba(255, 255, 255, 0.75);
 }
+
 .selectedPropertyPreview[hidden],
 .tourCalendarSection[hidden] {
   display: none;
@@ -2971,7 +3016,7 @@ footer {
   margin-bottom: 1.4rem;
 }
 
-.consultationPanel > p {
+.consultationPanel>p {
   max-width: 520px;
   font-family: "Google Sans", sans-serif;
   font-size: 1.6rem;
@@ -3039,9 +3084,11 @@ footer {
   color: var(--text-color);
   cursor: pointer;
 }
+
 .emptyDate {
   aspect-ratio: 1;
 }
+
 .calendarDates button:hover,
 .calendarDates .selectedDate {
   background: #d6a24f;
@@ -3076,6 +3123,7 @@ footer {
   color: var(--text-color);
   cursor: pointer;
 }
+
 .timeGrid button.selectedTime {
   background: #d6a24f;
   color: #111827;
@@ -3104,6 +3152,7 @@ footer {
   letter-spacing: .08em;
   cursor: pointer;
 }
+
 .appointmentMessage.error,
 .appointmentMessage.success {
   padding: 1rem 1.2rem;
@@ -3127,6 +3176,7 @@ footer {
 .appointmentMessage.success {
   color: #16a34a;
 }
+
 /* ///////////////ABOUT ME SECTION ///////////// */
 .consultationPanel {
   display: flex;
@@ -3180,9 +3230,11 @@ footer {
   line-height: 1.6;
   color: #475569;
 }
+
 .contactBottom {
   margin-top: 2rem;
 }
+
 .openCalendarBtn {
   width: 80%;
 
@@ -3312,7 +3364,7 @@ footer {
 .reachItem h3 {
   font-family: "Google Sans", sans-serif;
   font-size: 1.6rem;
-  
+
   color: var(--text-color);
   margin-bottom: .5rem;
 }
@@ -3342,6 +3394,7 @@ footer {
   color: #d6a24f;
   flex-shrink: 0;
 }
+
 .contactBottomIcon img {
   width: 56px;
   height: 56px;
@@ -3385,10 +3438,12 @@ footer {
   white-space: nowrap;
   transition: transform .2s ease, box-shadow .2s ease;
 }
+
 .contactBottomBtn:hover {
   transform: translateY(-3px);
   box-shadow: 0 14px 28px rgba(7, 18, 37, .22);
 }
+
 /* /////////////COntact PAGE BREAKS////////// */
 @media (max-width: 1100px) {
   .contactMain {
@@ -3409,6 +3464,7 @@ footer {
     gap: 2.5rem;
   }
 }
+
 /* TABLETS  */
 @media (max-width: 900px) {
   .contactHero {
@@ -3444,6 +3500,7 @@ footer {
     align-items: flex-start;
   }
 }
+
 /* Phones */
 @media (max-width: 600px) {
   .contactHero {
@@ -3456,7 +3513,7 @@ footer {
     font-size: 3.6rem;
   }
 
-  .contactHeroContent > p:last-child {
+  .contactHeroContent>p:last-child {
     font-size: 1.55rem;
   }
 
@@ -3506,6 +3563,7 @@ footer {
   .contactBottomBtn {
     width: 100%;
   }
+
   .selectedPropertyPreview {
     grid-template-columns: 1fr;
   }
@@ -3514,17 +3572,20 @@ footer {
     height: 240px;
   }
 }
+
 /* small mobiles */
 @media (max-width: 430px) {
   .contactHeroContent h1 {
     font-size: 3rem;
   }
-.contactHero {
-  min-height: 240px;
-  background-size: 100% auto;
-  background-position: center 45%;
-  padding-top: 2rem;
-}
+
+  .contactHero {
+    min-height: 240px;
+    background-size: 100% auto;
+    background-position: center 45%;
+    padding-top: 2rem;
+  }
+
   .contactEyebrow {
     font-size: 1.15rem;
   }
@@ -3551,6 +3612,7 @@ footer {
   .contactBottomText h3 {
     font-size: 2.4rem;
   }
+
   .selectedPropertyImage {
     height: 220px;
   }
@@ -3578,12 +3640,10 @@ footer {
   inset: 0;
 
   background:
-    linear-gradient(
-      90deg,
+    linear-gradient(90deg,
       rgba(7, 18, 37, 0.92) 0%,
       rgba(7, 18, 37, 0.78) 45%,
-      rgba(7, 18, 37, 0.38) 100%
-    );
+      rgba(7, 18, 37, 0.38) 100%);
 }
 
 .listingsHeroContent {
@@ -3618,7 +3678,7 @@ footer {
   margin-bottom: 2.4rem;
 }
 
-.listingsHeroContent > p:last-child {
+.listingsHeroContent>p:last-child {
   max-width: 560px;
   margin-top: 5rem;
   font-family: "Google Sans", sans-serif;
@@ -3626,6 +3686,7 @@ footer {
   line-height: 1.6;
   color: #e2e8f0;
 }
+
 /* ///////LISTINGS SECTION/////// */
 .listingsPageSection {
   background: var(--second-bg-color);
@@ -3645,7 +3706,7 @@ footer {
 .listingsPageHeader p {
   font-family: "Google Sans", sans-serif;
   font-size: 1.6rem;
-  
+
   color: #475569;
 }
 
@@ -3660,6 +3721,7 @@ footer {
 .listingsPageGrid .listingCard {
   height: 100%;
 }
+
 .listingCardButton {
   width: 100%;
   border: 1px solid var(--accentcolor);
@@ -3673,6 +3735,7 @@ footer {
 .listingsPageGrid .listingImg img {
   height: 220px;
 }
+
 .pendingTag {
   background: #d6a24f;
   color: #111827;
@@ -3682,6 +3745,7 @@ footer {
   background: #475569;
   color: #f8fafc;
 }
+
 .listingCard.closedListing {
   opacity: .82;
 }
@@ -3696,6 +3760,7 @@ footer {
   padding: 4rem 5rem;
   border-radius: 16px;
 }
+
 .listingsContactCta .contactBottomIcon img {
   width: 72px;
   height: 72px;
@@ -3713,7 +3778,7 @@ footer {
 }
 
 .listingsContactCta .contactBottomBtn {
-  
+
   padding: 1.5rem 4rem;
 }
 
@@ -3730,6 +3795,16 @@ footer {
   justify-content: center;
 
   padding: 2rem;
+}
+
+.listingModalMain {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.listingModalDetails {
+  grid-column: 1;
+  grid-row: 2;
 }
 
 .listingModal.active {
@@ -3777,8 +3852,9 @@ footer {
 
 .listingModalGrid {
   display: grid;
-  grid-template-columns: 1.55fr 0.8fr;
-  gap: 3rem;
+  grid-template-columns: minmax(0, 1.55fr) minmax(280px, .8fr);
+  gap: 2.4rem;
+  align-items: start;
 }
 
 .listingModalImageWrap {
@@ -3811,6 +3887,7 @@ footer {
   font-weight: 700;
   text-transform: uppercase;
 }
+
 .galleryPrev,
 .galleryNext {
   position: absolute;
@@ -3875,17 +3952,17 @@ footer {
 
 .listingModalAddress {
   font-family: "Google Sans", sans-serif;
-  font-size: 2rem;
+  font-size: 1.7rem;
   color: #334155;
-  margin-bottom: 2.4rem;
+  margin-bottom: 1.8rem;
 }
 
 .listingModalStats {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 1.6rem;
+  gap: 1rem;
 
-  padding: 2rem 0;
+  padding: 1.6rem 0;
   border-top: 1px solid rgba(30, 41, 59, 0.12);
   border-bottom: 1px solid rgba(30, 41, 59, 0.12);
 }
@@ -3915,7 +3992,9 @@ footer {
 }
 
 .modalSection {
-  padding: 2.6rem 0;
+  display: flex;
+  flex-direction: column;
+  padding: 2.2rem 0;
   border-bottom: 1px solid rgba(30, 41, 59, 0.12);
 }
 
@@ -3929,6 +4008,46 @@ footer {
   font-size: 1.55rem;
   line-height: 1.7;
   color: #334155;
+}
+
+.descriptionToggleBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: .6rem;
+
+  margin-top: .8rem;
+  margin-left: auto;
+
+  border: none;
+  background: transparent;
+  padding: 0;
+
+  font-family: "Google Sans", sans-serif;
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: var(--hovercolor);
+
+  cursor: pointer;
+  transition: color .2s ease, transform .2s ease;
+}
+
+.descriptionToggleBtn i {
+  transition: transform .2s ease;
+}
+
+.descriptionToggleBtn.expanded i {
+  transform: rotate(180deg);
+}
+
+.descriptionToggleBtn::after {
+
+  font-size: 1.4rem;
+  line-height: 1;
+}
+
+.descriptionToggleBtn:hover {
+  color: #8f651d;
+  transform: translateX(3px);
 }
 
 .listingModalHighlights {
@@ -3949,11 +4068,19 @@ footer {
   color: #b8872f;
   margin-right: .8rem;
 }
+.listingModalSideColumn {
+  grid-column: 2;
+  grid-row: 1 / span 3;
 
-.listingModalSidebar {
   display: flex;
   flex-direction: column;
-  gap: 0;
+  gap: 1rem;
+}
+
+.listingModalSidebar,
+.contactInfo,
+.shareBox {
+  width: 100%;
   border-radius: 10px;
   overflow: hidden;
   background: rgba(243, 237, 227, 0.72);
@@ -3962,7 +4089,7 @@ footer {
 .tourBox,
 .questionBox,
 .shareBox {
-  padding: 3rem;
+  padding: 1.8rem;
   border-bottom: 1px solid rgba(30, 41, 59, 0.1);
 }
 
@@ -3985,13 +4112,16 @@ footer {
   font-size: 2.4rem;
 }
 
-.listingModalSidebar h3 {
+.listingModalSidebar h3,
+.contactInfo h3 {
   font-size: 2rem;
   margin-bottom: 1rem;
 }
 
 .listingModalSidebar p,
-.listingModalSidebar a {
+.listingModalSidebar a,
+.contactInfo p,
+.contactInfo a {
   font-family: "Google Sans", sans-serif;
   font-size: 1.45rem;
   line-height: 1.6;
@@ -4044,14 +4174,21 @@ footer {
   color: #64748b;
 }
 
+.listingHighlightsSection {
+  grid-column: 1;
+  grid-row: 3;
+}
+
+
 /* //////////LISTINGS MOBILE LAYOUT/////// */
 /* Laptops and BIG SCREENS */
 @media (max-width: 1100px) {
   .listingsPageSection {
     padding: 5rem 6% 3rem;
   }
+
   .listingsHeroPage {
-    background-position: center  0%;
+    background-position: center 0%;
   }
 
   .listingsPageGrid {
@@ -4064,6 +4201,7 @@ footer {
     padding-left: 6%;
     padding-right: 6%;
   }
+
 }
 
 /* ///Tablet and Mobile///// */
@@ -4071,15 +4209,15 @@ footer {
   .listingsHeroPage {
     min-height: 36vh;
     padding-top: 8rem;
-      background-size: 175%;
-      background-position: center top;
+    background-size: 175%;
+    background-position: center top;
   }
 
   .listingsHeroContent h1 {
     font-size: 4.4rem;
   }
 
-  .listingsHeroContent > p:last-child {
+  .listingsHeroContent>p:last-child {
     margin-top: 2rem;
   }
 
@@ -4115,8 +4253,11 @@ footer {
   }
 
   .listingModalGrid {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
+    gap: 1.8rem;
   }
+
   .listingModalClose {
     position: sticky;
     top: .5rem;
@@ -4129,18 +4270,56 @@ footer {
     justify-content: center;
   }
 
+  .listingModalGrid {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .listingModalSidebar,
+  .contactInfo {
+    width: 100%;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .listingModalMain {
+    order: 1;
+  }
+
+
+  .listingModalDetails {
+    order: 2;
+  }
+
+  .listingModalSidebar {
+    order: 3;
+  }
+
+  .listingModalHighlightsSection {
+    order: 4;
+  }
+
+  .contactInfo {
+    order: 5;
+  }
+
   .listingModalBox {
     width: min(94vw, 720px);
     max-height: 90vh;
     padding: 2.4rem;
   }
+
   .listingsPageGrid .listingImg img {
     height: 400px;
   }
+
   .listingModalImage {
     height: 400px;
   }
 }
+
 /* /////SMALL PHONES///// */
 @media (max-width: 600px) {
   .listingsHeroPage {
@@ -4210,6 +4389,7 @@ footer {
     overflow: visible;
     padding: 1.6rem;
   }
+
   .listingModalClose {
     position: sticky;
     top: 1rem;
@@ -4225,6 +4405,7 @@ footer {
   .listingModalImage {
     height: 350px;
   }
+
   .galleryPrev,
   .galleryNext {
     width: 3.6rem;
@@ -4239,6 +4420,7 @@ footer {
   .galleryNext {
     right: .8rem;
   }
+
   .listingModalStats {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -4248,15 +4430,18 @@ footer {
   }
 
   .listingModalPrice {
-    font-size: 2.7rem;
+    font-size: clamp(2.8rem, 4vw, 3.6rem);
+    margin-bottom: .4rem;
   }
 }
+
 /* ////VERI Small Phones ///// */
 @media (max-width: 430px) {
   .listingsHeroPage {
     background-size: 300%;
     background-position: center top;
   }
+
   .listingsHeroContent h1 {
     font-size: 3rem;
   }
@@ -4266,7 +4451,7 @@ footer {
   }
 
   .listingModalImage {
-      height: clamp(280px, 72vw, 380px);
+    height: clamp(280px, 72vw, 380px);
   }
 
   .tourBox,
