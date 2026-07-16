@@ -4174,7 +4174,7 @@ footer {
   color: #64748b;
 }
 
-.listingHighlightsSection {
+.listingModalHighlightsSection {
   grid-column: 1;
   grid-row: 3;
 }
@@ -4279,11 +4279,17 @@ footer {
   .contactInfo {
     width: 100%;
     border-radius: 12px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
   }
-
+  .listingModalSideColumn {
+    display: contents;
+    width: 100%;
+  }
+  .listingModalSidebar,
+  .contactInfo,
+  .shareBox {
+    width: 100%;
+    border-radius: 12px;
+  }
   .listingModalMain {
     order: 1;
   }
@@ -4300,10 +4306,10 @@ footer {
   .listingModalHighlightsSection {
     order: 4;
   }
-
   .contactInfo {
     order: 5;
   }
+
 
   .listingModalBox {
     width: min(94vw, 720px);
