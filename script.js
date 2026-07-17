@@ -684,7 +684,9 @@ if (listingModal) {
       const listingId = card.dataset.listingId;
       const listing = listingData[listingId];
 
-
+      if (!listing) {
+        return;
+      }
 
       activeListing = listing;
       activeListingId = listingId;
@@ -737,14 +739,14 @@ if (listingModal) {
   let descriptionExpanded = false;
   let activeDescription = "";
   let activeShortDescription = "";
-  
+
   let touchStartX = 0;
   let touchEndX = 0;
 
   if (descriptionToggleBtn) {
     descriptionToggleBtn.addEventListener("click", () => {
       descriptionExpanded = !descriptionExpanded;
-      
+
       if (descriptionExpanded) {
         modalDescription.textContent = activeDescription;
         descriptionToggleText.textContent = "Show Less";
@@ -972,4 +974,152 @@ if (contactFormHeading) {
     });
   }
 }
+
+//////////LOGIC FOR REVIEWS PAGE////////////
+//Review Page carousel
+//show one featured review at a time
+//after each one have a timer set and add another
+//have a prev or next button
+// auto rotate every 5-10seconds
+////////PSEUDO CODEEEE////////
+//1.) Build an array the same way i did for listings
+//object for image, starts should be the same, quote, Family name, city and state
+const featuredReviews = [
+  {
+    quote: "“Nick made the entire process stress free and helped us find the perfect home for our family. He truly cares about his clients!”",
+    name: "Diaz Family",
+    location: "Sylmar, CA",
+    rating: 5,
+    image: "assets/images/clients/happyclient3.webp",
+  },
+  {
+    quote: "“Professional, responsive, and knowledgeable. The best realtor we’ve worked with.”",
+    name: "Lopez Family",
+    location: "Palmdale, CA",
+    rating: 5,
+    image: "assets/images/clients/happyclient2.webp",
+  },
+  {
+    quote: "“Nick helped us sell our home quickly and for top dollar. We couldn’t be happier.”",
+    name: "Cardenas Family",
+    location: "Palmdale, CA",
+    rating: 5,
+    image: "assets/images/clients/happyclient1.webp",
+  }
+]
+console.log(featuredReviews[0].quote);
+console.log(featuredReviews[1].name);
+
+// 2.) select the review page elements and call them up including the image everything 
+const featuredReviewImg = document.querySelector(".featuredReviewImg");
+const featuredReviewQuote = document.querySelector(".featuredReviewQuote");
+const featuredReviewName = document.querySelector(".featuredReviewName");
+const featuredReviewLocation = document.querySelector(".featuredReviewLocation");
+const featuredReviewRating = document.querySelector(".featuredReviewRating");
+const featuredReviewDots = document.querySelector(".featuredReviewDots");
+
+
+// 3.) create state variables 
+//   current reviews starts at 0 
+//   current review duration 
+//   review timer stores how much time 
+//   review duration how much time it should last
+if (featuredReviewImg && featuredReviewQuote && featuredReviewName) {
+  let currentFeaturedReviewIndex = 0;
+  let featuredReviewTimer;
+  const featuredReviewDuration = 7000;
+
+  function showFeaturedReview(index) {
+    const featuredReview = featuredReviews[index];
+
+    featuredReviewImg.src = featuredReview.image;
+    featuredReviewImg.alt = `${featuredReview.name} review`
+
+    featuredReviewQuote.textContent = featuredReview.quote;
+    featuredReviewName.textContent = featuredReview.name;
+    featuredReviewLocation.textContent = featuredReview.location;
+
+    featuredReviewRating.innerHTML = "";
+    for (let i = 0; i < featuredReview.rating; i++) {
+      const star = document.createElement("i");
+      star.classList.add("fa-solid", "fa-star");
+      featuredReviewRating.appendChild(star);
+    }
+    currentFeaturedReviewIndex = index;
+    const dots = featuredReviewDots.querySelectorAll(".featuredReviewDot")
+
+          dots.forEach((dot) => {
+            dot.classList.remove("active");
+          });
+          if (dots[index]) {
+            dots[index].classList.add("active");
+          }
+  } 
+    function showNextFeaturedReview() {
+      currentFeaturedReviewIndex++;
+      
+      if (currentFeaturedReviewIndex >= featuredReviews.length) {
+        currentFeaturedReviewIndex = 0;
+      }
+      showFeaturedReview(currentFeaturedReviewIndex);
+    }
+    function showPrevFeaturedReview() {
+      currentFeaturedReviewIndex--;
+      
+      if (currentFeaturedReviewIndex < 0) {
+        currentFeaturedReviewIndex = featuredReviews.length - 1;
+      }
+      showFeaturedReview(currentFeaturedReviewIndex);
+    }
+    function createReviewDots() {
+      featuredReviewDots.innerHTML = "";
+
+      featuredReviews.forEach((featuredReview, index) => {
+        const dot = document.createElement("button");
+
+        dot.type = "button";
+        dot.classList.add("featuredReviewDot")
+
+        dot.addEventListener("click", () => {
+          showFeaturedReview(index);
+          resetFeatureReviewTimer();
+        });
+        featuredReviewDots.appendChild(dot);
+      });
+    }
+    function startFeatureReviewTimer() {
+      featuredReviewTimer = setInterval(showNextFeaturedReview, featuredReviewDuration);
+    }
+    function resetFeatureReviewTimer() {
+      clearInterval(featuredReviewTimer);
+      startFeatureReviewTimer();
+    }
+  
+  createReviewDots();
+  showFeaturedReview(0);
+  startFeatureReviewTimer();
+
+
+}
+
+
+//   4 crate show review function that has index for each attribute 
+//   get review and updates everything that was inputted previously 
+
+//   5.) create shownext review which is a button/dot that is a button 
+//   button has review index and reset timer 
+//   function resets timer when the button is clidcked 
+
+//   6.) create show prev function 
+//   decreases index Number
+//   also restes timer if index goes to 0 show last review 
+//   call showFeatured review current review index
+
+//   7.) create dorts which is basically the button element 
+//   when clicked it showsReview index and rests timer 
+
+//   8.) create timer function 
+//   where starttimer and reset timeer exists
+
+//   9.) start everything with create dots show review 0 start timer 
 

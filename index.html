@@ -44,7 +44,7 @@
                 Palmdale & surrounding areas.</h3>
 
             <div class="homeBtns">
-                <a href="#listings" class="primary-btn">View Listings<i class="fa-solid fa-arrow-right"></i> </a>
+                <a href="listings.html" class="primary-btn">View Listings<i class="fa-solid fa-arrow-right"></i> </a>
                 <a href="contact.html" class="secondary-btn">Schedule Consultation</a>
             </div>
             <a href="#reviews" class="clientProof">
@@ -119,10 +119,10 @@
             </article>
                     <!-- listing number 2 -->
             <article class="listingInfo">
-                <button class="listingCard listingCardButton" type="button" data-listing-id="center-ct">
+                <button class="listingCard listingCardButton" type="button" data-listing-id="danya-ln">
                 <div class="listingImg">
                     <img src="assets/images/listings/44237 Danya Ln/44237 Danya Ln Listing.webp" alt="Home In Palmdale For Sale">
-                    <span class="tag">For Sale</span>p
+                    <span class="tag">For Sale</span>
                 </div>
                 <div class="listInfo">
                     <h3>$460,000</h3>
@@ -142,7 +142,7 @@
 
                     <!-- Listing Number 3 -->
             <article class="listingInfo">
-                <button class="listingCard listingCardButton" type="button" data-listing-id="center-ct">
+                <button class="listingCard listingCardButton" type="button" data-listing-id="joshua-hills">
                 <div class="listingImg">
                     <img src="assets/images/listings/2614 Joshua Hills/finalhome.webp" alt="Home In JoshuaTree For Sale">
                     <span class="tag">For Sale</span>
@@ -436,6 +436,149 @@
         </div>
       </div>
         
+      <!-- //////////////LISTINGS MODAL//////////// -->
+      <div class="listingModal" id="listingModal">
+        <div class="listingModalOverlay" data-close-listing-modal></div>
+
+        <div class="listingModalBox">
+            <button class="listingModalClose" type="button" data-close-listing-modal>
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div class="listingModalGrid">
+                <div class="listingModalMain">
+                    <div class="listingModalImageWrap">
+                        <button class="galleryPrev" type="button">
+                            <i class="fa-solid fa-chevron-left"></i>
+                        </button>
+
+                        <img class="listingModalImage" src="" alt="">
+                        <span class="listingModalStatus"></span>
+
+                        <button class="galleryCount" type="button">
+                            <i class="fa-regular fa-image"></i>
+                            <span class="galleryCurrent">1</span> /
+                            <span class="galleryTotal">1</span>
+                        </button>
+                        <button class="galleryNext" type="button">
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </button>
+                    </div>
+
+                    <h2 class="listingModalPrice"></h2>
+                    <p class="listingModalAddress"></p>
+
+                    <div class="listingModalStats">
+                        <div>
+                            <i class="fa-solid fa-bed"></i>
+                            <strong class="modalBeds"></strong>
+                            <span>Beds</span>
+                        </div>
+
+                        <div>
+                            <i class="fa-solid fa-bath"></i>
+                            <strong class="modalBaths"></strong>
+                            <span>Baths</span>
+                        </div>
+
+                        <div>
+                            <i class="fa-solid fa-ruler-combined"></i>
+                            <strong class="modalSqft"></strong>
+                            <span>Sq Ft</span>
+                        </div>
+
+                        <div>
+                            <i class="fa-regular fa-calendar"></i>
+                            <strong class="modalYear"></strong>
+                            <span>Year Built</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="listingModalSideColumn">
+                    <aside class="listingModalSidebar">
+                        <div class="tourBox">
+                            <div class="sidebarIcon">
+                                <i class="fa-regular fa-calendar"></i>
+                            </div>
+
+                            <h3>Schedule a Tour</h3>
+                            <p>I'd love to show you this beautiful property.</p>
+
+                            <a href="contact.html" class="primary-btn listingInterestBtn">
+                                I'm Interested <i class="fa-solid fa-chevron-right"></i>
+                            </a>
+
+                            <a href="contact.html" class="secondary-btn listingTourBtn">
+                                Schedule a Tour <i class="fa-regular fa-calendar"></i>
+                            </a>
+                        </div>
+                    </aside>
+                    <div class="contactInfo">
+
+                        <div class="questionBox">
+                            <h3>Have Questions?</h3>
+                            <p>Call or text me anytime.</p>
+
+                            <a href="tel:6616168099">
+                                <i class="fa-solid fa-phone"></i>
+                                (661)616-8099
+                            </a>
+
+                            <a href="mailto:nickarmijorealestate@gmail.com">
+                                <i class="fa-regular fa-envelope"></i>
+                                nickarmijorealestate@gmail.com
+                            </a>
+                        </div>
+
+                        <div class="shareBox">
+                            <h3>Share This Listing</h3>
+
+                            <div class="shareLinks">
+                                <a href="https://www.instagram.com/agentarmijo/">
+                                    <i class="fa-brands fa-instagram"></i>
+                                </a>
+                                <a href="https://www.facebook.com/people/Nick-Armijo/100089810234481/">
+                                    <i class="fa-brands fa-square-facebook"></i>
+                                </a>
+                                <a href="https://www.tiktok.com/@agentarmijo?is_from_webapp=1&sender_device=pc">
+                                    <i class="fa-brands fa-tiktok"></i>
+                                </a>
+                                <a href="https://www.youtube.com/@agentarmijo">
+                                    <i class="fa-brands fa-youtube"></i>
+                                </a>
+                                <button type="button"><i class="fa-solid fa-link"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="listingModalDetails">
+                    <section class="modalSection">
+                        <h3>About This Property</h3>
+                        <p class="listingModalDescription"></p>
+                        <button type="button" class="descriptionToggleBtn">
+                            <span>
+                                Read More
+                            </span>
+                            <i class="fa-solid fa-angle-down"></i>
+                        </button>
+                    </section>
+                </div>
+                <div class="listingModalHighlightsSection">
+
+                    <section class="modalSection">
+                        <h3>Property Highlights</h3>
+                        <ul class="listingModalHighlights"></ul>
+                    </section>
+                </div>
+            </div>
+
+            <p class="modalDisclaimer">
+                All information is deemed reliable but not guaranteed.
+            </p>
+        </div>
+    </div>
     
 
 
