@@ -28,6 +28,21 @@ closeModalBtns.forEach((btn) => {
     modal.classList.remove("active");
   });
 });
+////////////////STICKY CONTACT AT FOOTER FOR HOME PAGE////////////
+const stickyContactCta = document.querySelector(".stickyContactCta");
+const homeSection = document.querySelector("#home");
+
+if (stickyContactCta && homeSection) {
+  window.addEventListener("scroll", () => {
+    const homeBottom = homeSection.offsetTop + homeSection.offsetHeight;
+
+    if (window.scrollY > homeBottom - 120) {
+      stickyContactCta.classList.add("active");
+    } else {
+      stickyContactCta.classList.remove("active");
+    }
+  });
+}
 
 // CAROUSEL SECTION IN SERVICES 
 const reviews = [
@@ -150,7 +165,7 @@ faqItems.forEach((item) => {
 });
 ////////////////////// CONTACT FORM SECTION////////////
 const contactForm = document.querySelector(".contactForm");
-const formMessage = document.querySelector(".formMessage")
+const formMessage = document.querySelector(".formMessage");
 
 if (contactForm && formMessage) {
   contactForm.addEventListener("submit", (event) => {
@@ -161,36 +176,95 @@ if (contactForm && formMessage) {
     const phone = document.querySelector("#phone").value.trim();
     const interest = document.querySelector("#interest").value;
     const message = document.querySelector("#message").value.trim();
+    const allowedInterests = ["buying", "selling", "investing", "general"];
 
-    if (!fullName || !email || !phone) {
-      formMessage.textContent = "Please fill out your name, email, and phone number please.";
+    if (!fullName || !email || !phone || !interest) {
+      formMessage.textContent = "Please fill out your name, email, phone number, and interest please.";
       formMessage.classList.add("error");
       formMessage.classList.remove("success");
       return;
     }
+
+    if (!allowedInterests.includes(interest)) {
+      formMessage.textContent = "Please Select Interest";
+      formMessage.classList.add("error");
+      formMessage.classList.remove("success");
+      return;
+    }
+    
     if (!email.includes("@")) {
       formMessage.textContent = "Please enter a valid email address"
       formMessage.classList.add("error");
       formMessage.classList.remove("success");
       return;
     }
+
+    let phoneDigits = "";
+    const digits = "0123456789";
+    const allowedCharacters = "() -";
+
+    for (const character of phone) {
+      if (digits.includes(character)) {
+        phoneDigits = phoneDigits + character;
+      }
+      else if (allowedCharacters.includes(character)) {
+        // intntionally empty to run next piece and to allow characters
+      } else {
+        formMessage.textContent = "Please Enter a Valid Phone Number";
+          formMessage.classList.add("error");
+          formMessage.classList.remove("success");
+          return;
+      }
+    }
+        if (phoneDigits.length !== 10) {
+          formMessage.textContent = "Please Enter a Valid Phone Number";
+          formMessage.classList.add("error");
+          formMessage.classList.remove("success");
+          return
+      }
+
+      if (message && message.length > 1000) {
+        formMessage.textContent = "Message Too Long";
+          formMessage.classList.add("error");
+          formMessage.classList.remove("success");
+          return
+      }
+
     const contactData = {
       fullName,
       email,
       phone,
       interest,
       message
-    };
+    }
     console.log(contactData);
 
-    formMessage.textContent = "Thank you, will get back to you as soon as possible";
-    formMessage.classList.add("success");
-    formMessage.classList.remove("error");
-
-    contactForm.reset();
-
+    fetch("http://127.0.0.1:5001/api/contact", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(contactData)
+    })
+    .then((response) => {
+      return response.json().then((data) => {
+        if (response.ok) {
+          formMessage.textContent = data.message;
+          formMessage.classList.add("success");
+          formMessage.classList.remove("error");
+          contactForm.reset();
+        } else {
+          formMessage.textContent = data.message;
+          formMessage.classList.add("error");
+          formMessage.classList.remove("success");
+        }
+      });
+    });
   });
 }
+
+
+
 
 // ///////////CALENDAR LOGIC ///////////////
 
@@ -1048,53 +1122,53 @@ if (featuredReviewImg && featuredReviewQuote && featuredReviewName) {
     currentFeaturedReviewIndex = index;
     const dots = featuredReviewDots.querySelectorAll(".featuredReviewDot")
 
-          dots.forEach((dot) => {
-            dot.classList.remove("active");
-          });
-          if (dots[index]) {
-            dots[index].classList.add("active");
-          }
-  } 
-    function showNextFeaturedReview() {
-      currentFeaturedReviewIndex++;
-      
-      if (currentFeaturedReviewIndex >= featuredReviews.length) {
-        currentFeaturedReviewIndex = 0;
-      }
-      showFeaturedReview(currentFeaturedReviewIndex);
+    dots.forEach((dot) => {
+      dot.classList.remove("active");
+    });
+    if (dots[index]) {
+      dots[index].classList.add("active");
     }
-    function showPrevFeaturedReview() {
-      currentFeaturedReviewIndex--;
-      
-      if (currentFeaturedReviewIndex < 0) {
-        currentFeaturedReviewIndex = featuredReviews.length - 1;
-      }
-      showFeaturedReview(currentFeaturedReviewIndex);
+  }
+  function showNextFeaturedReview() {
+    currentFeaturedReviewIndex++;
+
+    if (currentFeaturedReviewIndex >= featuredReviews.length) {
+      currentFeaturedReviewIndex = 0;
     }
-    function createReviewDots() {
-      featuredReviewDots.innerHTML = "";
+    showFeaturedReview(currentFeaturedReviewIndex);
+  }
+  function showPrevFeaturedReview() {
+    currentFeaturedReviewIndex--;
 
-      featuredReviews.forEach((featuredReview, index) => {
-        const dot = document.createElement("button");
+    if (currentFeaturedReviewIndex < 0) {
+      currentFeaturedReviewIndex = featuredReviews.length - 1;
+    }
+    showFeaturedReview(currentFeaturedReviewIndex);
+  }
+  function createReviewDots() {
+    featuredReviewDots.innerHTML = "";
 
-        dot.type = "button";
-        dot.classList.add("featuredReviewDot")
+    featuredReviews.forEach((featuredReview, index) => {
+      const dot = document.createElement("button");
 
-        dot.addEventListener("click", () => {
-          showFeaturedReview(index);
-          resetFeatureReviewTimer();
-        });
-        featuredReviewDots.appendChild(dot);
+      dot.type = "button";
+      dot.classList.add("featuredReviewDot")
+
+      dot.addEventListener("click", () => {
+        showFeaturedReview(index);
+        resetFeatureReviewTimer();
       });
-    }
-    function startFeatureReviewTimer() {
-      featuredReviewTimer = setInterval(showNextFeaturedReview, featuredReviewDuration);
-    }
-    function resetFeatureReviewTimer() {
-      clearInterval(featuredReviewTimer);
-      startFeatureReviewTimer();
-    }
-  
+      featuredReviewDots.appendChild(dot);
+    });
+  }
+  function startFeatureReviewTimer() {
+    featuredReviewTimer = setInterval(showNextFeaturedReview, featuredReviewDuration);
+  }
+  function resetFeatureReviewTimer() {
+    clearInterval(featuredReviewTimer);
+    startFeatureReviewTimer();
+  }
+
   createReviewDots();
   showFeaturedReview(0);
   startFeatureReviewTimer();

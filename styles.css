@@ -779,6 +779,11 @@ h2 i {
   flex-direction: column;
   font-size: 1.4rem;
 }
+/* /////////////////////////STICKY CONTACT BUTTON ////////////////////// */
+.stickyContactCta {
+  display: hidden;
+}
+
 
 /* /////////////////////CALL TO ACTION SECTION////////// */
 footer {
@@ -1267,10 +1272,8 @@ footer {
   #menu-icon {
     font-size: 2.6rem;
   }
-}
 
 /* HERO SECTION */
-@media (max-width: 600px) {
   .home {
     padding: 10rem 5% 4rem;
     gap: 2.5rem;
@@ -1296,10 +1299,9 @@ footer {
     line-height: 1.5;
     margin-bottom: 2rem;
   }
-}
+
 
 /* Social Card */
-@media (max-width: 600px) {
   .socialCard {
     width: 100%;
     max-width: 100%;
@@ -1331,10 +1333,10 @@ footer {
   .socialIcons a i {
     font-size: 2.2rem;
   }
-}
+
 
 /* CLIENT PROOF */
-@media (max-width: 600px) {
+
   .clientProof {
     width: 100%;
     max-width: 450px;
@@ -1357,9 +1359,113 @@ footer {
     background-size: cover;
     background-position: center;
   }
-
+  .modalForm {
+    min-height: calc(76vh - 14rem);
+  }
   .navbar.active a {
     margin-left: 0;
+  } 
+  .stickyContactCta {
+    position: fixed;
+    left: 5%;
+    right: 5%;
+    bottom: 1.4rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+
+    padding: 1.5rem 2rem;
+    border-radius: 18px;
+
+    background: linear-gradient(135deg, #f1eadc, #d8c8ad);
+    color: var(--accentcolor);
+
+    font-family: "Rampart One", sans-serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+
+    box-shadow: 0 12px 30px rgba(7, 18, 37, .22);
+    z-index: 999;
+
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(120%);
+    transition: opacity .25s ease, transform .25s ease;
+  }
+
+  .stickyContactCta.active {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+  .contactModal {
+    align-items: flex-end;
+    padding: 0;
+  }
+  .modalBox h2 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+  .modalBox p {
+    font-size: 1.55rem;
+    line-height: 1.5;
+    margin-bottom: 2rem;
+  }
+  .modalForm {
+    display: flex;
+    flex-direction: column;
+    gap: 1.4rem;
+  }
+  .modalForm {
+    gap: 1.8rem;
+  }
+
+  .modalForm input,
+  .modalForm select {
+    min-height: 5.6rem;
+    padding: 1.6rem 1.7rem;
+    font-size: 1.6rem;
+    border-radius: 12px;
+  }
+
+  .modalForm textarea {
+    min-height: 13rem;
+    padding: 1.6rem 1.7rem;
+    font-size: 1.6rem;
+    border-radius: 12px;
+  }
+
+  .modalSubmit {
+    min-height: 5.8rem;
+    font-size: 1.6rem;
+    border-radius: 12px;
+    margin-top: .6rem;
+  }
+
+  .modalSubmit {
+    min-height: 5rem;
+    margin: auto;
+    font-size: 1.55rem;
+  }
+  .modalBox {
+    width: 100%;
+    max-width: none;
+    max-height: 60vh;
+    height: 60vh;
+
+    border-radius: 24px 24px 0 0;
+    overflow-y: auto;
+    padding: 2.4rem 2.2rem 3rem;
+
+
+    transform: translateY(100%);
+    transition: transform .3s ease;
+  }
+
+  .contactModal.active .modalBox {
+    transform: translateY(0%);
   }
 
 }
