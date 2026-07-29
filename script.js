@@ -52,18 +52,18 @@ const reviews = [
     location: "Lancaster"
   },
   {
-    quote: "Nick is my closest friend we do everything together",
-    name: "Hugh Janus",
+    quote: "Professional, responsive, and knowledgeable. The best realtor we’ve worked with.",
+    name: "Rogelio Diaz",
+    location: "Sylmar"
+  },
+  {
+    quote: "Nick helped us sell our home quickly and for top dollar. We couldn’t be happier.",
+    name: "Alex Cardenas",
     location: "Palmdale"
   },
   {
-    quote: "Nick was the nicest person to mee but out of nowhere i caught him flirting with another girl in front of me",
-    name: "Ashley",
-    location: "Anaheim"
-  },
-  {
-    quote: "nick is gay",
-    name: "steven",
+    quote: "He went above and beyond for us. Highly recommend Nick to anyone looking to buy or sell.",
+    name: "Morales Family",
     location: "Palmdale"
   }
 ];
