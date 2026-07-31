@@ -52,6 +52,11 @@ def contact():
     phone = data.get("phone")
     interest = data.get("interest")
     message = data.get("message")
+    listing_id = data.get("listingId")
+    intent = data.get("intent")
+    listing_price = data.get("listingPrice")
+    listing_city = data.get("listingCity")
+    listing_address = data.get("listingAddress")
     
     if not full_name:
         return {"message": "Full Name is Required"}, 400
@@ -88,16 +93,31 @@ def contact():
     if interest not in allowed_interests:
         return {"message": "Invalid Interest Selected"}, 400
 
+    allowed_intents = ["", "interest", "tour"]
+    if intent not in allowed_intents:
+        return {"message": "Invalid Contact Intent"}, 400
+
     
     if message and len(message) > 1000:
         return {"message": "Message Too Long"}, 400
 
-    
-    print(data)
+    contact_request = {
+        "fullName": full_name,
+        "email": email,
+        "phone": phone_digits,
+        "interest": interest,
+        "message": message,
+        "listingId": listing_id,
+        "intent": intent,
+        "listingPrice": listing_price,
+        "listingCity": listing_city,
+        "listingAddress": listing_address,
+    }
+
+    print(contact_request)
     return {"message": "Thank you, will get back to you as soon as possible"}, 200
 
 
 if __name__ == "__main__":
     app.run(debug=True, port=5001)
    
-

@@ -16,18 +16,21 @@ const modal = document.querySelector("#contactModal");
 const openModalBtns = document.querySelectorAll("[data-open-modal]");
 const closeModalBtns = document.querySelectorAll("[data-close-modal]");
 
-openModalBtns.forEach((btn) => {
-  btn.addEventListener("click", (event) => {
-    event.preventDefault();
-    modal.classList.add("active");
-  });
-});
+if (modal) {
 
-closeModalBtns.forEach((btn) => {
-  btn.addEventListener("click", () => {
-    modal.classList.remove("active");
+  openModalBtns.forEach((btn) => {
+    btn.addEventListener("click", (event) => {
+      event.preventDefault();
+      modal.classList.add("active");
+    });
   });
-});
+  
+  closeModalBtns.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      modal.classList.remove("active");
+    });
+  });
+}
 ////////////////STICKY CONTACT AT FOOTER FOR HOME PAGE////////////
 const stickyContactCta = document.querySelector(".stickyContactCta");
 const homeSection = document.querySelector("#home");
@@ -235,7 +238,12 @@ if (contactForm && formMessage) {
       email,
       phone,
       interest,
-      message
+      message,
+      listingId:  listingId || "",
+      intent: intent || "",
+      listingPrice: selectedListing ? selectedListing.price : "",
+      listingCity: selectedListing ? selectedListing.city : "",
+      listingAddress: selectedListing ? selectedListing.address : ""
     }
     console.log(contactData);
 
@@ -259,8 +267,13 @@ if (contactForm && formMessage) {
           formMessage.classList.remove("success");
         }
       });
+    })
+    .catch(() => {
+      formMessage.textContent = "Something went wrong. Please try again.";
+      formMessage.classList.add("error");
+      formMessage.classList.remove("success");
     });
-  });
+  })
 }
 
 
@@ -904,31 +917,7 @@ if (listingModal) {
     }
     console.log("end:", touchEndX);
   });
-  // - if it goes past the last image, reset to 0
-  // - update modal image
-  // - update gallery count
 
-  // 6. When previous is clicked:
-  // - decrease currentImageIndex by 1
-  // - if it goes below 0, go to the last image
-  // - update modal image
-  // - update gallery count
-
-
-  /////////////SWIPING MOTION LOGIC/////////////////
-
-  // create touchStartX variable
-  // create touchEndX variable
-
-  // when user touches the image area:
-  // - save the starting X position
-
-  // when user lifts finger:
-  // - save the ending X position
-
-  // compare start and end:
-  // - if movement is enough and went left, show next image
-  // - if movement is enough and went right, show previous image
 
   const listingInterestBtn = document.querySelector(".listingInterestBtn");
   const listingTourBtn = document.querySelector(".listingTourBtn");
@@ -959,25 +948,11 @@ if (listingModal) {
       `contact.html?listing=${encodedListingId}&intent=tour#calendarSection`;
   });
 }
-//MY PSEUDO CODE 
-// createUrlsearchparams grom window.location.href
-// from there get the listing information 
-// from there get the intent parameter 
-// grab the information of the listing from listingData
-// if intent is for get more information open up the contactForm information
-// if schedule private tour was clicked then open up calendarDates
-/////////////WHAT IT WAS MISSING///////////\
 
-// CONTACT PAGE DYNAMIC FLOW
-
-// 1. Create URLSearchParams from window.location.search
-// 2. Get the listing parameter from the URL
-
-// 3. Get the intent parameter from the URL
 const contactFormHeading = document.querySelector(".contactFormHeading");
 const selectedPropertyPreview = document.querySelector(".selectedPropertyPreview");
 const selectedPropertyImage = document.querySelector(".selectedPropertyImage");
-const selectedPropertyAddress = document.querySelector(".selectedPropertyAddress")
+const selectedPropertyAddress = document.querySelector(".selectedPropertyAddress");
 const selectedPropertyCity = document.querySelector(".selectedPropertyCity");
 const selectedPropertyBeds = document.querySelector(".selectedPropertyBeds");
 const selectedPropertyBaths = document.querySelector(".selectedPropertyBaths");
@@ -991,27 +966,34 @@ const intentInput = document.querySelector(".intentInput");
 const contactHero = document.querySelector(".contactHero");
 const openCalendarBtn = document.querySelector(".openCalendarBtn");
 
+const params = new URLSearchParams(window.location.search);
+
+const listingId = params.get("listing");
+const intent = params.get("intent");
+
+const selectedListing = listingId ? listingData[listingId] : null;
+
+if (listingIdInput) {
+  listingIdInput.value = listingId || "";
+}
+if (intentInput) {
+  intentInput.value = intent || "";
+}
 if (contactFormHeading) {
-
-  const params = new URLSearchParams(window.location.search);
-
-  const listingId = params.get("listing")
-  const intent = params.get("intent");
-
-  const selectedListing = listingId ? listingData[listingId] : null;
+  
 
   console.log(listingId);
   console.log(intent);
   console.log(selectedListing);
-
+  
   if (!listingId || !selectedListing) {
     selectedPropertyPreview.hidden = true;
     tourCalendarSection.hidden = true;
     contactFormHeading.textContent = "Send Me a Message";
-
   }
+  
   else {
-
+    
     selectedPropertyPreview.hidden = false;
     selectedPropertyImage.src = selectedListing.images[0];
     selectedPropertyImage.alt = selectedListing.address;
@@ -1019,20 +1001,20 @@ if (contactFormHeading) {
     selectedPropertyCity.textContent = selectedListing.city;
     selectedPropertyBeds.textContent = `${selectedListing.beds} Beds`;
     selectedPropertyBaths.textContent = `${selectedListing.baths} Baths`;
-    selectedPropertySqft.textContent = `${selectedListing.sqft} Sq Ft`
+    selectedPropertySqft.textContent = `${selectedListing.sqft} Sq Ft`;
     selectedPropertyPrice.textContent = selectedListing.price;
-
+    
     if (contactHero && selectedListing.images.length > 0) {
       contactHero.style.backgroundImage =
-        `url("${selectedListing.heroImage || selectedListing.images[0]}")`;
-
+      `url("${selectedListing.heroImage || selectedListing.images[0]}")`;
+      
       contactHero.style.backgroundPosition =
-        selectedListing.heroPosition || "center center";
-
+      selectedListing.heroPosition || "center center";
+      
       contactHero.style.backgroundSize =
-        selectedListing.heroSize || "cover";
+      selectedListing.heroSize || "cover";
     }
-
+    
     if (intent === "tour") {
       contactFormHeading.textContent = "Schedule a Private Tour";
       tourCalendarSection.hidden = false;
@@ -1048,16 +1030,12 @@ if (contactFormHeading) {
     });
   }
 }
+    
 
-//////////LOGIC FOR REVIEWS PAGE////////////
-//Review Page carousel
-//show one featured review at a time
-//after each one have a timer set and add another
-//have a prev or next button
-// auto rotate every 5-10seconds
-////////PSEUDO CODEEEE////////
-//1.) Build an array the same way i did for listings
-//object for image, starts should be the same, quote, Family name, city and state
+
+
+
+///////////////?REVIEWS SECTION//////////////
 const featuredReviews = [
   {
     quote: "“Nick made the entire process stress free and helped us find the perfect home for our family. He truly cares about his clients!”",
@@ -1084,7 +1062,7 @@ const featuredReviews = [
 console.log(featuredReviews[0].quote);
 console.log(featuredReviews[1].name);
 
-// 2.) select the review page elements and call them up including the image everything 
+
 const featuredReviewImg = document.querySelector(".featuredReviewImg");
 const featuredReviewQuote = document.querySelector(".featuredReviewQuote");
 const featuredReviewName = document.querySelector(".featuredReviewName");
@@ -1092,12 +1070,6 @@ const featuredReviewLocation = document.querySelector(".featuredReviewLocation")
 const featuredReviewRating = document.querySelector(".featuredReviewRating");
 const featuredReviewDots = document.querySelector(".featuredReviewDots");
 
-
-// 3.) create state variables 
-//   current reviews starts at 0 
-//   current review duration 
-//   review timer stores how much time 
-//   review duration how much time it should last
 if (featuredReviewImg && featuredReviewQuote && featuredReviewName) {
   let currentFeaturedReviewIndex = 0;
   let featuredReviewTimer;
@@ -1176,24 +1148,4 @@ if (featuredReviewImg && featuredReviewQuote && featuredReviewName) {
 
 }
 
-
-//   4 crate show review function that has index for each attribute 
-//   get review and updates everything that was inputted previously 
-
-//   5.) create shownext review which is a button/dot that is a button 
-//   button has review index and reset timer 
-//   function resets timer when the button is clidcked 
-
-//   6.) create show prev function 
-//   decreases index Number
-//   also restes timer if index goes to 0 show last review 
-//   call showFeatured review current review index
-
-//   7.) create dorts which is basically the button element 
-//   when clicked it showsReview index and rests timer 
-
-//   8.) create timer function 
-//   where starttimer and reset timeer exists
-
-//   9.) start everything with create dots show review 0 start timer 
 
