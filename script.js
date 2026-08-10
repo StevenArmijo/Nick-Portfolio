@@ -11,26 +11,7 @@ menuIcon.addEventListener("click", () => {
 window.addEventListener("scroll", () => {
   header.classList.toggle("scrolled", window.scrollY > 50);
 });
-// Modal
-const modal = document.querySelector("#contactModal");
-const openModalBtns = document.querySelectorAll("[data-open-modal]");
-const closeModalBtns = document.querySelectorAll("[data-close-modal]");
 
-if (modal) {
-
-  openModalBtns.forEach((btn) => {
-    btn.addEventListener("click", (event) => {
-      event.preventDefault();
-      modal.classList.add("active");
-    });
-  });
-  
-  closeModalBtns.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      modal.classList.remove("active");
-    });
-  });
-}
 ////////////////STICKY CONTACT AT FOOTER FOR HOME PAGE////////////
 const stickyContactCta = document.querySelector(".stickyContactCta");
 const homeSection = document.querySelector("#home");
@@ -166,117 +147,6 @@ faqItems.forEach((item) => {
     }
   });
 });
-////////////////////// CONTACT FORM SECTION////////////
-const contactForm = document.querySelector(".contactForm");
-const formMessage = document.querySelector(".formMessage");
-
-if (contactForm && formMessage) {
-  contactForm.addEventListener("submit", (event) => {
-    event.preventDefault();
-
-    const fullName = document.querySelector("#fullName").value.trim();
-    const email = document.querySelector("#email").value.trim();
-    const phone = document.querySelector("#phone").value.trim();
-    const interest = document.querySelector("#interest").value;
-    const message = document.querySelector("#message").value.trim();
-    const allowedInterests = ["buying", "selling", "investing", "general"];
-
-    if (!fullName || !email || !phone || !interest) {
-      formMessage.textContent = "Please fill out your name, email, phone number, and interest please.";
-      formMessage.classList.add("error");
-      formMessage.classList.remove("success");
-      return;
-    }
-
-    if (!allowedInterests.includes(interest)) {
-      formMessage.textContent = "Please Select Interest";
-      formMessage.classList.add("error");
-      formMessage.classList.remove("success");
-      return;
-    }
-    
-    if (!email.includes("@")) {
-      formMessage.textContent = "Please enter a valid email address"
-      formMessage.classList.add("error");
-      formMessage.classList.remove("success");
-      return;
-    }
-
-    let phoneDigits = "";
-    const digits = "0123456789";
-    const allowedCharacters = "() -";
-
-    for (const character of phone) {
-      if (digits.includes(character)) {
-        phoneDigits = phoneDigits + character;
-      }
-      else if (allowedCharacters.includes(character)) {
-        // intntionally empty to run next piece and to allow characters
-      } else {
-        formMessage.textContent = "Please Enter a Valid Phone Number";
-          formMessage.classList.add("error");
-          formMessage.classList.remove("success");
-          return;
-      }
-    }
-        if (phoneDigits.length !== 10) {
-          formMessage.textContent = "Please Enter a Valid Phone Number";
-          formMessage.classList.add("error");
-          formMessage.classList.remove("success");
-          return
-      }
-
-      if (message && message.length > 1000) {
-        formMessage.textContent = "Message Too Long";
-          formMessage.classList.add("error");
-          formMessage.classList.remove("success");
-          return
-      }
-
-    const contactData = {
-      fullName,
-      email,
-      phone,
-      interest,
-      message,
-      listingId:  listingId || "",
-      intent: intent || "",
-      listingPrice: selectedListing ? selectedListing.price : "",
-      listingCity: selectedListing ? selectedListing.city : "",
-      listingAddress: selectedListing ? selectedListing.address : ""
-    }
-    console.log(contactData);
-
-    fetch("http://127.0.0.1:5001/api/contact", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(contactData)
-    })
-    .then((response) => {
-      return response.json().then((data) => {
-        if (response.ok) {
-          formMessage.textContent = data.message;
-          formMessage.classList.add("success");
-          formMessage.classList.remove("error");
-          contactForm.reset();
-        } else {
-          formMessage.textContent = data.message;
-          formMessage.classList.add("error");
-          formMessage.classList.remove("success");
-        }
-      });
-    })
-    .catch(() => {
-      formMessage.textContent = "Something went wrong. Please try again.";
-      formMessage.classList.add("error");
-      formMessage.classList.remove("success");
-    });
-  })
-}
-
-
 
 
 // ///////////CALENDAR LOGIC ///////////////
@@ -290,13 +160,56 @@ const calendarDates = document.querySelector(".calendarDates");
 const prevMonthBtn = document.querySelector(".prevMonthBtn");
 const nextMonthBtn = document.querySelector(".nextMonthBtn");
 
+const fullNameInput = document.querySelector("#fullName");
+const emailInput = document.querySelector("#email");
+const phoneInput = document.querySelector("#phone");
+const interestInput = document.querySelector("#interest");
+const messageSubmitBtn = document.querySelector(".messageSubmitBtn");
+ 
 let selectedDate = null;
 let selectedTime = null;
+let appointmentConfirmed = false;
 let currentMonthDate = new Date();
 
+
+
+function updateSubmitButton() {
+  if (!messageSubmitBtn || !fullNameInput || !emailInput || !phoneInput || !interestInput) {
+    return;
+  }
+
+  const hasContactInfo =
+    fullNameInput.value.trim() &&
+    emailInput.value.trim() &&
+    phoneInput.value.trim() &&
+    interestInput.value;
+
+  const isTourRequest = intent === "tour";
+
+  if (isTourRequest) {
+    messageSubmitBtn.innerHTML = appointmentConfirmed
+      ? 'Send Tour Request <i class="fa-regular fa-paper-plane"></i>'
+      : "Select and Confirm a Tour Time";
+
+    messageSubmitBtn.disabled = !(hasContactInfo && appointmentConfirmed);
+  } else {
+    messageSubmitBtn.innerHTML = 'Send Message <i class="fa-regular fa-paper-plane"></i>';
+    messageSubmitBtn.disabled = !hasContactInfo;
+  }
+
+  messageSubmitBtn.classList.toggle("ready", !messageSubmitBtn.disabled);
+}
+
+if (fullNameInput && emailInput && phoneInput && interestInput) {
+  [fullNameInput, emailInput, phoneInput, interestInput].forEach((input) => {
+    input.addEventListener("input", updateSubmitButton);
+    input.addEventListener("change", updateSubmitButton);
+  });
+}
 function resetAppointmentSelection() {
   selectedDate = null;
   selectedTime = null;
+  appointmentConfirmed = false;
 
   timeButtons.forEach((button) => {
     button.classList.remove("selectedTime");
@@ -357,7 +270,13 @@ if (
           year: currentMonthDate.getFullYear()
         };
 
+        
+
         selectedTime = null;
+        appointmentConfirmed = false;
+
+        updateSubmitButton();
+        
 
         timeButtons.forEach((button) => {
           button.classList.remove("selectedTime");
@@ -366,7 +285,7 @@ if (
         appointmentMessage.textContent = "";
         appointmentMessage.classList.remove("error", "success");
 
-        console.log("Selected date:", selectedDate);
+        // console.log("Selected date:", selectedDate);
       });
 
       calendarDates.appendChild(dayButton);
@@ -388,11 +307,13 @@ if (
 
       button.classList.add("selectedTime");
       selectedTime = button.textContent.trim();
+      appointmentConfirmed = false;
 
       appointmentMessage.textContent = "";
       appointmentMessage.classList.remove("error", "success");
 
-      console.log("Selected time:", selectedTime);
+      updateSubmitButton();
+    
     });
   });
 
@@ -403,6 +324,10 @@ if (
       appointmentMessage.classList.remove("success");
       return;
     }
+    
+    appointmentConfirmed = true;
+
+    updateSubmitButton();
 
     const appointmentData = {
       year: selectedDate.year,
@@ -410,14 +335,15 @@ if (
       day: selectedDate.day,
       time: selectedTime
     };
-
-    appointmentMessage.textContent =
-      `Appointment selected for ${appointmentData.month}/${appointmentData.day}/${appointmentData.year} at ${appointmentData.time}.`;
+    
+    appointmentMessage.innerHTML =
+      `Preferred time selected: ${appointmentData.month}/${appointmentData.day}/${appointmentData.year} at ${appointmentData.time}. <br><br>
+      Complete the form and click <strong>"Send Tour Request"</strong>`;
 
     appointmentMessage.classList.add("success");
     appointmentMessage.classList.remove("error");
 
-    console.log(appointmentData);
+    // console.log(appointmentData);
   });
 
   prevMonthBtn.addEventListener("click", () => {
@@ -437,12 +363,221 @@ if (
   renderCalendar();
 }
 
+
+////////////////////// CONTACT FORM SECTION////////////
+const contactForm = document.querySelector(".contactForm");
+const formMessage = document.querySelector(".formMessage");
+
+function submitContactRequest(contactData, messageElement, formElement) {
+
+  fetch("http://127.0.0.1:5001/api/contact", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(contactData)
+  })
+  .then((response) => {
+    return response.json().then((data) => {
+      if (response.ok) {
+        messageElement.textContent = data.message;
+        messageElement.classList.add("success");
+        messageElement.classList.remove("error");
+        formElement.reset();
+      } else {
+        messageElement.textContent = data.message;
+        messageElement.classList.add("error");
+        messageElement.classList.remove("success");
+      }
+    });
+  })
+  .catch(() => {
+    messageElement.textContent = "Something went wrong. Please try again.";
+    messageElement.classList.add("error");
+    messageElement.classList.remove("success");
+  });
+}
+
+if (contactForm && formMessage) {
+  contactForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    const fullName = document.querySelector("#fullName").value.trim();
+    const email = document.querySelector("#email").value.trim();
+    const phone = document.querySelector("#phone").value.trim();
+    const interest = document.querySelector("#interest").value;
+    const message = document.querySelector("#message").value.trim();
+    
+
+    const allowedInterests = ["buying", "selling", "investing", "general"];
+    
+
+    if (!fullName || !email || !phone || !interest) {
+      formMessage.textContent = "Please fill out your name, email, phone number, and interest please.";
+      formMessage.classList.add("error");
+      formMessage.classList.remove("success");
+      return;
+    } 
+    
+    if (intent == "tour" && (!selectedDate || !selectedTime || !appointmentConfirmed)) {
+      formMessage.textContent =
+      "Please Select a Preferred Tour Date and Time"
+      
+      formMessage.classList.add("error");
+      formMessage.classList.remove("success");
+      return;  
+    }
+
+    if (!allowedInterests.includes(interest)) {
+      formMessage.textContent = "Please Select Interest";
+      formMessage.classList.add("error");
+      formMessage.classList.remove("success");
+      return;
+    }
+    const preferredDate = selectedDate
+    ? `${selectedDate.year}-${String(selectedDate.month + 1).padStart(2,"0")}-${String(selectedDate.day).padStart(2,"0")}`
+    :"";
+    const preferredTime = selectedTime || "";
+    
+    if (!email.includes("@")) {
+      formMessage.textContent = "Please enter a valid email address"
+      formMessage.classList.add("error");
+      formMessage.classList.remove("success");
+      return;
+    }
+
+    let phoneDigits = "";
+    const digits = "0123456789";
+    const allowedCharacters = "() -";
+
+    for (const character of phone) {
+      if (digits.includes(character)) {
+        phoneDigits = phoneDigits + character;
+      }
+      else if (allowedCharacters.includes(character)) {
+        // intntionally empty to run next piece and to allow characters
+      } else {
+        formMessage.textContent = "Please Enter a Valid Phone Number";
+          formMessage.classList.add("error");
+          formMessage.classList.remove("success");
+          return;
+      }
+    }
+        if (phoneDigits.length !== 10) {
+          formMessage.textContent = "Please Enter a Valid Phone Number";
+          formMessage.classList.add("error");
+          formMessage.classList.remove("success");
+          return
+      }
+
+      if (message && message.length > 1000) {
+        formMessage.textContent = "Message Too Long";
+          formMessage.classList.add("error");
+          formMessage.classList.remove("success");
+          return
+      }
+
+    const contactData = {
+      fullName,
+      email,
+      phone,
+      interest,
+      message,
+      listingId:  listingId || "",
+      intent: intent || "",
+      listingPrice: selectedListing ? selectedListing.price : "",
+      listingCity: selectedListing ? selectedListing.city : "",
+      listingAddress: selectedListing ? selectedListing.address : "",
+
+      preferredDate,
+      preferredTime
+    };
+    console.log(contactData);
+    submitContactRequest(
+      contactData,
+      formMessage,
+      contactForm
+    );
+  });
+  }
+  // Modal
+const modal = document.querySelector("#contactModal");
+const modalForm = document.querySelector(".modalForm");
+const modalFormMessage = document.querySelector(".modalFormMessage");
+
+const openModalBtns = document.querySelectorAll("[data-open-modal]");
+const closeModalBtns = document.querySelectorAll("[data-close-modal]");
+
+if (modal) {
+
+  openModalBtns.forEach((btn) => {
+    btn.addEventListener("click", (event) => {
+      event.preventDefault();
+      modal.classList.add("active");
+    });
+  });
+  
+  closeModalBtns.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      modal.classList.remove("active");
+    });
+  });
+}
+  if (modalForm && modalFormMessage) {
+    modalForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+      
+      const fullName = modalForm
+      .querySelector('[name="fullName"]')
+      .value
+      .trim();
+      
+      const phone = modalForm
+      .querySelector('[name="phone"]')
+      .value
+      .trim();
+      
+      const email = modalForm
+      .querySelector('[name="email"]')
+      .value
+      .trim();
+      
+      const interest = modalForm
+      .querySelector('[name="interest"]')
+      .value
+      .trim();
+      
+      const message = modalForm
+      .querySelector('[name="message"]')
+      .value
+      .trim();
+      const modalContactData = {
+        fullName,
+        phone,
+        email,
+        interest,
+        message,
+      
+        listingId: "",
+        intent: "",
+        listingPrice: "",
+        listingCity: "",
+        listingAddress: ""
+      };
+      console.log(modalContactData);
+
+      submitContactRequest(
+        modalContactData,
+        modalFormMessage,
+        modalForm
+      );
+    });
+  }
+
+
+
+
 // >>>>>>>>>>MODAL FOR LISTINGS PAGE>>>>>>>>>>
-
-
-
-
-
 
 
 const listingData = {
@@ -1147,5 +1282,5 @@ if (featuredReviewImg && featuredReviewQuote && featuredReviewName) {
 
 
 }
-
+updateSubmitButton();
 

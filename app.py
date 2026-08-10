@@ -45,7 +45,7 @@ api.add_resource(Video, "/video/<int:video_id>")
 # ////////////TEST RUN CONTACT PAGE//////////////
 @app.route("/api/contact", methods=["POST"])
 def contact():
-    data = request.get_json()
+    data = request.get_json(silent=True) or {}
     
     full_name = data.get("fullName")
     email = data.get("email")
@@ -57,6 +57,8 @@ def contact():
     listing_price = data.get("listingPrice")
     listing_city = data.get("listingCity")
     listing_address = data.get("listingAddress")
+    preferred_date = data.get("preferredDate")
+    preferred_time = data.get("preferredTime")
     
     if not full_name:
         return {"message": "Full Name is Required"}, 400
@@ -112,6 +114,8 @@ def contact():
         "listingPrice": listing_price,
         "listingCity": listing_city,
         "listingAddress": listing_address,
+        "preferredDate": preferred_date,
+        "preferredTime": preferred_time,
     }
 
     print(contact_request)

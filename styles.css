@@ -3334,12 +3334,40 @@ footer {
   cursor: pointer;
   transition: transform .2s ease, box-shadow .2s ease;
 }
-
+.messageSubmitBtn:not(:disabled) {
+  background-color: #111;
+  color: #fff;
+  cursor: pointer;
+}
+.messageSubmitBtn:disabled {
+  background-color: #b8b8b8;
+  color: #f5f5f5;
+  opacity: 0.7;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+.messageSubmitBtn.ready {
+  background-color: #111;
+  color: #fff;
+  opacity: 1;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.16);
+}
 .messageSubmitBtn:hover {
   transform: translateY(-3px);
   box-shadow: 0 14px 30px rgba(214, 162, 79, 0.28);
 }
+.messageSubmitBtn.ready:active {
+  transform: translateY(0);
+}
+.messageSubmitBtn:not(:disabled):hover {
+  transform: translateY(-2px);
+  box-shadow: 0 11px 24px rgba(0, 0, 0, 0.22);
+}
 
+.messageSubmitBtn:not(:disabled):active {
+  transform: translateY(0);
+}
 .secureNote {
   display: flex;
   align-items: center;

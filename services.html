@@ -335,24 +335,28 @@
 
 
   </main>
+
+  <!-- Modal -->
   <div class="contactModal" id="contactModal">
     <div class="modalOverlay" data-close-modal></div>
-
+  
     <div class="modalBox">
       <button class="modalClose" type="button" data-close-modal>
         <i class="fa-solid fa-xmark"></i>
       </button>
-
+  
       <h2>Let’s Talk</h2>
       <p>Send a quick message and I’ll get back to you soon.</p>
-
+  
       <form class="modalForm">
-        <input type="text" placeholder="Full Name">
-        <input type="tel" id="phone" name="phone" placeholder="Phone">
-        <input type="email" placeholder="Email Address">
-        <textarea placeholder="How can I help?"></textarea>
-
+        <input type="text" name="fullName" placeholder="Full Name">
+        <input type="tel" name="phone" placeholder="Phone">
+        <input type="email" name="email" placeholder="Email Address">
+        <input type="hidden" name="interest" value="general">
+        <textarea name="message" placeholder="How can I help?"></textarea>
+  
         <button type="submit" class="primary-btn">Send Message</button>
+        <p class="modalFormMessage"></p>
       </form>
     </div>
   </div>
