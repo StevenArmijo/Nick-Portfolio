@@ -1,0 +1,372 @@
+.sellHero {
+  display: grid;
+  grid-template-columns: .9fr 1.1fr;
+  min-height: 460px;
+  height: 700px;
+  background: var(--text-color);
+  overflow: hidden;
+}
+
+.sellHeroContent {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 7rem 8%;
+  color: var(--text-color);
+}
+
+.sellEyebrow {
+  font-family: "Google Sans", sans-serif;
+  font-size: 1.25rem;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: #d4b06f;
+  margin-bottom: 1.4rem;
+}
+
+.sellHeroContent h1 {
+  max-width: 620px;
+  font-size: clamp(4.2rem, 5.2vw, 6.8rem);
+  line-height: 1.05;
+  color: var(--mainaboutcolor);
+  margin-bottom: 2rem;
+}
+
+.sellHeroContent p {
+  max-width: 520px;
+  font-family: "Google Sans", sans-serif;
+  font-size: 1.6rem;
+  line-height: 1.75;
+  color: rgba(255, 255, 255, .9);
+  margin-bottom: 3rem;
+}
+
+.sellHeroBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 1.45rem 3.2rem;
+  border-radius: 14px;
+  background: var(--second-bg-color);
+  color: var(--text-color);
+  font-family: "Google Sans", sans-serif;
+  font-size: 1.25rem;
+  font-weight: 800;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.sellHeroBtn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 34px rgba(0, 0, 0, .24);
+}
+
+.sellHeroImage {
+  min-height: 500px;
+}
+
+.sellHeroImage img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.sellProcess {
+  padding: 5.2rem 5% 4.8rem;
+  background: var(--bg-color);
+  border-top: 1px solid rgba(8, 25, 48, .08);
+}
+
+.sellSectionHeader {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.sellSectionHeader h2 {
+  font-family: "Google Sans", sans-serif;
+  font-size: 1.65rem;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--text-color);
+}
+
+.sellSectionHeader span {
+  display: block;
+  width: 48px;
+  height: 2px;
+  margin: 1.4rem auto 0;
+  background: #d4b06f;
+}
+
+.sellProcessGrid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 2.2rem;
+}
+
+.sellProcessStep {
+  text-align: center;
+}
+
+.sellProcessIcon {
+  width: 74px;
+  height: 74px;
+  margin: 0 auto 1.6rem;
+  border-radius: 50%;
+  border: 1px solid rgba(9, 32, 58, .18);
+  background: var(--text-color);
+  color: #d4b06f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 14px 26px rgba(9, 32, 58, .12);
+}
+
+.sellProcessIcon i {
+  font-size: 2.8rem;
+}
+
+.sellProcessStep h3 {
+  font-family: "Google Sans", sans-serif;
+  font-size: 1.25rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--text-color);
+  margin-bottom: 1rem;
+}
+
+.sellProcessStep p {
+  font-family: "Google Sans", sans-serif;
+  font-size: 1.2rem;
+  line-height: 1.65;
+  color: var(--text-color);
+}
+
+.sellWhy {
+  display: grid;
+  grid-template-columns: .75fr 1fr;
+  align-items: start;
+  gap: 6rem;
+  padding: 2% 5%;
+  background: var(--bg-color);
+  border-top: 1px solid rgba(8, 25, 48, .08);
+}
+
+.sellWhyImage {
+  height: 360px;
+  overflow: hidden;
+}
+
+.sellWhyImage img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.sellWhyContent {
+    height: 340px;
+    display: flex;
+    flex-direction: column;
+}
+
+.sellWhyContent h2 {
+  font-family: "Google Sans", sans-serif;
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  color: var(--text-color);
+  margin-bottom: 2rem;
+}
+
+.sellWhyContent ul {
+  list-style: none;
+  display: grid;
+  flex: 1;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.sellWhyContent li {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  font-family: "Google Sans", sans-serif;
+  font-size: 1.8rem;
+  line-height: 1.5;
+  color: var(--text-color);
+}
+
+.sellWhyContent i {
+  color: var(--text-color);
+}
+
+.sellCta {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 3rem;
+  padding: 4rem 8%;
+  background: var(--text-color);
+  color: var(--mainaboutcolor);
+}
+
+.sellCtaIcon {
+  width: 78px;
+  height: 78px;
+  border-radius: 50%;
+  background: var(--second-bg-color);
+  color: var(--text-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sellCtaIcon i {
+  font-size: 3.1rem;
+}
+
+.sellCtaText h2 {
+  font-size: 3.1rem;
+  line-height: 1.1;
+  margin-bottom: .7rem;
+  color: var(--mainaboutcolor);
+}
+
+.sellCtaText p {
+  font-family: "Google Sans", sans-serif;
+  font-size: 1.5rem;
+  color: rgba(255, 255, 255, .86);
+}
+
+.sellCtaBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.45rem 3rem;
+  border-radius: 4px;
+  background: var(--bg-color);
+  color: var(--text-color);
+  font-family: "Google Sans", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.sellCtaBtn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 34px rgba(0, 0, 0, .24);
+}
+
+@media (max-width: 1000px) {
+  .sellHero {
+    grid-template-columns: 1fr;
+  }
+
+  .sellHeroContent::after {
+    display: none;
+  }
+
+  .sellHeroImage {
+    min-height: 360px;
+  }
+
+  .sellProcessGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .sellWhy {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .sellCta {
+    grid-template-columns: auto 1fr;
+  }
+
+  .sellCtaBtn {
+    grid-column: 2;
+    justify-self: start;
+  }
+}
+
+@media (max-width: 650px) {
+  .sellHeroContent {
+    padding: 5rem 6%;
+  }
+
+  .sellHeroContent h1 {
+    font-size: 3.8rem;
+  }
+
+  .sellHeroContent p {
+    font-size: 1.45rem;
+  }
+
+  .sellHeroBtn {
+    width: 100%;
+  }
+
+  .sellHeroImage {
+    min-height: 280px;
+  }
+
+  .sellProcess {
+    padding: 4.4rem 5%;
+  }
+
+  .sellProcessGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .sellWhy {
+    padding: 4rem 5%;
+  }
+
+  .sellWhyImage {
+    height: 240px;
+  }
+
+  .sellCta {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    text-align: center;
+    padding: 4rem 5%;
+  }
+
+  .sellCtaBtn {
+    grid-column: auto;
+    width: 100%;
+  }
+}
+
+@media (max-width: 430px) {
+  .sellHeroContent h1 {
+    font-size: 3.3rem;
+  }
+
+  .sellProcessGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .sellProcessStep {
+    max-width: 280px;
+    margin: 0 auto;
+  }
+
+  .sellCtaText h2 {
+    font-size: 2.8rem;
+  }
+}

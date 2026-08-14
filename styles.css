@@ -10,12 +10,13 @@
 :root {
   --bg-color: #F3EDE3;
   --second-bg-color: #fdf8f0;
-  --text-color: #1E293B;
+  --text-color: #0B1220;
   --accentcolor: #111;
   --mainaboutcolor: #F3EDE3;
   --aboutxtcolor: #1E293B;
   --hovercolor: #475569;
   --contactcolor: #0B132B;
+  --header-offset: 12rem;
 
 }
 
@@ -1624,7 +1625,7 @@ footer {
   grid-template-columns: 1fr 1fr;
   min-height: 78vh;
   padding-top: 8rem;
-  background: #fdf8f0;
+  background: var(--bg-color);
   color: #111;
 }
 
@@ -1690,7 +1691,7 @@ footer {
 .aboutStory {
   display: grid;
   grid-template-columns: 1fr 2fr;
-  background: var(--mainaboutcolor);
+  background: var(--bg-color);
   color: var(--accentcolor);
   border-top: 1px solid rgba(0, 0, 0, .08);
 }
@@ -1791,7 +1792,7 @@ footer {
 
 /* //////////////AREAS SERVED SECTION////////////// */
 .areasServed {
-  background: #f4efe7;
+  background: var(--second-bg-color);
   color: #111;
   padding: 5rem 8%;
   text-align: center;
@@ -2533,7 +2534,7 @@ footer {
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  color: var(--bg-color);
+  color: var(--second-bg-color);
 }
 
 .reviewsHeroContent span,
@@ -3295,18 +3296,21 @@ footer {
   resize: vertical;
 }
 
-.formMessage {
+.formMessage,
+.modalFormMessage {
   font-family: "Google Sans", sans-serif;
   font-size: 1.35rem;
   text-align: center;
   min-height: 1.8rem;
 }
 
-.formMessage.error {
+.formMessage.error,
+.modalFormMessage.error {
   color: #dc2626;
 }
 
-.formMessage.success {
+.formMessage.success,
+.modalFormMessage.success {
   color: #16a34a;
 }
 

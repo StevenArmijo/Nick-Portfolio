@@ -398,6 +398,58 @@ function submitContactRequest(contactData, messageElement, formElement) {
   });
 }
 
+function setFormMessage(messageElement, message, type) {
+  messageElement.textContent = message;
+  messageElement.classList.add(type);
+  messageElement.classList.remove(type === "error" ? "success" : "error");
+}
+
+function validateContactData(contactData, messageElement) {
+  const allowedInterests = ["buying", "selling", "investing", "general"];
+
+  if (!contactData.fullName || !contactData.email || !contactData.phone || !contactData.interest) {
+    setFormMessage(messageElement, "Please fill out your name, email, phone number, and interest please.", "error");
+    return false;
+  }
+
+  if (!allowedInterests.includes(contactData.interest)) {
+    setFormMessage(messageElement, "Please Select Interest", "error");
+    return false;
+  }
+
+  if (!contactData.email.includes("@")) {
+    setFormMessage(messageElement, "Please enter a valid email address", "error");
+    return false;
+  }
+
+  let phoneDigits = "";
+  const digits = "0123456789";
+  const allowedCharacters = "() -";
+
+  for (const character of contactData.phone) {
+    if (digits.includes(character)) {
+      phoneDigits = phoneDigits + character;
+    } else if (allowedCharacters.includes(character)) {
+      // Intentionally allow common phone separators.
+    } else {
+      setFormMessage(messageElement, "Please Enter a Valid Phone Number", "error");
+      return false;
+    }
+  }
+
+  if (phoneDigits.length !== 10) {
+    setFormMessage(messageElement, "Please Enter a Valid Phone Number", "error");
+    return false;
+  }
+
+  if (contactData.message && contactData.message.length > 1000) {
+    setFormMessage(messageElement, "Message Too Long", "error");
+    return false;
+  }
+
+  return true;
+}
+
 if (contactForm && formMessage) {
   contactForm.addEventListener("submit", (event) => {
     event.preventDefault();
@@ -565,6 +617,10 @@ if (modal) {
         listingAddress: ""
       };
       console.log(modalContactData);
+
+      if (!validateContactData(modalContactData, modalFormMessage)) {
+        return;
+      }
 
       submitContactRequest(
         modalContactData,
@@ -1283,4 +1339,3 @@ if (featuredReviewImg && featuredReviewQuote && featuredReviewName) {
 
 }
 updateSubmitButton();
-

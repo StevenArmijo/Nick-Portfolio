@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Real Estate Investing | Nick Armijo Real Estate</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,1..1000&family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Rampart+One&display=swap"
+    rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="invest.css">
+  <script src="https://kit.fontawesome.com/20adcc27b8.js" crossorigin="anonymous"></script>
+</head>
+
+<body class="servicesPage">
+  <header class="header">
+    <a href="index.html" class="logo">
+      Nick Armijo
+      <span class="logoSpan">Real Estate</span>
+      <span class="dreNumber">DRE 02208540</span>
+    </a>
+    <nav class="navbar">
+      <a href="index.html#home">Home</a>
+      <a href="listings.html">Listings</a>
+      <a href="services.html">Services</a>
+      <a href="blog.html">Blog</a>
+      <a href="reviews.html">Reviews</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <a href="contact.html" class="contactBtn" data-open-modal>Contact Me</a>
+    <i class="fa-solid fa-bars" id="menu-icon"></i>
+  </header>
+
+  <main>
+    <section class="investHero">
+      <div class="investHeroContent">
+        <p class="investEyebrow">Real Estate Investing</p>
+    
+        <h1>
+          Build Wealth <br>
+          Through Real Estate
+        </h1>
+    
+        <p>
+          Real estate is one of the most powerful ways to build long-term wealth. I'll help you find investments that align with your goals.
+        </p>
+    
+        <a href="contact.html?intent=investing" class="investHeroBtn">
+          Let's Talk Investments
+        </a>
+      </div>
+    
+      <div class="investHeroImage">
+        <img src="assets/images/backgrounds/apartmentcomplex.webp" alt="Modern investment property exterior">
+      </div>
+    </section>
+
+    <section class="investStrategy">
+      <div class="investSectionHeader">
+        <h2>Investment Strategies I Can Help With</h2>
+        <span></span>
+      </div>
+
+      <div class="investStrategyGrid">
+        <article class="investStrategyCard">
+          <div class="investStrategyIcon">
+            <i class="fa-solid fa-chart-line"></i>
+          </div>
+          <h3>Rental Properties</h3>
+          <p>Cash flow, long-term appreciation, and portfolio diversification.</p>
+        </article>
+
+        <article class="investStrategyCard">
+          <div class="investStrategyIcon">
+            <i class="fa-solid fa-house-circle-check"></i>
+          </div>
+          <h3>Fix & Flip</h3>
+          <p>Identify undervalued properties with strong profit potential.</p>
+        </article>
+
+        <article class="investStrategyCard">
+          <div class="investStrategyIcon">
+            <i class="fa-regular fa-building"></i>
+          </div>
+          <h3>Multi-Unit Investments</h3>
+          <p>Increase income potential and build equity faster.</p>
+        </article>
+
+        <article class="investStrategyCard">
+          <div class="investStrategyIcon">
+            <i class="fa-solid fa-seedling"></i>
+          </div>
+          <h3>Land & Development</h3>
+          <p>Explore opportunities in growing areas and new communities.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="investWhy">
+      <div class="investWhyContent">
+        
+            <h2>Why Invest in Real Estate?</h2>
+            
+            <ul>
+                <li><i class="fa-regular fa-circle-check"></i> Potential for steady cash flow</li>
+                <li><i class="fa-regular fa-circle-check"></i> Long-term appreciation</li>
+                <li><i class="fa-regular fa-circle-check"></i> Tax advantages</li>
+                <li><i class="fa-regular fa-circle-check"></i> Hedge against inflation</li>
+                <li><i class="fa-regular fa-circle-check"></i> Build generational wealth</li>
+            </ul>
+        
+    </div>
+
+      <div class="investWhyImage">
+        <img src="assets/images/backgrounds/Luxury Living Room.webp" alt="Luxury interior with modern seating">
+      </div>
+
+    </section>
+
+    <section class="investCta">
+      <div class="investCtaIcon">
+        <i class="fa-solid fa-chart-line"></i>
+      </div>
+
+      <div class="investCtaText">
+        <h2>Ready to grow your portfolio?</h2>
+        <p>Let's discuss your investment goals.</p>
+      </div>
+
+      <a href="contact.html?intent=investing" class="investCtaBtn">
+        Schedule a Free Consultation
+      </a>
+    </section>
+  </main>
+  <!-- ///////////////MODAL//////// -->
+  <div class="contactModal" id="contactModal">
+    <div class="modalOverlay" data-close-modal></div>
+  
+    <div class="modalBox">
+      <button class="modalClose" type="button" data-close-modal>
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+  
+      <h2>Let’s Talk</h2>
+      <p>Send a quick message and I’ll get back to you soon.</p>
+  
+      <form class="modalForm">
+        <input type="text" name="fullName" placeholder="Full Name">
+        <input type="tel" name="phone" placeholder="Phone">
+        <input type="email" name="email" placeholder="Email Address">
+        <input type="hidden" name="interest" value="general">
+        <textarea name="message" placeholder="How can I help?"></textarea>
+  
+        <button type="submit" class="primary-btn">Send Message</button>
+        <p class="modalFormMessage"></p>
+      </form>
+    </div>
+  </div>
+  <!-- /////////////////FOOOTER/////////// -->
+  <footer id="contact">
+    <section class="footerContent">
+
+        <div class="footerBrand">
+
+            <h2>Nick Armijo</h2>
+        
+            <span>Real Estate</span>
+        
+            <p>
+                Serving Lancaster, Palmdale,
+                Santa Clarita and surrounding areas.
+            </p>
+        
+        </div>
+
+        <nav class="footerLinks">
+            <h3>Quick Links</h3>
+
+            <a href="index.html#home">Home</a>
+            <a href="listings.html">Listings</a>
+            <a href="about.html">About</a>
+            <a href="services.html">Services</a>
+            <a href="reviews.html">Reviews</a>
+        </nav>
+
+        <div class="footerResources">
+            <h3>Resources</h3>
+
+            <a href="#">Buying Guide</a>
+            <a href="#">Selling Guide</a>
+            <a href="#">Market Insights</a>
+            <a href="#">FAQ</a>
+        </div>
+
+        <address class="footerContact">
+            <h3>Contact</h3>
+
+            <p>(661) 616-8099</p>
+            <p>nickarmijorealestate@gmail.com</p>
+            <p>Palmdale, CA</p>
+            
+            <div class="footerSocials">
+                <!-- icons -->
+            </div>
+        </address>
+
+    </section>
+
+    <section class="footerBottom">
+        <p>© 2026 Nick Armijo Real Estate</p>
+
+        <div>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+        </div>
+    </section>
+</footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,410 @@
+.buyHero {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    align-items: stretch;
+    background: var(--bg-color);
+    overflow: hidden;
+    min-height: 500px;
+  }
+  
+  .buyHeroContent {
+    padding: 7rem 8%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .sectionEyebrow {
+    font-family: "Google Sans", sans-serif;
+    font-size: 1.35rem;
+    font-weight: 700;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: #b88a3d;
+    margin-bottom: 1.5rem;
+  }
+  
+  .buyHeroContent h1 {
+    font-size: clamp(4rem, 6vw, 7rem);
+    line-height: 1.05;
+    color: var(--text-color);
+    margin-bottom: 2rem;
+  }
+  
+  .buyHeroContent p {
+    max-width: 460px;
+    font-family: "Google Sans", sans-serif;
+    font-size: 1.7rem;
+    line-height: 1.8;
+    color: var(--text-color);
+    margin-bottom: 3rem;
+  }
+  
+  .buyHeroBtn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem 3.4rem;
+    background: var(--text-color);
+    color: var(--mainaboutcolor);
+    font-family: "Google Sans", sans-serif;
+    font-size: 1.35rem;
+    font-weight: 700;
+    letter-spacing: .07em;
+    text-transform: uppercase;
+    transition: .25s ease;
+    border-radius: 14px;
+  }
+  
+  .buyHeroBtn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 30px rgba(7, 18, 37, .22);
+  }
+  
+  .buyHeroImage {
+    height: 100%;
+    min-height: 0;
+  }
+  
+  
+  .buyHeroImage img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 60%;
+  }
+
+  .buyProcess {
+    padding: 5rem 6% 4.5rem;
+    background: var(--second-bg-color);
+    border-top: 1px solid rgba(8, 25, 48, .08);
+  }
+
+  .buySectionHeader {
+    text-align: center;
+    margin-bottom: 3.8rem;
+  }
+
+  .buySectionHeader h2 {
+    font-family: "Google Sans", sans-serif;
+    font-size: 1.7rem;
+    font-weight: 800;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--text-color);
+  }
+
+  .buySectionHeader span {
+    display: block;
+    width: 46px;
+    height: 2px;
+    margin: 1.4rem auto 0;
+    background: #b88a3d;
+  }
+
+  .buyProcessGrid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 2.4rem;
+    position: relative;
+  }
+
+  .buyProcessStep {
+    text-align: center;
+    position: relative;
+  }
+
+  .buyProcessIcon {
+    width: 72px;
+    height: 72px;
+    margin: 0 auto 1.6rem;
+    border: 1px solid rgba(184, 138, 61, .45);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-color);
+    background: var(--bg-color);
+  }
+
+  .buyProcessIcon i {
+    font-size: 2.8rem;
+  }
+
+  .buyProcessStep h3 {
+    font-family: "Google Sans", sans-serif;
+    font-size: 1.35rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: var(--text-color);
+    margin-bottom: 1rem;
+  }
+
+  .buyProcessStep p {
+    font-family: "Google Sans", sans-serif;
+    font-size: 1.25rem;
+    line-height: 1.65;
+    color: var(--text-color);
+  }
+
+  .buySupport {
+    width: 100%;
+    display: grid;
+    grid-template-columns: .7fr 1.3fr;
+    min-height: 430px;
+    background: var(--bg-color);
+    border-top: 1px solid rgba(8, 25, 48, .08);
+    border-bottom: 1px solid rgba(8, 25, 48, .08);
+    padding: 0 5%;
+  }
+
+.firstBuyerPanel,
+.buyHelpContent {
+  padding: 0;
+}
+  .firstBuyerPanel {
+    padding: 4rem 5%;
+    min-height: 430px;
+    background: var(--text-color);
+    color: var(--second-bg-color);
+  }
+
+  .firstBuyerPanel h2,
+  .buyHelpContent h2 {
+    font-family: "Google Sans", sans-serif;
+    font-size: 2.4rem;
+    font-weight: 800;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    margin-bottom: 1.6rem;
+  }
+
+  .firstBuyerPanel p {
+    font-family: "Google Sans", sans-serif;
+    font-size: 1.8rem;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+  }
+
+  .firstBuyerPanel ul,
+  .buyHelpContent ul {
+    list-style: none;
+    display: grid;
+    gap: 1.3rem;
+    margin-bottom: 2.6rem;
+  }
+
+  .firstBuyerPanel li,
+  .buyHelpContent li {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-family: "Google Sans", sans-serif;
+    font-size: 1.6rem;
+    line-height: 1.5;
+  }
+
+  .firstBuyerPanel i {
+    color: #d4b06f;
+  }
+
+  .firstBuyerBtn,
+  .buyPageCtaBtn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.35rem 2.6rem;
+    font-family: "Google Sans", sans-serif;
+    font-size: 1.4rem;
+    font-weight: 800;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    transition: .25s ease;
+    border-radius: 14px;
+    
+  }
+
+  .firstBuyerBtn {
+    margin-top: 2rem;
+    background: var(--bg-color);
+    color: var(--text-color);
+  }
+
+  .firstBuyerBtn:hover,
+  .buyPageCtaBtn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 30px rgba(7, 18, 37, .2);
+  }
+
+  .buyHelpPanel {
+    display: grid;
+    grid-template-columns: .95fr 1.05fr;
+    min-height: 330px;
+  }
+
+  .buyHelpContent {
+    padding: 4rem 5%;
+    color: var(--text-color);
+    background-color: var(--second-bg-color);
+  }
+
+  .buyHelpContent i {
+    color: var(--text-color);
+  }
+
+  .buyHelpImage {
+    min-height: 330px;
+  }
+
+  .buyHelpImage img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .buyPageCta {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 3.4rem;
+    min-height: 190px;
+    padding: 4.4rem 8%;
+    background: var(--second-bg-color);
+    color: var(--text-color);
+  }
+
+  .buyPageCtaIcon {
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    background: var(--text-color);
+    color: var(--second-bg-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .buyPageCtaIcon i {
+    font-size: 3.8rem;
+  }
+
+  .buyPageCta h2 {
+    font-size: 3.8rem;
+    line-height: 1.1;
+    margin-bottom: .8rem;
+  }
+
+  .buyPageCta p {
+    font-family: "Google Sans", sans-serif;
+    font-size: 1.75rem;
+  }
+
+  .buyPageCtaBtn {
+    background: var(--text-color);
+    color: var(--mainaboutcolor);
+  }
+
+  @media (max-width: 1000px) {
+    .buyHero {
+      grid-template-columns: 1fr;
+      height: auto;
+    }
+  
+    .buyHeroContent {
+      padding: 5rem 6%;
+    }
+  
+    .buyHeroImage {
+      height: 360px;
+    }
+  
+    .buyProcessGrid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  
+    .buySupport {
+      grid-template-columns: 1fr;
+    }
+  
+    .buyHelpPanel {
+      grid-template-columns: 1fr 1fr;
+    }
+  
+    .buyPageCta {
+      grid-template-columns: auto 1fr;
+    }
+  
+    .buyPageCtaBtn {
+      grid-column: 2;
+      justify-self: start;
+    }
+  }
+
+  @media (max-width: 650px) {
+    .buyHeroContent {
+      padding: 4rem 5%;
+    }
+  
+    .buyHeroContent h1 {
+      font-size: 3.8rem;
+    }
+  
+    .buyHeroContent p {
+      font-size: 1.45rem;
+    }
+  
+    .buyHeroBtn {
+      width: 100%;
+    }
+  
+    .buyHeroImage {
+      height: 280px;
+    }
+  
+    .buyProcess {
+      padding: 4rem 5%;
+    }
+  
+    .buyProcessGrid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  
+    .buyHelpPanel {
+      grid-template-columns: 1fr;
+    }
+  
+    .buyHelpImage {
+      min-height: 260px;
+    }
+  .firstBuyerBtn{
+    width: 100%;
+  }
+    .buyPageCta {
+      grid-template-columns: 1fr;
+      text-align: center;
+      justify-items: center;
+      padding: 4rem 5%;
+    }
+  
+    .buyPageCtaBtn {
+      grid-column: auto;
+      width: 100%;
+    }
+  }
+
+  @media (max-width: 430px) {
+    .buyHeroContent h1 {
+      font-size: 3.3rem;
+    }
+  
+    .buyProcessGrid {
+      grid-template-columns: 1fr;
+    }
+  
+    .buyPageCta h2 {
+      font-size: 3rem;
+    }
+  }

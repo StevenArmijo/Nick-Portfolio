@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Selling Your Home | Nick Armijo Real Estate</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,1..1000&family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Rampart+One&display=swap"
+    rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="sell.css">
+  <script src="https://kit.fontawesome.com/20adcc27b8.js" crossorigin="anonymous"></script>
+</head>
+
+<body class="servicesPage">
+  <header class="header">
+    <a href="index.html" class="logo">
+      Nick Armijo
+      <span class="logoSpan">Real Estate</span>
+      <span class="dreNumber">DRE 02208540</span>
+    </a>
+    <nav class="navbar">
+      <a href="index.html#home">Home</a>
+      <a href="listings.html">Listings</a>
+      <a href="services.html">Services</a>
+      <a href="blog.html">Blog</a>
+      <a href="reviews.html">Reviews</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <a href="contact.html" class="contactBtn" data-open-modal>Contact Me</a>
+    <i class="fa-solid fa-bars" id="menu-icon"></i>
+  </header>
+
+  <main>
+    <section class="sellHero">
+      <div class="sellHeroContent">
+        <p class="sellEyebrow">Selling Your Home</p>
+    
+        <h1>
+          I’ll Help You Sell <br>
+          With Confidence
+        </h1>
+    
+        <p>
+          From preparing your home to closing the deal, I'll guide you through every step to help you get the best possible outcome.
+        </p>
+    
+        <a href="contact.html?intent=selling" class="sellHeroBtn">
+          Let's Talk About Selling
+        </a>
+      </div>
+    
+      <div class="sellHeroImage">
+        <img src="assets/images/backgrounds/luxury kitchen sell page.webp" alt="Luxury kitchen and dining area">
+      </div>
+    </section>
+
+    <section class="sellProcess">
+      <div class="sellSectionHeader">
+        <h2>My Selling Process</h2>
+        <span></span>
+      </div>
+
+      <div class="sellProcessGrid">
+        <article class="sellProcessStep">
+          <div class="sellProcessIcon">
+            <i class="fa-solid fa-house-user"></i>
+          </div>
+          <h3>1. Consultation</h3>
+          <p>We'll discuss your goals, timeline, and what to expect in today's market.</p>
+        </article>
+
+        <article class="sellProcessStep">
+          <div class="sellProcessIcon">
+            <i class="fa-solid fa-house-chimney-window"></i>
+          </div>
+          <h3>2. Prepare & Price</h3>
+          <p>I'll help you prepare your home and price it strategically to attract qualified buyers.</p>
+        </article>
+
+        <article class="sellProcessStep">
+          <div class="sellProcessIcon">
+            <i class="fa-solid fa-bullhorn"></i>
+          </div>
+          <h3>3. Market Your Home</h3>
+          <p>Professional photos, online exposure, and targeted marketing to reach the right buyers.</p>
+        </article>
+
+        <article class="sellProcessStep">
+          <div class="sellProcessIcon">
+            <i class="fa-regular fa-handshake"></i>
+          </div>
+          <h3>4. Offers & Negotiation</h3>
+          <p>I'll help you evaluate offers and negotiate the best terms for you.</p>
+        </article>
+
+        <article class="sellProcessStep">
+          <div class="sellProcessIcon">
+            <i class="fa-solid fa-key"></i>
+          </div>
+          <h3>5. Closing</h3>
+          <p>I'll guide you through escrow and closing for a smooth finish.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="sellWhy">
+      <div class="sellWhyImage">
+        <img src="assets/images/backgrounds/Luxury Kitchen.webp" alt="Beautiful home exterior at dusk">
+      </div>
+
+      <div class="sellWhyContent">
+        <h2>Why Work With Me?</h2>
+
+        <ul>
+          <li><i class="fa-regular fa-circle-check"></i> Local market expertise you can trust</li>
+          <li><i class="fa-regular fa-circle-check"></i> Strategic pricing to maximize your return</li>
+          <li><i class="fa-regular fa-circle-check"></i> Professional marketing that gets results</li>
+          <li><i class="fa-regular fa-circle-check"></i> Clear communication every step of the way</li>
+          <li><i class="fa-regular fa-circle-check"></i> Dedicated to protecting your best interests</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="sellCta">
+      <div class="sellCtaIcon">
+        <i class="fa-regular fa-calendar-check"></i>
+      </div>
+
+      <div class="sellCtaText">
+        <h2>Ready to sell your home?</h2>
+        <p>Let's create a plan that works for you.</p>
+      </div>
+
+      <a href="contact.html?intent=selling" class="sellCtaBtn">
+        Schedule a Free Consultation
+      </a>
+    </section>
+  </main>
+  <!-- ///////////////MODAL//////// -->
+  <div class="contactModal" id="contactModal">
+    <div class="modalOverlay" data-close-modal></div>
+  
+    <div class="modalBox">
+      <button class="modalClose" type="button" data-close-modal>
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+  
+      <h2>Let’s Talk</h2>
+      <p>Send a quick message and I’ll get back to you soon.</p>
+  
+      <form class="modalForm">
+        <input type="text" name="fullName" placeholder="Full Name">
+        <input type="tel" name="phone" placeholder="Phone">
+        <input type="email" name="email" placeholder="Email Address">
+        <input type="hidden" name="interest" value="general">
+        <textarea name="message" placeholder="How can I help?"></textarea>
+  
+        <button type="submit" class="primary-btn">Send Message</button>
+        <p class="modalFormMessage"></p>
+      </form>
+    </div>
+  </div>
+  <!-- /////////////////FOOOTER/////////// -->
+  <footer id="contact">
+    <section class="footerContent">
+
+        <div class="footerBrand">
+
+            <h2>Nick Armijo</h2>
+        
+            <span>Real Estate</span>
+        
+            <p>
+                Serving Lancaster, Palmdale,
+                Santa Clarita and surrounding areas.
+            </p>
+        
+        </div>
+
+        <nav class="footerLinks">
+            <h3>Quick Links</h3>
+
+            <a href="index.html#home">Home</a>
+            <a href="listings.html">Listings</a>
+            <a href="about.html">About</a>
+            <a href="services.html">Services</a>
+            <a href="reviews.html">Reviews</a>
+        </nav>
+
+        <div class="footerResources">
+            <h3>Resources</h3>
+
+            <a href="#">Buying Guide</a>
+            <a href="#">Selling Guide</a>
+            <a href="#">Market Insights</a>
+            <a href="#">FAQ</a>
+        </div>
+
+        <address class="footerContact">
+            <h3>Contact</h3>
+
+            <p>(661) 616-8099</p>
+            <p>nickarmijorealestate@gmail.com</p>
+            <p>Palmdale, CA</p>
+            
+            <div class="footerSocials">
+                <!-- icons -->
+            </div>
+        </address>
+
+    </section>
+
+    <section class="footerBottom">
+        <p>© 2026 Nick Armijo Real Estate</p>
+
+        <div>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+        </div>
+    </section>
+</footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
