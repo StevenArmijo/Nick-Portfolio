@@ -115,7 +115,7 @@ function resetTimer() {
 }
 
 if (feedbackQuote && feedbackName && feedbackDots) {
-  console.log("Review carousel started");
+  
   createDots();
   showReview(0);
   startTimer();
@@ -285,7 +285,7 @@ if (
         appointmentMessage.textContent = "";
         appointmentMessage.classList.remove("error", "success");
 
-        // console.log("Selected date:", selectedDate);
+
       });
 
       calendarDates.appendChild(dayButton);
@@ -342,8 +342,6 @@ if (
 
     appointmentMessage.classList.add("success");
     appointmentMessage.classList.remove("error");
-
-    // console.log(appointmentData);
   });
 
   prevMonthBtn.addEventListener("click", () => {
@@ -544,7 +542,7 @@ if (contactForm && formMessage) {
       preferredDate,
       preferredTime
     };
-    console.log(contactData);
+
     submitContactRequest(
       contactData,
       formMessage,
@@ -616,7 +614,7 @@ if (modal) {
         listingCity: "",
         listingAddress: ""
       };
-      console.log(modalContactData);
+      
 
       if (!validateContactData(modalContactData, modalFormMessage)) {
         return;
@@ -971,8 +969,6 @@ if (listingModal) {
       currentImageIndex = 0;
 
 
-      console.log(listingId);
-      console.log(listing);
       modalPrice.textContent = listing.price;
       modalAddress.textContent = `${listing.address}, ${listing.city}`;
       modalBeds.textContent = listing.beds;
@@ -1090,7 +1086,6 @@ if (listingModal) {
 
   modalImageWrap.addEventListener("touchstart", (event) => {
     touchStartX = event.changedTouches[0].screenX;
-    console.log("start:", touchStartX);
   });
 
 
@@ -1106,7 +1101,6 @@ if (listingModal) {
     if (swipeDistance < -minimumSwipeDistance) {
       showPrevImage();
     }
-    console.log("end:", touchEndX);
   });
 
 
@@ -1173,10 +1167,6 @@ if (intentInput) {
 if (contactFormHeading) {
   
 
-  console.log(listingId);
-  console.log(intent);
-  console.log(selectedListing);
-  
   if (!listingId || !selectedListing) {
     selectedPropertyPreview.hidden = true;
     tourCalendarSection.hidden = true;
@@ -1250,9 +1240,6 @@ const featuredReviews = [
     image: "assets/images/clients/happyclient1.webp",
   }
 ]
-console.log(featuredReviews[0].quote);
-console.log(featuredReviews[1].name);
-
 
 const featuredReviewImg = document.querySelector(".featuredReviewImg");
 const featuredReviewQuote = document.querySelector(".featuredReviewQuote");
