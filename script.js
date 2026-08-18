@@ -368,7 +368,7 @@ const formMessage = document.querySelector(".formMessage");
 
 function submitContactRequest(contactData, messageElement, formElement) {
 
-  fetch("https://agentarmijo-api.onrender.com", {
+  fetch("https://https://agentarmijo-api.onrender.com/api/contact", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
