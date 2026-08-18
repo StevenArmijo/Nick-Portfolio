@@ -897,6 +897,7 @@ footer {
 
 .footerBrand p,
 .footerContact p,
+.footerContact a,
 .footerLinks a,
 .footerResources a {
   font-family: "Google Sans", sans-serif;
@@ -3555,7 +3556,8 @@ footer {
   margin-bottom: .5rem;
 }
 
-.reachItem p {
+.reachItem p,
+.reachItem a {
   font-family: "Google Sans", sans-serif;
   font-size: 1.55rem;
   line-height: 1.5;
