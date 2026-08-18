@@ -23,6 +23,10 @@ app = Flask(__name__)
 CORS(app)
 
 
+@app.route("/")
+def health_check():
+    return jsonify({"status": "ok"}), 200
+
 
 @app.route("/api/contact", methods=["POST"])
 def contact():
@@ -191,4 +195,5 @@ def contact():
 
 
 if __name__ == "__main__":
-    app.run(debug=True, port=5001)
+    port = int(os.getenv("PORT", 5001))
+    app.run(debug=True, port=port)
